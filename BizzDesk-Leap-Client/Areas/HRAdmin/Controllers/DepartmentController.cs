@@ -70,10 +70,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 
         public ActionResult Delete(int id)
         {
-            if (ModelState.IsValid)
-            {
-                dc.Delete(id);
-            }
+            dc.Delete(id);
             return RedirectToAction("Index");
         }
 	}

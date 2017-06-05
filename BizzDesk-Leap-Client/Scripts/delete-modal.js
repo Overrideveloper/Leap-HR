@@ -1,27 +1,28 @@
-﻿$(function () {
-    $('.delete').on('click', function (e) {
-        
-        var self = this;
+﻿$(document).on("click", ".delete", function (e) {
+    var self = this;
 
-        bootbox.confirm({
-            className: 'modal-primary',
-            message: "Are you sure to delete this?",
-            buttons: {
-                confirm: {
-                    label: 'Delete',
-                    className: 'btn-danger'
-                },
-
-                cancel: {
-                    label: 'Close',
-                    className: 'btn-outline pull-left' 
-                }
-
+    bootbox.confirm({
+        className: 'modal-primary',
+        message: "Are you sure to delete this?",
+        buttons: {
+            confirm: {
+                label: 'Delete',
+                className: 'btn-danger'
             },
-            callback: function () {
-                console.log("User confirmed");
+
+            cancel: {
+                label: 'Close',
+                className: 'btn-outline pull-left' 
             }
-        });
-        e.preventDefault();
+
+        },
+        
+        callback: function (result) {
+            if (result) {
+                window.location = self.href;
+            }
+        }
     });
+
+    e.preventDefault();
 });
