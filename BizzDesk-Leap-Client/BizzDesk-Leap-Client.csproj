@@ -188,6 +188,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HRAdmin\Views\web.config" />
@@ -196,7 +198,9 @@
     <Content Include="Areas\HRAdmin\Views\Department\Index.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Department\Create.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Department\Edit.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Department\Delete.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\delete-modal.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

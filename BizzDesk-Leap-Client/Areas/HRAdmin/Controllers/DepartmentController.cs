@@ -67,5 +67,14 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             }
             return PartialView("Edit", dvm);
         }
+
+        public ActionResult Delete(int id)
+        {
+            if (ModelState.IsValid)
+            {
+                dc.Delete(id);
+            }
+            return RedirectToAction("Index");
+        }
 	}
 }

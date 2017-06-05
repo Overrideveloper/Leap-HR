@@ -51,18 +51,20 @@
             <div class="box-body table-responsive no-padding">
                 <table class="table table-hover">
                     <tr>
+                        <th></th>
                         <th>S/N</th>
                         <th>Title</th>
-                        <th></th>
+                        <th>Options</th>
                     </tr>
 
                 @foreach (var dept in ViewBag.DepartmentList)
                 { 
                     <tr>
+                        <td></td>
                         <td>@(x++)</td>
                         <td>@dept.Title</td>
                         <td> <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Department", new { Area = "HRAdmin", id = dept.ID})"><i class="fa fa-pencil"></i> Edit </a>
-                            <a class="btn btn-danger btn-xs" href="#"><i class="fa fa-trash"></i> Delete </a>
+                            <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Department", new { Area = "HRAdmin", id = dept.ID})"><i class="fa fa-trash"></i> Delete </a>
                         </td>
                     </tr>
                 }
@@ -89,6 +91,7 @@
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
         <script type="text/javascript" src="~/Scripts/modal.js"></script>
+        <script type="text/javascript" src="~/Scripts/delete-modal.js"></script>
     }
 
 </section>
