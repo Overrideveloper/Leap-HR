@@ -195,6 +195,7 @@
     <Content Include="Areas\HRAdmin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Department\Index.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Department\Create.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Department\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

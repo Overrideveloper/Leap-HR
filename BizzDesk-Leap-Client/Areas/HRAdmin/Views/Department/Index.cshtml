@@ -61,7 +61,7 @@
                     <tr>
                         <td>@(x++)</td>
                         <td>@dept.Title</td>
-                        <td> <a class="btn btn-success btn-xs" href="#"><i class="fa fa-pencil"></i> Edit </a>
+                        <td> <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Department", new { Area = "HRAdmin", id = dept.ID})"><i class="fa fa-pencil"></i> Edit </a>
                             <a class="btn btn-danger btn-xs" href="#"><i class="fa fa-trash"></i> Delete </a>
                         </td>
                     </tr>
