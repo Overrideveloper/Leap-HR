@@ -1,0 +1,39 @@
+﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels.DepartmentViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title"><b>Create Department</b></h4>
+</div>
+
+@using (Html.BeginForm("Create", "Department", new { Area = "HRAdmin"}, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="modal-body">
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <label for="title" class="control-label col-sm-3"> Title </label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => Model.Department.Title, new { @class = "form-control border-input required", @id = "title" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Department.Title)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-outline" value="Save"/>
+    </div>
+}
+
+<script>
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+</script>

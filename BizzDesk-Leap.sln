@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizzDesk-Leap-API", "BizzDesk-Leap-API\BizzDesk-Leap-API.csproj", "{AF812218-D2E6-42BE-84A5-BF1D5406C37F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizzDesk-Leap-Client", "BizzDesk-Leap-Client\BizzDesk-Leap-Client.csproj", "{A4BD5896-68D8-46A3-A5AE-0D44FD5BF092}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF812218-D2E6-42BE-84A5-BF1D5406C37F} = {AF812218-D2E6-42BE-84A5-BF1D5406C37F}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
