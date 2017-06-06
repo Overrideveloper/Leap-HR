@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Web.Mvc;
 using System.Net.Http.Formatting;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 {
@@ -104,6 +105,24 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
             catch
             {
                 return false;
+            }
+        }
+
+        public Task<List<Department>> Search(string searchString)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(this.BASE_URL);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage result = client.GetAsync(string.Format("department/search/{0}", searchString)).Result;
+
+                return result.Content.ReadAsAsync<List<Department>>();
+            }
+            catch
+            {
+                return null;
             }
         }
 

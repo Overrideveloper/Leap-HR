@@ -73,5 +73,18 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             dc.Delete(id);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return View("Search", new DepartmentViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Search(DepartmentViewModel dvm)
+        {
+            ViewBag.Result = dc.Search(dvm.Department.Title).Result;
+            return View("Search");
+        }
 	}
 }

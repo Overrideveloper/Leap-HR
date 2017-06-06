@@ -12,7 +12,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
         public int ID { get; set; }
 
         [Display(Name = "Title")]
-        [Required(ErrorMessage = "Department Name is required")]
+        [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
     }
 }

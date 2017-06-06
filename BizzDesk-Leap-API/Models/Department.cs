@@ -11,7 +11,7 @@ namespace BizzDesk_Leap_API.Models
         [Key]
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "Department Name is required")]
+        [Required(ErrorMessage = "Department Title is required")]
         public string Title { get; set; }
     }
 }
