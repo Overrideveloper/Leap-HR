@@ -13,5 +13,9 @@ namespace BizzDesk_Leap_Client.Models
             : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<BizzDesk_Leap_Client.Areas.HRAdmin.Models.Rank> Ranks { get; set; }
+
+        public System.Data.Entity.DbSet<BizzDesk_Leap_Client.Areas.HRAdmin.Models.Department> Departments { get; set; }
     }
 }

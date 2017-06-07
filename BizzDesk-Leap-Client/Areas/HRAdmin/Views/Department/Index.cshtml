@@ -67,7 +67,7 @@
             }    
                 </table>
                 <div style="padding-left: 15px">
-                    @Html.PagedListPager((IPagedList)ViewBag.DepartmentList, page => Url.Action("Index", "Department", new { Area = "HRAdmin", page, currentFilter = ViewBag.CurrentFilter }))
+                    @Html.PagedListPager((IPagedList)ViewBag.DepartmentList, page => Url.Action("Index", "Department", new { Area = "HRAdmin", page }))
                 </div>
             </div>
             <!-- /.box-body -->

@@ -27,7 +27,7 @@ namespace BizzDesk_Leap_API.Controllers
         // GET api/Rank
         public IQueryable<Rank> GetRank()
         {
-            return db.Rank;
+            return db.Rank.Include(r => r.Department);
         }
 
         // GET api/rank/search
