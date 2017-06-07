@@ -209,6 +209,8 @@
     <Content Include="Areas\HRAdmin\Views\Department\Search.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Index.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Create.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\TestRank\Create.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\TestRank\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\delete-modal.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

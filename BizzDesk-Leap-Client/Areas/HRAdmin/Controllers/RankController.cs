@@ -12,10 +12,12 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
     public class RankController : Controller
     {
         RankClient rc;
+        DepartmentClient dc;
 
         public RankController()
         {
             rc = new RankClient();
+            dc = new DepartmentClient();
         }
 
         //
@@ -31,10 +33,8 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            //DepartmentViewModel dept = new DepartmentViewModel();
-            
             var rank = new RankViewModel();
-            //ViewBag.Department = new SelectList(dept.DepartmentList., "ID", "Title");
+            ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title");
             return PartialView("Create", rank);
         }
 
@@ -42,15 +42,12 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(RankViewModel rvm)
         {
-            DepartmentViewModel dept = new DepartmentViewModel();
-
             if (ModelState.IsValid)
             {
+                ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", rvm.Rank.DepartmentID);
                 rc.Create(rvm.Rank);
                 return Json(new { success = true });
             }
-
-            //ViewBag.DepartmentID = new SelectList(dept.DepartmentList, "ID", "Title", rvm.Rank.DepartmentID);
             return PartialView("Create", rvm);
         }
 	}

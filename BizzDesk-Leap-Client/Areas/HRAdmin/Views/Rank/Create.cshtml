@@ -1,5 +1,4 @@
 ﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels.RankViewModel
-@using BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels
 
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -28,11 +27,9 @@
             <div class="form-group">
                 <label for="department" class="control-label col-sm-3"> Department </label>
                 <div class="col-sm-9">
-                    @Html.DropDownList("Department", (IEnumerable<SelectListItem>)ViewBag.Department, new { @class = "form-control border-input", @placeholder = "Select Department", @id = "level" })
-                    @*Html.ValidationMessageFor(model => model.Level)
-                    @Html.TextBoxFor(model => Model.Rank.Title, new { @class = "form-control border-input required", @id = "title" })*@
+                    @Html.DropDownListFor(model => model.Rank.DepartmentID, (IEnumerable<SelectListItem>)ViewBag.Department, new { @class = "form-control border-input", @id = "department" })
                     <div class="text-danger">
-                        @Html.ValidationMessageFor(model => model.Rank.Title)
+                        @Html.ValidationMessageFor(model => model.Rank.DepartmentID)
                     </div>
                 </div>
             </div>
