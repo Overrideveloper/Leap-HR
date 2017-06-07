@@ -179,6 +179,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\RankController.cs" />
     <Compile Include="DAL\DBInitializer.cs" />
     <Compile Include="DAL\LeapDB.cs" />
     <Compile Include="Global.asax.cs">
