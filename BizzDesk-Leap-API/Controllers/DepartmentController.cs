@@ -49,6 +49,13 @@ namespace BizzDesk_Leap_API.Controllers
 
         }
 
+        [HttpGet]
+        [Route("alldepartments")]
+        public IEnumerable<Department> DepartmentList()
+        {
+            return db.DepartmentList();
+        }
+
         // GET api/Department/5
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetDepartment(int id)

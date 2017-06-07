@@ -22,5 +22,10 @@ namespace BizzDesk_Leap_API.DAL
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public IEnumerable<Department> DepartmentList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

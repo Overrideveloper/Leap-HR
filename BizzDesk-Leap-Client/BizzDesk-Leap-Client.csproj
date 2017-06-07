@@ -175,6 +175,7 @@
     <Compile Include="Areas\HRAdmin\Models\Rank.cs" />
     <Compile Include="Areas\HRAdmin\Models\RankClient.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DepartmentViewModel.cs" />
+    <Compile Include="Areas\HRAdmin\ViewModels\RankViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,6 +208,7 @@
     <Content Include="Areas\HRAdmin\Views\Department\Delete.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Department\Search.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Index.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Rank\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\delete-modal.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
