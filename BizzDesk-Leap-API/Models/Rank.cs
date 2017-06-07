@@ -15,7 +15,7 @@ namespace BizzDesk_Leap_API.Models
         public int DepartmentID { get; set; }
 
         [Required]
-        public int Title { get; set; }
+        public string Title { get; set; }
 
         public virtual Department Department { get; set; }
     }
