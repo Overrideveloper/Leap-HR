@@ -15,7 +15,8 @@ namespace BizzDesk_Leap_API.DAL
             Database.SetInitializer<LeapDB>(new DBInitializer());
         }
 
-        public DbSet <Department> Department { get; set; }
+        public DbSet<Department> Department { get; set; }
+        public DbSet<Rank> Rank { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
