@@ -72,5 +72,10 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             return PartialView("Edit", rvm);
         }
 
+        public ActionResult Delete(int id)
+        {
+            rc.Delete(id);
+            return RedirectToAction("Index");
+        }
 	}
 }
