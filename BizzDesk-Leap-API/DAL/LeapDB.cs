@@ -18,6 +18,10 @@ namespace BizzDesk_Leap_API.DAL
         public DbSet<Department> Department { get; set; }
         public DbSet<Rank> Rank { get; set; }
 
+        public DbSet<Employee> Employee { get; set; }
+
+        public DbSet <File> File { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
