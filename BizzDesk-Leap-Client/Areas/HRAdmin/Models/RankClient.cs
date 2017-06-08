@@ -70,6 +70,23 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
             }
         }
 
+        public bool Edit(Rank rank)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(BASE_URL);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = client.PutAsJsonAsync("rank/" + rank.ID, rank).Result;
+
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
     }
 }

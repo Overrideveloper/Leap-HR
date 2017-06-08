@@ -44,11 +44,33 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", rvm.Rank.DepartmentID);
                 rc.Create(rvm.Rank);
                 return Json(new { success = true });
             }
+            ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", rvm.Rank.DepartmentID);
             return PartialView("Create", rvm);
         }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            RankViewModel rvm = new RankViewModel();
+            rvm.Rank = rc.find(id);
+            ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", rvm.Rank.DepartmentID);
+            return PartialView("Edit", rvm);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(RankViewModel rvm)
+        {
+            if (ModelState.IsValid)
+            {
+                rc.Edit(rvm.Rank);
+                return Json(new { success = true });
+            }
+            ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", rvm.Rank.DepartmentID);
+            return PartialView("Edit", rvm);
+        }
+
 	}
 }
