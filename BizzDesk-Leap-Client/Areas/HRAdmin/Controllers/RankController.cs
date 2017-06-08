@@ -77,5 +77,18 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             rc.Delete(id);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return View("Search", new RankViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Search(RankViewModel rvm)
+        {
+            ViewBag.Result = rc.Search(rvm.Rank.Title).Result;
+            return View("Search");
+        }
 	}
 }
