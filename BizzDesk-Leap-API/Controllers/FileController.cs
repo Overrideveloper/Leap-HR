@@ -12,6 +12,7 @@ using BizzDesk_Leap_API.Models;
 using BizzDesk_Leap_API.DAL;
 using System.Web;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace BizzDesk_Leap_API.Controllers
 {
@@ -38,6 +39,49 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(file);
         }
 
+        public Task<HttpResponseMessage> PostFile()
+        {
+            List<string> savedFilePath = new List<string>();
+            
+            if(!Request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+
+            string rootPath = HttpContext.Current.Server.MapPath("~/UploadedImages");
+            var provider = new MultipartFileStreamProvider(rootPath);
+            var task = Request.Content.ReadAsMultipartAsync(provider).ContinueWith<HttpResponseMessage>(t =>
+            {
+                if (t.IsCanceled || t.IsFaulted)
+                {
+                    Request.CreateErrorResponse(HttpStatusCode.InternalServerError, t.Exception);
+                }
+
+                foreach (MultipartFileData item in provider.FileData)
+                {
+                    try
+                    {
+                        string name = item.Headers.ContentDisposition.FileName.Replace("\"", "");
+                        string newFileName = Guid.NewGuid() + Path.GetExtension(name);
+                        File.Move(item.LocalFileName, Path.Combine(rootPath, newFileName));
+
+                        Uri Base_Uri = new Uri(Request.RequestUri.AbsoluteUri.Replace(Request.RequestUri.PathAndQuery, string.Empty));
+                        string fileRelativePath = "~/UploadedImages/" + newFileName;
+                        Uri fileFullPath = new Uri(Base_Uri, VirtualPathUtility.ToAbsolute(fileRelativePath));
+                        savedFilePath.Add(fileFullPath.ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                    }
+                }
+
+                return Request.CreateResponse(HttpStatusCode.Created, savedFilePath);
+            });
+            return task;
+        }
+
+        
         // PUT api/File/5
         public IHttpActionResult PutFile(int id, Files file)
         {
@@ -74,6 +118,7 @@ namespace BizzDesk_Leap_API.Controllers
 
         // POST api/File
         [HttpPost]
+        [ResponseType(typeof(Files))]
         public IHttpActionResult PostFile()
         {
             if (HttpContext.Current.Request.Files.AllKeys.Any())
@@ -98,8 +143,7 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok("Image is not Uploaded");
         }  
         
-        [ResponseType(typeof(Files))]
-        public IHttpActionResult PostFile(Files file)
+        /*public IHttpActionResult PostFile(Files file)
         {
             if (!ModelState.IsValid)
             {
@@ -110,7 +154,7 @@ namespace BizzDesk_Leap_API.Controllers
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = file.ID }, file);
-        }
+        }*/
 
         // DELETE api/File/5
         [ResponseType(typeof(Files))]
