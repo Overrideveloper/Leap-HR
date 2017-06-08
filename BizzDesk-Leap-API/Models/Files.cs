@@ -7,7 +7,7 @@ using System.Web;
 
 namespace BizzDesk_Leap_API.Models
 {
-    public partial class File
+    public partial class Files
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

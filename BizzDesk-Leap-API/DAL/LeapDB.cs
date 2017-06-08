@@ -20,7 +20,7 @@ namespace BizzDesk_Leap_API.DAL
 
         public DbSet<Employee> Employee { get; set; }
 
-        public DbSet <File> File { get; set; }
+        public DbSet <Files> File { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

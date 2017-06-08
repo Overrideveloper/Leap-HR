@@ -179,6 +179,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\RankController.cs" />
     <Compile Include="DAL\DBInitializer.cs" />
     <Compile Include="DAL\LeapDB.cs" />
@@ -193,12 +195,20 @@
     <Compile Include="Migrations\201706071138350_ModifyRanks.Designer.cs">
       <DependentUpon>201706071138350_ModifyRanks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706081702288_AddEmployeeAndFile.cs" />
+    <Compile Include="Migrations\201706081702288_AddEmployeeAndFile.Designer.cs">
+      <DependentUpon>201706081702288_AddEmployeeAndFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706081720063_ModifiedFile.cs" />
+    <Compile Include="Migrations\201706081720063_ModifiedFile.Designer.cs">
+      <DependentUpon>201706081720063_ModifiedFile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\Files.cs" />
     <Compile Include="Models\FileType.cs" />
     <Compile Include="Models\Rank.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -240,6 +250,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\" />
+    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -253,6 +264,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706071138350_ModifyRanks.resx">
       <DependentUpon>201706071138350_ModifyRanks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706081702288_AddEmployeeAndFile.resx">
+      <DependentUpon>201706081702288_AddEmployeeAndFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706081720063_ModifiedFile.resx">
+      <DependentUpon>201706081720063_ModifiedFile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
