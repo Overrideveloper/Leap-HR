@@ -34,10 +34,16 @@
             </a>
         </li>
         <li>
-            Department
+            <a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})">
+                <i class="fa fa-users"></i>
+                Departments
+            </a>
         </li>
         <li class="active">
-            Search
+            <a>
+                <i class="fa fa-search"></i>
+                Search
+            </a>
         </li>
     </ol>
 </section>
@@ -50,7 +56,11 @@
             {
                 <div class="box-header">
                     <h3 class="box-title"></h3>
-                   
+
+                    <div class="pull-left">
+                        <a class="btn btn-info btn-sm" href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})"><i class="fa fa-backward"></i> Return to Department List</a>
+                    </div>
+               
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
                             @Html.TextBoxFor(m => m.Department.Title, new { @placeholder = "Search", @class = "form-control pull-right", @name = "table_search", @type = "text" })
