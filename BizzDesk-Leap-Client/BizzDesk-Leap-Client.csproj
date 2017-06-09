@@ -168,7 +168,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\RankController.cs" />
-    <Compile Include="Areas\HRAdmin\Controllers\TestRankController.cs" />
     <Compile Include="Areas\HRAdmin\HRAdminAreaRegistration.cs" />
     <Compile Include="Areas\HRAdmin\Models\Department.cs" />
     <Compile Include="Areas\HRAdmin\Models\DepartmentClient.cs" />
@@ -209,8 +208,6 @@
     <Content Include="Areas\HRAdmin\Views\Department\Search.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Index.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Create.cshtml" />
-    <Content Include="Areas\HRAdmin\Views\TestRank\Create.cshtml" />
-    <Content Include="Areas\HRAdmin\Views\TestRank\Index.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Edit.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Search.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

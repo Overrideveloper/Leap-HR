@@ -20,8 +20,6 @@ namespace BizzDesk_Leap_API.DAL
 
         public DbSet<Employee> Employee { get; set; }
 
-        public DbSet <Files> File { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
