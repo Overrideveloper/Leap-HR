@@ -14,8 +14,5 @@ namespace BizzDesk_Leap_API.Models
         [Required(ErrorMessage = "Department Title is required")]
         public string Title { get; set; }
 
-        public virtual ICollection<Rank> Ranks { get; set; }
-
-        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

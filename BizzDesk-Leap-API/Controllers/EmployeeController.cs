@@ -10,17 +10,23 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using BizzDesk_Leap_API.Models;
 using BizzDesk_Leap_API.DAL;
+using Newtonsoft.Json;
 
 namespace BizzDesk_Leap_API.Controllers
 {
+    [RoutePrefix("api/employee")]
     public class EmployeeController : ApiController
     {
-        private LeapDB db = new LeapDB();
+        private LeapDB db;
 
+        public EmployeeController()
+        {
+            db = new LeapDB();
+        }
         // GET api/Employee
         public IQueryable<Employee> GetEmployee()
         {
-            return db.Employee;
+            return db.Employee.Include(p => p.Department).Include(p => p.Rank);
         }
 
         // GET api/Employee/5
@@ -99,6 +105,25 @@ namespace BizzDesk_Leap_API.Controllers
             db.SaveChanges();
 
             return Ok(employee);
+        }
+
+        [HttpGet]
+        [Route("search/{searchString}")]
+        public HttpResponseMessage SearchEmployee(string searchString)
+        {
+            try
+            {
+                var httpResponseMessage = new HttpResponseMessage();
+                httpResponseMessage.Content = new StringContent(JsonConvert.SerializeObject(db.Employee.Where(p => p.FirstName.ToLower().Contains(searchString.ToLower()) || p.LastName.ToLower().Contains(searchString.ToLower())).ToList()));
+                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                return httpResponseMessage;
+            }
+            catch
+            {
+
+                return null;
+            }
+
         }
 
         protected override void Dispose(bool disposing)

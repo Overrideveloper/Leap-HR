@@ -125,5 +125,24 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
             }
         }
 
+        public Rank findByDept(int id)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(BASE_URL);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = client.GetAsync("rank/getdept" + id).Result;
+
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadAsAsync<Rank>().Result;
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }

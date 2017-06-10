@@ -14,5 +14,9 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
         [Display(Name = "Title")]
         [Required(ErrorMessage = "Title is required")]
         public string Title { get; set; }
+
+        public virtual ICollection<Rank> Ranks { get; set; }
+
+        public virtual ICollection<Employee> Employees { get; set; }
     }
 }

@@ -64,6 +64,22 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(rank);
         }
 
+        [Route("getdept")]
+        [ResponseType(typeof(Rank))]
+        public IHttpActionResult GetRankByDept(int id)
+        {
+            var rank = from b in db.Rank
+                       where b.DepartmentID.Equals(id)
+                       select b;
+
+            if (rank == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(rank);
+        }
+
         // PUT api/Rank/5
         public IHttpActionResult PutRank(int id, Rank rank)
         {

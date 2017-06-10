@@ -186,9 +186,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706100944411_ModifiedModels.cs" />
-    <Compile Include="Migrations\201706100944411_ModifiedModels.Designer.cs">
-      <DependentUpon>201706100944411_ModifiedModels.cs</DependentUpon>
+    <Compile Include="Migrations\201706101147235_Refresh.cs" />
+    <Compile Include="Migrations\201706101147235_Refresh.Designer.cs">
+      <DependentUpon>201706101147235_Refresh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706101201056_ModifiedEmployee.cs" />
+    <Compile Include="Migrations\201706101201056_ModifiedEmployee.Designer.cs">
+      <DependentUpon>201706101201056_ModifiedEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -243,8 +247,11 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706100944411_ModifiedModels.resx">
-      <DependentUpon>201706100944411_ModifiedModels.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706101147235_Refresh.resx">
+      <DependentUpon>201706101147235_Refresh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706101201056_ModifiedEmployee.resx">
+      <DependentUpon>201706101201056_ModifiedEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
