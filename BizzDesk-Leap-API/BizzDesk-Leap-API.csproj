@@ -186,21 +186,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706071103498_AddRanks.cs" />
-    <Compile Include="Migrations\201706071103498_AddRanks.Designer.cs">
-      <DependentUpon>201706071103498_AddRanks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706071138350_ModifyRanks.cs" />
-    <Compile Include="Migrations\201706071138350_ModifyRanks.Designer.cs">
-      <DependentUpon>201706071138350_ModifyRanks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706081702288_AddEmployeeAndFile.cs" />
-    <Compile Include="Migrations\201706081702288_AddEmployeeAndFile.Designer.cs">
-      <DependentUpon>201706081702288_AddEmployeeAndFile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706081720063_ModifiedFile.cs" />
-    <Compile Include="Migrations\201706081720063_ModifiedFile.Designer.cs">
-      <DependentUpon>201706081720063_ModifiedFile.cs</DependentUpon>
+    <Compile Include="Migrations\201706100944411_ModifiedModels.cs" />
+    <Compile Include="Migrations\201706100944411_ModifiedModels.Designer.cs">
+      <DependentUpon>201706100944411_ModifiedModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -255,17 +243,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706071103498_AddRanks.resx">
-      <DependentUpon>201706071103498_AddRanks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071138350_ModifyRanks.resx">
-      <DependentUpon>201706071138350_ModifyRanks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706081702288_AddEmployeeAndFile.resx">
-      <DependentUpon>201706081702288_AddEmployeeAndFile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706081720063_ModifiedFile.resx">
-      <DependentUpon>201706081720063_ModifiedFile.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706100944411_ModifiedModels.resx">
+      <DependentUpon>201706100944411_ModifiedModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

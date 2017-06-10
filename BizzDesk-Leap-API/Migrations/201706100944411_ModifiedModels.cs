@@ -3,23 +3,32 @@ namespace BizzDesk_Leap_API.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddEmployeeAndFile : DbMigration
+    public partial class ModifiedModels : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Department",
+                c => new
+                    {
+                        ID = c.Int(nullable: false, identity: true),
+                        Title = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID);
+            
             CreateTable(
                 "dbo.Employee",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(nullable: false, unicode: false),
-                        MiddleName = c.String(unicode: false),
-                        LastName = c.String(nullable: false, unicode: false),
-                        DOB = c.DateTime(nullable: false, precision: 0),
-                        AppointmentDate = c.DateTime(nullable: false, precision: 0),
-                        Email = c.String(nullable: false, unicode: false),
-                        Address = c.String(nullable: false, unicode: false),
-                        PhoneNo = c.String(nullable: false, unicode: false),
+                        FirstName = c.String(nullable: false),
+                        MiddleName = c.String(),
+                        LastName = c.String(nullable: false),
+                        DOB = c.DateTime(nullable: false),
+                        AppointmentDate = c.DateTime(nullable: false),
+                        Email = c.String(nullable: false),
+                        Address = c.String(nullable: false),
+                        PhoneNo = c.String(nullable: false),
                         DepartmentID = c.Int(nullable: false),
                         RankID = c.Int(nullable: false),
                     })
@@ -31,33 +40,31 @@ namespace BizzDesk_Leap_API.Migrations
                 .Index(t => t.RankID);
             
             CreateTable(
-                "dbo.File",
+                "dbo.Rank",
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        FileName = c.String(maxLength: 255, storeType: "nvarchar"),
-                        ContentType = c.String(maxLength: 100, storeType: "nvarchar"),
-                        Content = c.Binary(),
-                        FileType = c.Int(nullable: false),
-                        EmployeeID = c.Int(nullable: false),
+                        DepartmentID = c.Int(nullable: false),
+                        Title = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Employee", t => t.EmployeeID, cascadeDelete: true)
-                .Index(t => t.EmployeeID);
+                .ForeignKey("dbo.Department", t => t.DepartmentID, cascadeDelete: true)
+                .Index(t => t.DepartmentID);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.File", "EmployeeID", "dbo.Employee");
             DropForeignKey("dbo.Employee", "RankID", "dbo.Rank");
+            DropForeignKey("dbo.Rank", "DepartmentID", "dbo.Department");
             DropForeignKey("dbo.Employee", "DepartmentID", "dbo.Department");
-            DropIndex("dbo.File", new[] { "EmployeeID" });
+            DropIndex("dbo.Rank", new[] { "DepartmentID" });
             DropIndex("dbo.Employee", new[] { "RankID" });
             DropIndex("dbo.Employee", new[] { "DepartmentID" });
             DropIndex("dbo.Employee", new[] { "ID" });
-            DropTable("dbo.File");
+            DropTable("dbo.Rank");
             DropTable("dbo.Employee");
+            DropTable("dbo.Department");
         }
     }
 }
