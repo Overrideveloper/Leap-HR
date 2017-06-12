@@ -8,6 +8,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 {
     public class Employee
     {
+        [Required(ErrorMessage = "Employee ID is required")]
         public int ID { get; set; }
 
         [Required(ErrorMessage = "First name is required")]
@@ -40,10 +41,12 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 
         //Entity relationships
 
+        [Required(ErrorMessage = "Department is required")]
         public int DepartmentID { get; set; }
 
         public virtual Department Department { get; set; }
 
+        [Required(ErrorMessage = "Rank is required")]
         public int RankID { get; set; }
 
         public virtual Rank Rank { get; set; }

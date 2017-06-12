@@ -10,6 +10,7 @@ namespace BizzDesk_Leap_API.Models
     public partial class Employee
     {
         [Index(IsUnique = true)]
+        [Required]
         public int ID { get; set; }
 
         [Required]
@@ -42,10 +43,12 @@ namespace BizzDesk_Leap_API.Models
 
         //Entity relationships
 
+        [Required]
         public int DepartmentID { get; set; }
 
         public virtual Department Department { get; set; }
 
+        [Required]
         public int RankID { get; set; }
 
         public virtual Rank Rank { get; set; }

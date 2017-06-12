@@ -210,10 +210,11 @@
     <Content Include="Areas\HRAdmin\Views\Department\Edit.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Department\Search.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Index.cshtml" />
-    <Content Include="Areas\HRAdmin\Views\Rank\Create.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Edit.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Search.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Employee\Index.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Employee\Create.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Rank\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\delete-modal.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

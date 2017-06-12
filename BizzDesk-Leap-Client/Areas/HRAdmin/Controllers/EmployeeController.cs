@@ -32,12 +32,26 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create(int id)
+        public ActionResult Create()
         {
-            var emp = new EmployeeViewModel();
-            var dept = rc.findByDept(id);
+            var evm = new EmployeeViewModel();
             ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title");
-            ViewBag.Rank = new SelectList(rc.find(id), "ID", "Title");
+            ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title");
+            return PartialView("Create", evm);
         }
+
+        [HttpPost]
+        public ActionResult Create(EmployeeViewModel evm)
+        {
+            if (ModelState.IsValid)
+            {
+                ec.Create(evm.Employee);
+                return Json(new { success = true});
+            }
+            ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", evm.Employee.DepartmentID);
+            ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", evm.Employee.RankID);
+            return PartialView("Create", evm);
+        }
+
 	}
 }

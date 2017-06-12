@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label for="department" class="control-label col-sm-3"> Department </label>
                 <div class="col-sm-9">
-                    @Html.DropDownListFor(model => model.Rank.DepartmentID, (IEnumerable<SelectListItem>)ViewBag.Department, new { @class = "form-control border-input", @id = "department" })
+                    @Html.DropDownListFor(model => model.Rank.DepartmentID, (IEnumerable<SelectListItem>)ViewBag.Department, string.Empty, new { @class = "form-control border-input", @id = "department" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Rank.DepartmentID)
                     </div>

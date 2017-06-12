@@ -194,6 +194,10 @@
     <Compile Include="Migrations\201706101201056_ModifiedEmployee.Designer.cs">
       <DependentUpon>201706101201056_ModifiedEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706121203532_EditEmployee.cs" />
+    <Compile Include="Migrations\201706121203532_EditEmployee.Designer.cs">
+      <DependentUpon>201706121203532_EditEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -252,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706101201056_ModifiedEmployee.resx">
       <DependentUpon>201706101201056_ModifiedEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706121203532_EditEmployee.resx">
+      <DependentUpon>201706121203532_EditEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

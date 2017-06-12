@@ -1,0 +1,122 @@
+﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels.EmployeeViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title"><b>Create Employee</b></h4>
+</div>
+
+@using (Html.BeginForm("Create", "Employee", new { Area = "HRAdmin" }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        <div class="form-group row">
+
+            <div class="col-sm-9">
+                <label for="id" class="control-label"> ID </label>
+                    @Html.TextBoxFor(model => Model.Employee.ID, new { @class = "form-control required", @id = "id" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Employee.ID)
+                    </div><br>
+            </div>
+            
+            <div class="col-sm-4">
+                <label for="last" class="control-label"> Last Name </label>
+                    @Html.TextBoxFor(model => Model.Employee.LastName, new { @class = "form-control required", @id = "last" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Employee.LastName)
+                    </div>
+            </div>
+
+            <div class="col-sm-4">
+                <label for="mid" class="control-label"> Middle Name </label>
+                    @Html.TextBoxFor(model => Model.Employee.MiddleName, new { @class = "form-control", @id = "mid" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Employee.MiddleName)
+                    </div>
+            </div>
+
+            <div class="col-sm-4">
+                <label for="first" class="control-label"> First Name </label>
+                    @Html.TextBoxFor(model => Model.Employee.FirstName, new { @class = "form-control required", @id = "first" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Employee.FirstName)
+                    </div><br>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="control-label" for="Date">Date of Birth</label>
+                    @Html.TextBoxFor(model => Model.Employee.DOB, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "Date", @type = "datetime" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Employee.DOB)
+                    </div>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="control-label" for="Date">Date of Appointment</label>
+                    @Html.TextBoxFor(model => Model.Employee.AppointmentDate, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "Date", @type = "datetime" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Employee.AppointmentDate)
+                    </div><br>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="department" class="control-label"> Department </label>
+                    @Html.DropDownListFor(model => model.Employee.DepartmentID, (IEnumerable<SelectListItem>)ViewBag.Department, string.Empty, new { @class = "form-control border-input", @id = "department" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Employee.DepartmentID)
+                    </div>
+            </div>
+
+            <div class="col-sm-6">
+                <label for="rank" class="control-label"> Rank </label>
+                    @Html.DropDownListFor(model => model.Employee.RankID, (IEnumerable<SelectListItem>)ViewBag.Rank, string.Empty, new { @class = "form-control border-input", @id = "rank" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Employee.RankID)
+                    </div><br>
+            </div>
+
+            <div class="col-sm-9">
+                <label class="control-label" for="add">Address</label>
+                @Html.TextAreaFor(model => Model.Employee.Address, new { @class = "form-control required", @id = "add" })
+                <div class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Employee.Address)
+                </div><br>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="control-label" for="mail">E-mail</label>
+                @Html.TextBoxFor(model => Model.Employee.Email, new { @class = "form-control required", @id = "mail" })
+                <div class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Employee.Email)
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="control-label" for="phone">Phone Number</label>
+                @Html.TextBoxFor(model => Model.Employee.PhoneNo, new { @class = "form-control required", @id = "phone" })
+                <div class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Employee.PhoneNo)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+        <input type="submit" class="btn btn-outline" value="Save" />
+    </div>
+}
+
+<script>
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+
+    $('input[type=datetime]').datepicker({
+        dateFormat: "dd/M/yy",
+        autoclose: true,
+        todayHighlight: true
+    });
+</script>
