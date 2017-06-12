@@ -20,11 +20,11 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Date of Birth is required")]
-        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime DOB { get; set; }
 
         [Required(ErrorMessage = "Date of Appointment is required")]
-        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime AppointmentDate { get; set; }
 
         [Required(ErrorMessage = "Email address is required")]

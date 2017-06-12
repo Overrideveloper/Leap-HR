@@ -9,9 +9,13 @@ namespace BizzDesk_Leap_API.Models
 {
     public partial class Employee
     {
-        [Index(IsUnique = true)]
-        [Required]
+        [Key]
         public int ID { get; set; }
+
+        [Required]
+        [Index(IsUnique = true)]
+        [StringLength(12)]
+        public string EmployeeID { get; set; }
 
         [Required]
         public string FirstName { get; set; }
@@ -22,11 +26,11 @@ namespace BizzDesk_Leap_API.Models
         public string LastName { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime DOB { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime AppointmentDate { get; set; }
 
         [Required]

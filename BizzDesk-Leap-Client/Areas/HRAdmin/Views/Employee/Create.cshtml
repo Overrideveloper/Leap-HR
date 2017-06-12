@@ -48,7 +48,7 @@
 
             <div class="col-sm-6">
                 <label class="control-label" for="Date">Date of Birth</label>
-                    @Html.TextBoxFor(model => Model.Employee.DOB, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "Date", @type = "datetime" })
+                    @Html.TextBoxFor(model => Model.Employee.DOB, "{0:dd/MMM/yyyy}", new { @class = "form-control required Date", @id = "Date" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Employee.DOB)
                     </div>
@@ -56,7 +56,7 @@
 
             <div class="col-sm-6">
                 <label class="control-label" for="Date">Date of Appointment</label>
-                    @Html.TextBoxFor(model => Model.Employee.AppointmentDate, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "Date", @type = "datetime" })
+                    @Html.TextBoxFor(model => Model.Employee.AppointmentDate, "{0:dd/MMM/yyyy}", new { @class = "form-control required Date", @id = "Date" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Employee.AppointmentDate)
                     </div><br>
@@ -114,8 +114,8 @@
     $("form").removeData("unobtrusiveValidation");
     $.validator.unobtrusive.parse("form");
 
-    $('input[type=datetime]').datepicker({
-        dateFormat: "dd/M/yy",
+    $('.Date').datepicker({
+        dateFormat: "dd/MMM/yy",
         autoclose: true,
         todayHighlight: true
     });
