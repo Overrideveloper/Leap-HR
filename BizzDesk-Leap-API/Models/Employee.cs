@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using BizzDesk_Leap_API.Enums;
 
 namespace BizzDesk_Leap_API.Models
 {
@@ -24,6 +25,9 @@ namespace BizzDesk_Leap_API.Models
 
         [Required]
         public string LastName { get; set; }
+
+        [Required]
+        public Gender Gender { get; set; } 
 
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]

@@ -53,5 +53,27 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             return PartialView("Create", evm);
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            EmployeeViewModel evm = new EmployeeViewModel();
+            evm.Employee = ec.find(id);
+            ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", evm.Employee.DepartmentID);
+            ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", evm.Employee.RankID);
+            return PartialView("Edit", evm);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(EmployeeViewModel evm)
+        {
+            if (ModelState.IsValid)
+            {
+                ec.Edit(evm.Employee);
+                return Json(new { success = true });
+            }
+            ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", evm.Employee.DepartmentID);
+            ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", evm.Employee.RankID);
+            return PartialView("Edit", evm);
+        }
 	}
 }

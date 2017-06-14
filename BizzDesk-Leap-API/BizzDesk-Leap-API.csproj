@@ -183,6 +183,7 @@
     <Compile Include="Controllers\RankController.cs" />
     <Compile Include="DAL\DBInitializer.cs" />
     <Compile Include="DAL\LeapDB.cs" />
+    <Compile Include="Enums\Gender.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +206,14 @@
     <Compile Include="Migrations\201706141137502_Stuff.cs" />
     <Compile Include="Migrations\201706141137502_Stuff.Designer.cs">
       <DependentUpon>201706141137502_Stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141337145_AddedGender.cs" />
+    <Compile Include="Migrations\201706141337145_AddedGender.Designer.cs">
+      <DependentUpon>201706141337145_AddedGender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706141350186_UpdatedGender.cs" />
+    <Compile Include="Migrations\201706141350186_UpdatedGender.Designer.cs">
+      <DependentUpon>201706141350186_UpdatedGender.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -273,6 +282,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706141137502_Stuff.resx">
       <DependentUpon>201706141137502_Stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141337145_AddedGender.resx">
+      <DependentUpon>201706141337145_AddedGender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141350186_UpdatedGender.resx">
+      <DependentUpon>201706141350186_UpdatedGender.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

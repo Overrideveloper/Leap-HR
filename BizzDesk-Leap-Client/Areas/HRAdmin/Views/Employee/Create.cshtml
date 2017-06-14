@@ -49,6 +49,7 @@
             <div class="col-sm-6">
                 <label class="control-label" for="dob">Date of Birth</label>
                     @Html.TextBoxFor(model => Model.Employee.DOB, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "dob", @type = "datetime" })
+                @Html.EnumDropDownListFor
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Employee.DOB)
                     </div>

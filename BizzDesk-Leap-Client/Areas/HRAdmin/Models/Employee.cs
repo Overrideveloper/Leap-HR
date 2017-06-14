@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using BizzDesk_Leap_Client.Areas.HRAdmin.Enums;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 {
@@ -22,6 +23,9 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 
         [Required(ErrorMessage = "Last name is required")]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Select a gender")]
+        public Gender Gender { get; set; }
 
         [Required(ErrorMessage = "Date of Birth is required")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
