@@ -13,14 +13,14 @@ namespace BizzDesk_Leap_Client.Helpers
 {
     public static class EnumRadioButton
     {
-        public static MvcHtmlString EnumRadioButton< TModel, TProperty > (this HtmlHelper < TModel > htmlHelper, Expression < Func < TModel, TProperty >> expression)  
+        public static MvcHtmlString EnumRadioButtons< TModel, TProperty > (this HtmlHelper < TModel > htmlHelper, Expression < Func < TModel, TProperty >> expression)  
         {  
             var metaData = ModelMetadata.FromLambdaExpression(expression, htmlHelper.ViewData);  
             var listOfValues = Enum.GetNames(metaData.ModelType);  
             var sb = new StringBuilder();  
             if (listOfValues != null)  
             {  
-                sb = sb.AppendFormat("<ul>");  
+                sb = sb.AppendFormat("<div>");  
                 foreach(var name in listOfValues)  
                 {  
                     var label = name;  
@@ -35,9 +35,9 @@ namespace BizzDesk_Leap_Client.Helpers
                     {  
                         id = id  
                     }).ToHtmlString();  
-                    sb.AppendFormat("<li>{0}{1}</li>", radio, HttpUtility.HtmlEncode(label));  
+                    sb.AppendFormat("<span>{0}{1}</span>", radio, HttpUtility.HtmlEncode(label));  
                 }  
-                sb = sb.AppendFormat("</ul>");  
+                sb = sb.AppendFormat("</div>");  
             }  
             return MvcHtmlString.Create(sb.ToString());  
         }  
