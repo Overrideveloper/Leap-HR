@@ -27,6 +27,7 @@ namespace BizzDesk_Leap_API.Models
 
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
+        [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
         [Required]

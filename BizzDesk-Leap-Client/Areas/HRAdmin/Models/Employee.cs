@@ -11,6 +11,10 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
         [Required(ErrorMessage = "Employee ID is required")]
         public int ID { get; set; }
 
+        [Required]
+        [StringLength(12)]
+        public string EmployeeID { get; set; }
+
         [Required(ErrorMessage = "First name is required")]
         public string FirstName { get; set; }
 
@@ -20,11 +24,12 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Date of Birth is required")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
         [Required(ErrorMessage = "Date of Appointment is required")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime AppointmentDate { get; set; }
 
         [Required(ErrorMessage = "Email address is required")]

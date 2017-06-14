@@ -15,10 +15,10 @@
         <div class="form-group row">
 
             <div class="col-sm-9">
-                <label for="id" class="control-label"> ID </label>
-                    @Html.TextBoxFor(model => Model.Employee.ID, new { @class = "form-control required", @id = "id" })
+                <label for="id" class="control-label"> Employee ID </label>
+                    @Html.TextBoxFor(model => Model.Employee.EmployeeID, new { @class = "form-control required", @id = "id" })
                     <div class="text-danger">
-                        @Html.ValidationMessageFor(model => model.Employee.ID)
+                        @Html.ValidationMessageFor(model => model.Employee.EmployeeID)
                     </div><br>
             </div>
             
@@ -47,16 +47,16 @@
             </div>
 
             <div class="col-sm-6">
-                <label class="control-label" for="Date">Date of Birth</label>
-                    @Html.TextBoxFor(model => Model.Employee.DOB, "{0:dd/MMM/yyyy}", new { @class = "form-control required Date", @id = "Date" })
+                <label class="control-label" for="dob">Date of Birth</label>
+                    @Html.TextBoxFor(model => Model.Employee.DOB, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "dob", @type = "datetime" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Employee.DOB)
                     </div>
             </div>
 
             <div class="col-sm-6">
-                <label class="control-label" for="Date">Date of Appointment</label>
-                    @Html.TextBoxFor(model => Model.Employee.AppointmentDate, "{0:dd/MMM/yyyy}", new { @class = "form-control required Date", @id = "Date" })
+                <label class="control-label" for="app">Date of Appointment</label>
+                    @Html.TextBoxFor(model => Model.Employee.AppointmentDate, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "app", @type = "datetime" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Employee.AppointmentDate)
                     </div><br>
@@ -113,10 +113,14 @@
     $("form").removeData("validator");
     $("form").removeData("unobtrusiveValidation");
     $.validator.unobtrusive.parse("form");
+</script>
 
-    $('.Date').datepicker({
-        dateFormat: "dd/MMM/yy",
-        autoclose: true,
-        todayHighlight: true
+<script>
+    $(function () {
+        $('input[type=datetime]').datepicker({
+            dateFormat: "dd/M/yy",
+            changeMonth: true,
+            changeYear: true
+        });
     });
 </script>
