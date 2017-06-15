@@ -20,7 +20,7 @@
                     @Html.TextBoxFor(model => Model.Employee.EmployeeID, new { @class = "form-control required", @id = "id" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Employee.EmployeeID)
-                    </div><br>
+                    </div>
             </div>
             
             <div class="col-sm-4">
@@ -44,7 +44,7 @@
                     @Html.TextBoxFor(model => Model.Employee.FirstName, new { @class = "form-control required", @id = "first" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Employee.FirstName)
-                    </div><br>
+                    </div>
             </div>
 
             <div class="col-sm-9">
@@ -68,7 +68,7 @@
                     @Html.TextBoxFor(model => Model.Employee.AppointmentDate, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "app", @type = "datetime" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Employee.AppointmentDate)
-                    </div><br>
+                    </div>
             </div>
 
             <div class="col-sm-6">
@@ -84,7 +84,7 @@
                     @Html.DropDownListFor(model => model.Employee.RankID, (IEnumerable<SelectListItem>)ViewBag.Rank, string.Empty, new { @class = "form-control border-input", @id = "rank" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.Employee.RankID)
-                    </div><br>
+                    </div>
             </div>
 
             <div class="col-sm-9">
@@ -92,7 +92,7 @@
                 @Html.TextAreaFor(model => Model.Employee.Address, new { @class = "form-control required", @id = "add" })
                 <div class="text-danger">
                     @Html.ValidationMessageFor(model => model.Employee.Address)
-                </div><br>
+                </div>
             </div>
 
             <div class="col-sm-6">

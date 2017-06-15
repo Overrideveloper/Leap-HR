@@ -31,6 +31,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             return View();
         }
 
+
         [HttpGet]
         public ActionResult Create()
         {
@@ -45,8 +46,15 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                ec.Create(evm.Employee);
-                return Json(new { success = true});
+                if(ec.findAll().Any(s => s.EmployeeID == evm.Employee.EmployeeID))
+                {
+                    ModelState.AddModelError("UsedID", "This ID is already in use for an existing employee");
+                }
+                else
+                {
+                    ec.Create(evm.Employee);
+                    return Json(new { success = true});
+                }
             }
             ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", evm.Employee.DepartmentID);
             ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", evm.Employee.RankID);
