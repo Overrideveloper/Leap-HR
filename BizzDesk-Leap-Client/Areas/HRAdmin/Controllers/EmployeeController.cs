@@ -30,8 +30,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             ViewBag.EmployeeList = ec.findAll().ToPagedList(pageNumber, pageSize);
             return View();
         }
-
-
+        
         [HttpGet]
         public ActionResult Create()
         {
@@ -46,7 +45,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(ec.findAll().Any(s => s.EmployeeID == evm.Employee.EmployeeID))
+                if (ec.findAll().Any(s => s.EmployeeID == evm.Employee.EmployeeID))
                 {
                     ModelState.AddModelError("UsedID", "This ID is already in use for an existing employee");
                 }

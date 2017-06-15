@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Enums;
+using System.Web.Mvc;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 {
@@ -29,11 +30,12 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 
         [Required(ErrorMessage = "Date of Birth is required")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date, ErrorMessage = "Input a valid date")]
         public DateTime DOB { get; set; }
 
         [Required(ErrorMessage = "Date of Appointment is required")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DataType(DataType.Date, ErrorMessage = "Input a valid date")]
         public DateTime AppointmentDate { get; set; }
 
         [Required(ErrorMessage = "Email address is required")]
