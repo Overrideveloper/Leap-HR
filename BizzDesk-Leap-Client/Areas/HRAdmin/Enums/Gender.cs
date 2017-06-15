@@ -9,9 +9,9 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Enums
     public enum Gender
     {
         [Display(Name = "Male")]
-        Male,
+        Male = 0,
 
         [Display(Name = "Female")]
-        Female,
+        Female = 1,
     }
 }
