@@ -217,6 +217,7 @@
     <Content Include="Areas\HRAdmin\Views\Employee\Index.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Employee\Create.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Rank\Create.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Employee\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
