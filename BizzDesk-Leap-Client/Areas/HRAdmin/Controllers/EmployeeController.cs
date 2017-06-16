@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 using BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels;
 using PagedList;
+using System.Net;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 {
@@ -87,6 +88,17 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             ec.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Details(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ViewBag.Details = ec.find(id);
+
+            return PartialView("Details");
         }
 
 	}
