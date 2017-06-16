@@ -8,7 +8,7 @@
     <h4 class="modal-title"><b>Edit Employee</b></h4>
 </div>
 
-@using (Html.BeginForm("Create", "Employee", new { Area = "HRAdmin" }, FormMethod.Post))
+@using (Html.BeginForm("Edit", "Employee", new { Area = "HRAdmin" }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Employee.ID)
