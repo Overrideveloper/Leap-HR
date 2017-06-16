@@ -1,4 +1,4 @@
-﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.Models.EmployeeClient
+﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels.EmployeeViewModel
 
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -6,7 +6,7 @@
     </button>
     <h4 class="modal-title"><b>Employee Details</b></h4>
 </div>
-
+    @Html.HiddenFor(model => model.Employee.ID)
     <div class="modal-body">
         <dl class="dl-horizontal">
             @foreach (var deets in ViewBag.Details)
