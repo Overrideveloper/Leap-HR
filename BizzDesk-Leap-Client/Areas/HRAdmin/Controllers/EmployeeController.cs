@@ -82,5 +82,12 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", evm.Employee.RankID);
             return PartialView("Edit", evm);
         }
+
+        public ActionResult Delete(int id)
+        {
+            ec.Delete(id);
+            return RedirectToAction("Index");
+        }
+
 	}
 }
