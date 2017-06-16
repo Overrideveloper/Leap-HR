@@ -6,18 +6,15 @@
     </button>
     <h4 class="modal-title"><b>Employee Details</b></h4>
 </div>
-    @Html.HiddenFor(model => model.Employee.ID)
     <div class="modal-body">
         <dl class="dl-horizontal">
-            @foreach (var deets in ViewBag.Details)
-            {
+
                 <dt> Employee ID: </dt>
-                <dd> @deets.EmployeeID</dd>
+                <dd> @Html.DisplayFor(model => model.Employee.EmployeeID)</dd>
                 <dt> Last Name: </dt>
-                <dd> @deets.LastName</dd>
+                <dd> @Html.DisplayFor(model => model.Employee.LastName)</dd>
                 <dt> Middle Name: </dt>
-                <dd> @deets.MiddleName</dd>
-            }
+                <dd> @Html.DisplayFor(model => model.Employee.MiddleName)</dd>
         </dl>
     </div>
     <div class="modal-footer">

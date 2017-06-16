@@ -92,13 +92,9 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 
         public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ViewBag.Details = ec.find(id);
-
-            return PartialView("Details");
+            EmployeeViewModel evm = new EmployeeViewModel();
+            evm.Employee = ec.find(id);
+            return PartialView("Details", evm);
         }
 
 	}
