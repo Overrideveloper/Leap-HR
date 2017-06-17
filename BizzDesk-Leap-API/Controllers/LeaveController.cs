@@ -10,9 +10,11 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using BizzDesk_Leap_API.Models;
 using BizzDesk_Leap_API.DAL;
+using Newtonsoft.Json;
 
 namespace BizzDesk_Leap_API.Controllers
 {
+    [RoutePrefix("api/leave")]
     public class LeaveController : ApiController
     {
         private LeapDB db = new LeapDB();
@@ -99,6 +101,26 @@ namespace BizzDesk_Leap_API.Controllers
             db.SaveChanges();
 
             return Ok(leave);
+        }
+
+
+        [HttpGet]
+        [Route("search/{searchString}")]
+        public HttpResponseMessage SearchLeave(string searchString)
+        {
+            try
+            {
+                var httpResponseMessage = new HttpResponseMessage();
+                httpResponseMessage.Content = new StringContent(JsonConvert.SerializeObject(db.Leave.Where(p => p.Title.ToLower().Contains(searchString.ToLower())).ToList()));
+                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                return httpResponseMessage;
+            }
+            catch
+            {
+
+                return null;
+            }
+
         }
 
         protected override void Dispose(bool disposing)

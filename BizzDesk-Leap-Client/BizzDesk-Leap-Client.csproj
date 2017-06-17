@@ -170,11 +170,13 @@
     <Compile Include="Areas\HRAdmin\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\RankController.cs" />
     <Compile Include="Areas\HRAdmin\Enums\Gender.cs" />
+    <Compile Include="Areas\HRAdmin\Enums\LeaveType.cs" />
     <Compile Include="Areas\HRAdmin\HRAdminAreaRegistration.cs" />
     <Compile Include="Areas\HRAdmin\Models\Department.cs" />
     <Compile Include="Areas\HRAdmin\Models\DepartmentClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Employee.cs" />
     <Compile Include="Areas\HRAdmin\Models\EmployeeClient.cs" />
+    <Compile Include="Areas\HRAdmin\Models\Leave.cs" />
     <Compile Include="Areas\HRAdmin\Models\Rank.cs" />
     <Compile Include="Areas\HRAdmin\Models\RankClient.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DepartmentViewModel.cs" />

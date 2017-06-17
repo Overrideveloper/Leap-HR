@@ -8,7 +8,7 @@ using System.Web;
 
 namespace BizzDesk_Leap_API.Models
 {
-    public class Leave
+    public partial class Leave
     {
        [Key]
        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
