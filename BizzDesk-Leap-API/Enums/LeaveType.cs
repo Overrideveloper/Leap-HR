@@ -6,12 +6,13 @@ using System.Web;
 
 namespace BizzDesk_Leap_API.Enums
 {
-    public enum  Gender
+    public enum LeaveType
     {
-        [Display(Name = "Male")]
-        Male = 0,
+        [Display(Name = "Unpaid")]
+        Unpaid = 0,
 
-        [Display(Name = "Female")]
-        Female = 1
+        [Display(Name = "Paid")]
+        Paid = 1
+
     }
 }

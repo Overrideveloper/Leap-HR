@@ -12,6 +12,6 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Enums
         Male = 0,
 
         [Display(Name = "Female")]
-        Female = 1,
+        Female = 1
     }
 }
