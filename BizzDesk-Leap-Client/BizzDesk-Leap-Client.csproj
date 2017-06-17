@@ -168,6 +168,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\HRAdmin\Controllers\LeaveController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\RankController.cs" />
     <Compile Include="Areas\HRAdmin\Enums\Gender.cs" />
     <Compile Include="Areas\HRAdmin\Enums\LeaveType.cs" />
@@ -224,6 +225,7 @@
     <Content Include="Areas\HRAdmin\Views\Employee\Edit.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Employee\Details.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Employee\Search.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Leave\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />

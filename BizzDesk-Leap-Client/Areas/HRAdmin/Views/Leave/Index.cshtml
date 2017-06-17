@@ -1,0 +1,228 @@
+﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.Models.LeaveClient
+@using PagedList;
+@using PagedList.Mvc
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Leaves";
+    int x = 1;
+}
+
+@section menu{
+    <li class=""><a href="#"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    <li><a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})"><i class="fa fa-users"></i> <span>Departments</span></a></li>
+    <li class="active"><a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-star-o"></i> <span>Ranks</span></a></li>
+    <li><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-user"></i> <span>Employees</span></a></li>@model BizzDesk_Leap_Client.Areas.HRAdmin.Models.RankClient
+@using PagedList;
+@using PagedList.Mvc
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Ranks";
+    int x = 1;
+}
+
+@section menu{
+    <li class=""><a href="#"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    <li><a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})"><i class="fa fa-users"></i> <span>Departments</span></a></li>
+    <li class="active"><a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-star-o"></i> <span>Ranks</span></a></li>
+    <li><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-user"></i> <span>Employees</span></a></li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-link"></i> <span>Multilevel</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="#">Link in level 2</a></li>
+            <li><a href="#">Link in level 2</a></li>
+        </ul>
+    </li>
+}
+
+<section class="content-header">
+    <h1> @ViewBag.Title </h1>
+
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <i class="fa fa-dashboard"></i>
+                Home
+            </a>
+        </li>
+        <li class="active">
+            <a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})">
+                <i class="fa fa-star"></i>
+                Ranks
+            </a>
+        </li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="pull-left">
+                        <a class="btn btn-info btn-sm" data-modal="" href="@Url.Action("Create", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-plus"></i> Create Rank</a>
+                    </div>
+
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <a class="form-control btn btn-default pull-right" href="@Url.Action("Search", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-search"></i> Search</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th></th>
+                            <th>S/N</th>
+                            <th>Title</th>
+                            <th>Department</th>
+                            <th>Options</th>
+                        </tr>
+                        @foreach (var rank in ViewBag.RankList)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@(x++)</td>
+                                <td>@rank.Title</td>
+                                <td>@rank.Department.Title</td>
+                                <td>
+                                    <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Rank", new { Area = "HRAdmin", id = rank.ID})"><i class="fa fa-pencil"></i> Edit </a>
+                                    <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Rank", new { Area = "HRAdmin", id = rank.ID})"><i class="fa fa-trash"></i> Delete </a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    <div style="padding-left: 15px">
+                        @Html.PagedListPager((IPagedList)ViewBag.RankList, page => Url.Action("Index", "Rank", new { Area = "HRAdmin", page }))
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+
+    <!-- modal placeholder-->
+    <div id='myModal' class='modal modal-primary fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-content" id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript" src="~/Scripts/modal.js"></script>
+        <script type="text/javascript" src="~/Scripts/delete-modal.js"></script>
+    }
+
+</section>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-link"></i> <span>Multilevel</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="#">Link in level 2</a></li>
+            <li><a href="#">Link in level 2</a></li>
+        </ul>
+    </li>
+}
+
+<section class="content-header">
+    <h1> @ViewBag.Title </h1>
+
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <i class="fa fa-dashboard"></i>
+                Home
+            </a>
+        </li>
+        <li class="active">
+            <a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})">
+                <i class="fa fa-star"></i>
+                Ranks
+            </a>
+        </li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="pull-left">
+                        <a class="btn btn-info btn-sm" data-modal="" href="@Url.Action("Create", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-plus"></i> Create Rank</a>
+                    </div>
+
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <a class="form-control btn btn-default pull-right" href="@Url.Action("Search", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-search"></i> Search</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th></th>
+                            <th>S/N</th>
+                            <th>Title</th>
+                            <th>Department</th>
+                            <th>Options</th>
+                        </tr>
+                        @foreach (var rank in ViewBag.RankList)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@(x++)</td>
+                                <td>@rank.Title</td>
+                                <td>@rank.Department.Title</td>
+                                <td>
+                                    <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Rank", new { Area = "HRAdmin", id = rank.ID})"><i class="fa fa-pencil"></i> Edit </a>
+                                    <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Rank", new { Area = "HRAdmin", id = rank.ID})"><i class="fa fa-trash"></i> Delete </a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                    <div style="padding-left: 15px">
+                        @Html.PagedListPager((IPagedList)ViewBag.RankList, page => Url.Action("Index", "Rank", new { Area = "HRAdmin", page }))
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+
+    <!-- modal placeholder-->
+    <div id='myModal' class='modal modal-primary fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-content" id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript" src="~/Scripts/modal.js"></script>
+        <script type="text/javascript" src="~/Scripts/delete-modal.js"></script>
+    }
+
+</section>
