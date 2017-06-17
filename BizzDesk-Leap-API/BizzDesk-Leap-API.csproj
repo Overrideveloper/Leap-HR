@@ -180,6 +180,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\LeaveController.cs" />
     <Compile Include="Controllers\RankController.cs" />
     <Compile Include="DAL\DBInitializer.cs" />
     <Compile Include="DAL\LeapDB.cs" />
@@ -215,6 +216,10 @@
     <Compile Include="Migrations\201706141350186_UpdatedGender.cs" />
     <Compile Include="Migrations\201706141350186_UpdatedGender.Designer.cs">
       <DependentUpon>201706141350186_UpdatedGender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706171057133_AddedLeave.cs" />
+    <Compile Include="Migrations\201706171057133_AddedLeave.Designer.cs">
+      <DependentUpon>201706171057133_AddedLeave.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -290,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706141350186_UpdatedGender.resx">
       <DependentUpon>201706141350186_UpdatedGender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706171057133_AddedLeave.resx">
+      <DependentUpon>201706171057133_AddedLeave.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
