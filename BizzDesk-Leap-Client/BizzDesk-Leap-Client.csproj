@@ -177,6 +177,7 @@
     <Compile Include="Areas\HRAdmin\Models\Employee.cs" />
     <Compile Include="Areas\HRAdmin\Models\EmployeeClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Leave.cs" />
+    <Compile Include="Areas\HRAdmin\Models\LeaveClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Rank.cs" />
     <Compile Include="Areas\HRAdmin\Models\RankClient.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DepartmentViewModel.cs" />
