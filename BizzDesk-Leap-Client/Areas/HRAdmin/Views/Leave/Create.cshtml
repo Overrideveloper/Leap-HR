@@ -4,10 +4,10 @@
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-    <h4 class="modal-title"><b>Create Department</b></h4>
+    <h4 class="modal-title"><b>Create Leave</b></h4>
 </div>
 
-@using (Html.BeginForm("Create", "Department", new { Area = "HRAdmin" }, FormMethod.Post))
+@using (Html.BeginForm("Create", "Leave", new { Area = "HRAdmin" }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -17,9 +17,9 @@
             <div class="form-group">
                 <label for="title" class="control-label col-sm-3"> Title </label>
                 <div class="col-sm-9">
-                    @Html.TextBoxFor(model => Model.Department.Title, new { @class = "form-control border-input required", @id = "title" })
+                    @Html.TextBoxFor(model => Model.Leave.Title, new { @class = "form-control border-input required", @id = "title" })
                     <div class="text-danger">
-                        @Html.ValidationMessageFor(model => model.Department.Title)
+                        @Html.ValidationMessageFor(model => model.Leave.Title)
                     </div>
                 </div>
             </div>
