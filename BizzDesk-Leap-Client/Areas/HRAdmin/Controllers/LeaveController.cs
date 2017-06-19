@@ -26,5 +26,23 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             ViewBag.LeaveList = lc.findAll().ToPagedList(pageNumber, pageSize);
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var lvm = new LeaveViewModel();
+            return PartialView("Create", lvm);
+        }
+
+        [HttpPost]
+        public ActionResult Create(LeaveViewModel lvm)
+        {
+            if (ModelState.IsValid)
+            {
+                lc.Create(lvm.Leave);
+                return Json(new { sucess = true});
+            }
+            return PartialView("Create", lvm);
+        }
 	}
 }
