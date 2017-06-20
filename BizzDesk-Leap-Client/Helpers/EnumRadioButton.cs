@@ -19,7 +19,7 @@ namespace BizzDesk_Leap_Client.Helpers
             var listOfValues = Enum.GetNames(metaData.ModelType);  
             var sb = new StringBuilder();  
             if (listOfValues != null)  
-            {  
+            {
                 sb = sb.AppendFormat("<div>");  
                 foreach(var name in listOfValues)  
                 {  
@@ -34,8 +34,8 @@ namespace BizzDesk_Leap_Client.Helpers
                     var radio = htmlHelper.RadioButtonFor(expression, name, new  
                     {  
                         id = id  
-                    }).ToHtmlString();  
-                    sb.AppendFormat("<span>{0}{1}</span>", radio, HttpUtility.HtmlEncode(label));  
+                    }).ToHtmlString();
+                    sb.AppendFormat("<span> <span> <span> </span></span></span> <span> {0}<span> </span>{1}</span>", radio, HttpUtility.HtmlEncode(label));  
                 }  
                 sb = sb.AppendFormat("</div>");  
             }  
