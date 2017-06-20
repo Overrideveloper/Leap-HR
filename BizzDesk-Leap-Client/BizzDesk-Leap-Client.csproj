@@ -228,6 +228,7 @@
     <Content Include="Areas\HRAdmin\Views\Leave\Index.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Leave\Create.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Leave\Edit.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Leave\Search.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
