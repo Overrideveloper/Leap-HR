@@ -216,9 +216,9 @@
     <Compile Include="Migrations\201706141350186_UpdatedGender.Designer.cs">
       <DependentUpon>201706141350186_UpdatedGender.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706201410204_Added-Leave.cs" />
-    <Compile Include="Migrations\201706201410204_Added-Leave.Designer.cs">
-      <DependentUpon>201706201410204_Added-Leave.cs</DependentUpon>
+    <Compile Include="Migrations\201706201425595_Leave.cs" />
+    <Compile Include="Migrations\201706201425595_Leave.Designer.cs">
+      <DependentUpon>201706201425595_Leave.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -295,8 +295,8 @@
     <EmbeddedResource Include="Migrations\201706141350186_UpdatedGender.resx">
       <DependentUpon>201706141350186_UpdatedGender.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706201410204_Added-Leave.resx">
-      <DependentUpon>201706201410204_Added-Leave.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706201425595_Leave.resx">
+      <DependentUpon>201706201425595_Leave.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

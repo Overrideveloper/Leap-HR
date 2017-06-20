@@ -7,13 +7,13 @@ namespace BizzDesk_Leap_API.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddedLeave : IMigrationMetadata
+    public sealed partial class Leave : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedLeave));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Leave));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706201410204_Added-Leave"; }
+            get { return "201706201425595_Leave"; }
         }
         
         string IMigrationMetadata.Source
