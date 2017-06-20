@@ -225,6 +225,8 @@
     <Content Include="Areas\HRAdmin\Views\Employee\Edit.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Employee\Details.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Employee\Search.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Leave\Index.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Leave\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
@@ -1193,7 +1195,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\HRAdmin\Views\Leave\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
