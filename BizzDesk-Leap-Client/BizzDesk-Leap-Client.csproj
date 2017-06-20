@@ -168,6 +168,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\HRAdmin\Controllers\LeaveController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\RankController.cs" />
     <Compile Include="Areas\HRAdmin\Enums\Gender.cs" />
     <Compile Include="Areas\HRAdmin\Enums\LeaveType.cs" />
@@ -176,10 +177,13 @@
     <Compile Include="Areas\HRAdmin\Models\DepartmentClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Employee.cs" />
     <Compile Include="Areas\HRAdmin\Models\EmployeeClient.cs" />
+    <Compile Include="Areas\HRAdmin\Models\Leave.cs" />
+    <Compile Include="Areas\HRAdmin\Models\LeaveClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Rank.cs" />
     <Compile Include="Areas\HRAdmin\Models\RankClient.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DepartmentViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="Areas\HRAdmin\ViewModels\LeaveViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\RankViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1189,6 +1193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\HRAdmin\Views\Leave\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
