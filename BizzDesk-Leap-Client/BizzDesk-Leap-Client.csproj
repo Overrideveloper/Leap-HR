@@ -168,7 +168,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\EmployeeController.cs" />
-    <Compile Include="Areas\HRAdmin\Controllers\LeaveController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\RankController.cs" />
     <Compile Include="Areas\HRAdmin\Enums\Gender.cs" />
     <Compile Include="Areas\HRAdmin\Enums\LeaveType.cs" />
@@ -177,13 +176,10 @@
     <Compile Include="Areas\HRAdmin\Models\DepartmentClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Employee.cs" />
     <Compile Include="Areas\HRAdmin\Models\EmployeeClient.cs" />
-    <Compile Include="Areas\HRAdmin\Models\Leave.cs" />
-    <Compile Include="Areas\HRAdmin\Models\LeaveClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Rank.cs" />
     <Compile Include="Areas\HRAdmin\Models\RankClient.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DepartmentViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\EmployeeViewModel.cs" />
-    <Compile Include="Areas\HRAdmin\ViewModels\LeaveViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\RankViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
@@ -225,9 +221,6 @@
     <Content Include="Areas\HRAdmin\Views\Employee\Edit.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Employee\Details.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Employee\Search.cshtml" />
-    <Content Include="Areas\HRAdmin\Views\Leave\Index.cshtml" />
-    <Content Include="Areas\HRAdmin\Views\Leave\Create.cshtml" />
-    <Content Include="Areas\HRAdmin\Views\Leave\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />

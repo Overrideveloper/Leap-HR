@@ -11,7 +11,6 @@ namespace BizzDesk_Leap_API.Models
     public partial class Leave
     {
        [Key]
-       [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
        public int ID { get; set; }
 
        [Required(ErrorMessage = "Leave Title is Required")]
