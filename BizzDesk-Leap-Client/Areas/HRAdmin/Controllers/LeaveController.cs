@@ -45,5 +45,23 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             return PartialView("Create", lvm);
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            LeaveViewModel lvm = new LeaveViewModel();
+            lvm.Leave = lc.find(id);
+            return PartialView("Edit", lvm);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(LeaveViewModel lvm)
+        {
+            if (ModelState.IsValid)
+            {
+                lc.Edit(lvm.Leave);
+                return Json(new { success = true});
+            }
+            return PartialView("Edit", lvm);
+        }
 	}
 }
