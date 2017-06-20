@@ -70,5 +70,11 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public ActionResult Search()
+        {
+            return View("Search", new LeaveViewModel());
+        }
+
 	}
 }
