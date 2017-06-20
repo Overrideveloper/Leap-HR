@@ -76,5 +76,11 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             return View("Search", new LeaveViewModel());
         }
 
+        [HttpPost]
+        public ActionResult Search(LeaveViewModel lvm)
+        {
+            ViewBag.Result = lc.Search(lvm.Leave.Title).Result;
+            return View("Search");
+        }
 	}
 }
