@@ -39,7 +39,14 @@
                 <div class="inner">
                     <h3>@ViewBag.DepartmentCount</h3>
 
-                    <p>Departments</p>
+                    @if (ViewBag.DepartmentCount == 1)
+                    {
+                        <p>Department</p>
+                    }
+                    @if (ViewBag.DepartmentCount > 1 || ViewBag.DepartmentCount < 1)
+                    {
+                        <p>Departments</p>
+                    }
                 </div>
                 <div class="icon">
                     <i class="fa fa-users"></i>
@@ -52,14 +59,20 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                    <h3>@ViewBag.EmployeeCount</h3>
 
-                    <p>Bounce Rate</p>
+                    @if (ViewBag.EmployeeCount == 1) {
+                    <p>Employee</p>
+                    }
+                    @if (ViewBag.EmployeeCount > 1 || ViewBag.EmployeeCount < 1)
+                    {
+                        <p>Employees</p>
+                    }
                 </div>
                 <div class="icon">
-                    <i class="ion ion-stats-bars"></i>
+                    <i class="fa fa-user"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                <a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
         <!-- ./col -->
@@ -67,12 +80,19 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>@ViewBag.RankCount</h3>
 
-                    <p>User Registrations</p>
+                    @if (ViewBag.RankCount == 1)
+                    {
+                        <p>Rank</p>
+                    }
+                    @if (ViewBag.RankCount > 1 || ViewBag.RankCount < 1)
+                    {
+                        <p>Ranks</p>
+                    }
                 </div>
                 <div class="icon">
-                    <i class="ion ion-person-add"></i>
+                    <i class="fa fa-star"></i>
                 </div>
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
@@ -82,7 +102,7 @@
             <!-- small box -->
             <div class="small-box bg-red">
                 <div class="inner">
-                    <h3>65</h3>
+                    <h3>@ViewBag.LeaveCount</h3>
 
                     <p>Unique Visitors</p>
                 </div>
