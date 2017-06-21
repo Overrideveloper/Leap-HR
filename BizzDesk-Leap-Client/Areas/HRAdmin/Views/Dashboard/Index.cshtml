@@ -103,8 +103,15 @@
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>@ViewBag.LeaveCount</h3>
-
-                    <p>Unique Visitors</p>
+                   
+                     @if (ViewBag.LeaveCount == 1)
+                    {
+                        <p>Leave Type</p>
+                    }
+                    @if (ViewBag.LeaveCount > 1 || ViewBag.LeaveCount < 1)
+                    {
+                        <p>Leave Types</p>
+                    }
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
