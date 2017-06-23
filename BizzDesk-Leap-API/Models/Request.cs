@@ -13,9 +13,6 @@ namespace BizzDesk_Leap_API.Models
         public int ID { get; set; }
 
         [Required]
-        public int LeaveID { get; set; }
-
-        [Required]
         public DateTime StartDate { get; set; }
 
         [Required]
@@ -27,6 +24,9 @@ namespace BizzDesk_Leap_API.Models
         public int EmployeeID { get; set; }
 
         public virtual Employee Employee { get; set; }
+
+        [Required]
+        public int LeaveID { get; set; }
 
         public virtual Leave Leave { get; set; }
 
