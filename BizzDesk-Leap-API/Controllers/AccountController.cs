@@ -28,7 +28,7 @@ namespace BizzDesk_Leap_API.Controllers
         public AccountController()
             : this(Startup.UserManagerFactory(), Startup.OAuthOptions.AccessTokenFormat)
         {
-        }
+        }   
 
         public AccountController(UserManager<IdentityUser> userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
