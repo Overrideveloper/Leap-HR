@@ -186,6 +186,7 @@
     <Compile Include="DAL\LeapDB.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\LeaveType.cs" />
+    <Compile Include="Enums\Status.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +225,10 @@
     <Compile Include="Migrations\201706231844077_AddRequest.cs" />
     <Compile Include="Migrations\201706231844077_AddRequest.Designer.cs">
       <DependentUpon>201706231844077_AddRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706272001554_migration10.cs" />
+    <Compile Include="Migrations\201706272001554_migration10.Designer.cs">
+      <DependentUpon>201706272001554_migration10.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
@@ -306,6 +311,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706231844077_AddRequest.resx">
       <DependentUpon>201706231844077_AddRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706272001554_migration10.resx">
+      <DependentUpon>201706272001554_migration10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
