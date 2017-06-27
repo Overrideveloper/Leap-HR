@@ -12,6 +12,8 @@ namespace BizzDesk_Leap_API.Models
         [Key]
         public int ID { get; set; }
 
+
+
         [Required]
         public DateTime StartDate { get; set; }
 
