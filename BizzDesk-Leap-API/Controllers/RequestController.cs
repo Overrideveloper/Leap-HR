@@ -25,7 +25,7 @@ namespace BizzDesk_Leap_API.Controllers
         // GET api/Request
         public IQueryable<Request> GetRequest()
         {
-            return db.Request;
+            return db.Request.OrderBy(s => s.RequestDate);
         }
 
         // GET api/Request/5
@@ -84,6 +84,7 @@ namespace BizzDesk_Leap_API.Controllers
                 return BadRequest(ModelState);
             }
 
+            request.RequestDate = DateTime.Now;
             db.Request.Add(request);
             db.SaveChanges();
 
