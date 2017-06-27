@@ -62,5 +62,7 @@ namespace BizzDesk_Leap_API.Models
         public int RankID { get; set; }
 
         public virtual Rank Rank { get; set; }
+
+        public IEnumerable<Request> Request { get; set; }
     }
 }
