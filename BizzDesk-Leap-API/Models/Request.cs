@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using BizzDesk_Leap_API.Models;
+using BizzDesk_Leap_API.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BizzDesk_Leap_API.Models
@@ -18,6 +19,8 @@ namespace BizzDesk_Leap_API.Models
 
         [Required]
         public DateTime EndDate { get; set; }
+
+        public Status Status { get; set; }
 
         //Entity Relationships
 
