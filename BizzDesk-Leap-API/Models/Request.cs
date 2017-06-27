@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using BizzDesk_Leap_API.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BizzDesk_Leap_API.Models
 {
@@ -20,7 +21,7 @@ namespace BizzDesk_Leap_API.Models
 
         //Entity Relationships
 
-        []
+        [ForeignKey("Employee")]
         public int EmployeeID { get; set; }
 
         public virtual Employee Employee { get; set; }
