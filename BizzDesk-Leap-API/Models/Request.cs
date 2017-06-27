@@ -12,8 +12,6 @@ namespace BizzDesk_Leap_API.Models
         [Key]
         public int ID { get; set; }
 
-
-
         [Required]
         public DateTime StartDate { get; set; }
 
@@ -22,7 +20,7 @@ namespace BizzDesk_Leap_API.Models
 
         //Entity Relationships
 
-        [Required]
+        []
         public int EmployeeID { get; set; }
 
         public virtual Employee Employee { get; set; }
