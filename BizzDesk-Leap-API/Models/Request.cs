@@ -20,6 +20,9 @@ namespace BizzDesk_Leap_API.Models
         [Required]
         public DateTime EndDate { get; set; }
 
+        [Required]
+        public DateTime RequestDate { get; set; } 
+
         public Status Status { get; set; }
 
         //Entity Relationships
