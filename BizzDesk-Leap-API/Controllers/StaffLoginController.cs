@@ -21,16 +21,13 @@ namespace BizzDesk_Leap_API.Controllers
 
         // POST api/Employee
         [ResponseType(typeof(Employee))]
-        public IHttpActionResult PostEmployee(Employee employee)
+        public IHttpActionResult PostStaffLogin(Employee employee)
         {
-            if (!ModelState.IsValid)
+            var usr = db.Employee.Where(s => s.EmployeeID == employee.EmployeeID).SingleOrDefault();
+            if (usr != null)
             {
-                return BadRequest(ModelState);
+                return 
             }
-
-            db.Employee.Add(employee);
-            db.SaveChanges();
-
             return CreatedAtRoute("DefaultApi", new { id = employee.ID }, employee);
         }
     }
