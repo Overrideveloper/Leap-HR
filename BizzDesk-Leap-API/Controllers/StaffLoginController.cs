@@ -26,9 +26,9 @@ namespace BizzDesk_Leap_API.Controllers
             var usr = db.Employee.Where(s => s.EmployeeID == employee.EmployeeID).SingleOrDefault();
             if (usr != null)
             {
-                return 
+                return Ok(usr);
             }
-            return CreatedAtRoute("DefaultApi", new { id = employee.ID }, employee);
+            return Ok(employee);
         }
     }
 }
