@@ -21,6 +21,7 @@ namespace BizzDesk_Leap_API.Controllers
             db = new LeapDB();       
         }
 
+        [HttpPost]
         [Route("stafflogin")]
         [ResponseType(typeof(Employee))]
         public IHttpActionResult PostStaffLogin(Employee employee)
