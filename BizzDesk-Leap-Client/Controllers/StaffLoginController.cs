@@ -16,22 +16,24 @@ namespace BizzDesk_Leap_Client.Controllers
             slc = new StaffLoginClient();
         }
 
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Login(EmployeeViewModel evm)
         {
             slc.Login(evm.Employee);
-            if (slc.Login(evm.Employee) != null )
+            if (slc.Login(evm.Employee) == true)
             {
-                Session["FName"] = evm.Employee.FirstName.ToString();
+                /*Session["FName"] = evm.Employee.FirstName.ToString();
                 Session["LName"] = evm.Employee.LastName.ToString();
                 Session["ID"] = evm.Employee.EmployeeID.ToString();
                 Session["Dept"] = evm.Employee.Department.Title.ToString();
-                Session["Rank"] = evm.Employee.Rank.Title.ToString();
+                Session["Rank"] = evm.Employee.Rank.Title.ToString();*/
                 return RedirectToAction("Index", "Dashboard", new { Area = "HRAdmin" });
             }
             else
