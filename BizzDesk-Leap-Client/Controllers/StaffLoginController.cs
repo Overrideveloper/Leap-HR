@@ -32,8 +32,14 @@ namespace BizzDesk_Leap_Client.Controllers
                 Session["ID"] = evm.Employee.EmployeeID.ToString();
                 Session["Dept"] = evm.Employee.Department.Title.ToString();
                 Session["Rank"] = evm.Employee.Rank.Title.ToString();
+                return RedirectToAction("Index", "Dashboard", new { Area = "HRAdmin" });
+            }
+            else
+            {
+                ModelState.AddModelError("Error", "Employee ID is incorrect");
             }
 
+            return View();
         }
 	}
 }
