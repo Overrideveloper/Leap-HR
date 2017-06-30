@@ -25,7 +25,7 @@ namespace BizzDesk_Leap_Client.Controllers
         public ActionResult Login(EmployeeViewModel evm)
         {
             slc.Login(evm.Employee);
-            if (slc.Login(evm.Employee) != null)
+            if (slc.Login(evm.Employee) != null )
             {
                 Session["FName"] = evm.Employee.FirstName.ToString();
                 Session["LName"] = evm.Employee.LastName.ToString();

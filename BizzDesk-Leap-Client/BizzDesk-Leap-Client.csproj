@@ -1199,10 +1199,10 @@
     <Content Include="Template\plugins\datatables\extensions\TableTools\Readme.md" />
     <Content Include="Template\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Template\plugins\input-mask\phone-codes\phone-codes.json" />
+    <Content Include="Views\StaffLogin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\StaffLogin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
