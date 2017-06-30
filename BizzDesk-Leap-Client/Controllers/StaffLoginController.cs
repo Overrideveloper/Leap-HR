@@ -4,10 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BizzDesk_Leap_Client.Models
+namespace BizzDesk_Leap_Client.Controllers
 {
     public class StaffLoginController : Controller
     {
-        public Action
+        //
+        // GET: /StaffLogin/
+        public ActionResult Index()
+        {
+            return View();
+        }
 	}
 }

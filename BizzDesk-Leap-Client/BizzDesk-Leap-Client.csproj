@@ -188,6 +188,7 @@
     <Compile Include="Areas\HRAdmin\ViewModels\LeaveViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\RankViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\StaffLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,7 +196,6 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\StaffLoginClient.cs" />
-    <Compile Include="Models\StaffLoginController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
