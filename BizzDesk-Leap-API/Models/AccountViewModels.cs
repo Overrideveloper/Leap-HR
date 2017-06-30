@@ -41,4 +41,3 @@ namespace BizzDesk_Leap_API.Models
         public string ProviderKey { get; set; }
     }
 }
-C:\Users\banso\documents\visual studio 2013\Projects\BizzDesk-Leap\BizzDesk-Leap-API\Migrations\Configuration.cs
