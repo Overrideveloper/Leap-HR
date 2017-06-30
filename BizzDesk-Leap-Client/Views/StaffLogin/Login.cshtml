@@ -33,7 +33,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <img src="~/images/bd.png" width="80" height="24" alt="User Image">
+            <img src="~/images/bd.png" width="240" height="72" alt="User Image">
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
@@ -47,6 +47,7 @@
                     @Html.TextBoxFor(model => model.Employee.EmployeeID, new { @class = "form-control required", @placeholder = "Employee ID"})    
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
+                @Html.ValidationMessage("Error", new { @class = "text-danger" })
                 <div class="row">
                     <!-- /.col -->
                     <div class="col-xs-4">

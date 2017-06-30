@@ -7,11 +7,12 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using BizzDesk_Leap_API.DAL;
+using System.Threading.Tasks;
 
 
 namespace BizzDesk_Leap_API.Controllers
 {
-    [RoutePrefix("api/")]
+    [RoutePrefix("api")]
     public class StaffLoginController : ApiController
     {
 
@@ -22,16 +23,15 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         [HttpPost]
-        [Route("stafflogin")]
-        [ResponseType(typeof(Employee))]
-        public IHttpActionResult PostStaffLogin(Employee employee)
+        [Route("stafflogin/{employee}")]
+        public IHttpActionResult PostStaffLogin(string EmployeeID)
         {
-            var usr = db.Employee.Where(s => s.EmployeeID == employee.EmployeeID).SingleOrDefault();
+            var usr = db.Employee.Where(s => s.EmployeeID == EmployeeID).SingleOrDefault();
             if (usr == null)
             {
-                return NotFound(); 
+                return BadRequest(); 
             }
-            return Ok();
+            return Ok(usr);
         }
     }
 }
