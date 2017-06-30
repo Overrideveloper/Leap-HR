@@ -20,7 +20,7 @@ namespace BizzDesk_Leap_Client.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.PostAsJsonAsync("employee", employee).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("stafflogin", employee.EmployeeID).Result;
                 return response.IsSuccessStatusCode;
             }
             catch
