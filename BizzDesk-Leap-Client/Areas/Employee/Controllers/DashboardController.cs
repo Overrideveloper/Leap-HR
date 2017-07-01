@@ -20,7 +20,8 @@ namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
         // GET: /Employee/Dashboard/
         public ActionResult Index()
         {
-
+            var id = Convert.ToString(Session["UserID"]);
+            ViewBag.EmployeeDetails = ec.findAll().Where(s => s.EmployeeID == id).SingleOrDefault();
             return View();
         }
 	}
