@@ -1,4 +1,4 @@
-﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.Models.EmployeeClient
+﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels.EmployeeViewModel
 
 @{
     ViewBag.Title = "Dashboard";
@@ -33,42 +33,38 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title"></h3>
+                    <h3 class="box-title"><strong>Profile</strong></h3>
                 </div>
                 <!-- /.box-header -->
-                <dl class="box-body">
-                    
-                        @if (ViewBag.EmployeeDetails != null)
-                        {
-                            foreach (var emp in ViewBag.EmployeeDetails)
-                            {
-                                <dt> Employee ID: </dt>
-                                <dd> @emp.EmployeeID</dd>
-                                <dt> Last Name: </dt>
-                                <dd> @emp.LastName</dd>
-                                <dt> Middle Name: </dt>
-                                <dd> @emp.MiddleName</dd>
-                                <dt> First Name: </dt>
-                                <dd> @emp.FirstName</dd>
-                                <dt> Gender: </dt>
-                                <dd> @emp.Gender</dd>
-                                <dt> Date of Birth: </dt>
-                                <dd> @emp.DOB</dd>
-                                <dt> Date of Appointment: </dt>
-                                <dd> @emp.AppointmentDate</dd>
-                                <dt> Department: </dt>
-                                <dd> @emp.Department.Title</dd>
-                                <dt> Rank: </dt>
-                                <dd> @emp.Rank.Title</dd>
-                                <dt> E-mail Address: </dt>
-                                <dd> @emp.Email</dd>
-                                <dt> Address: </dt>
-                                <dd> @emp.Address</dd>
-                                <dt> Phone Number: </dt>
-                                <dd> @emp.PhoneNo</dd>
-                            }
-                        }
-                </dl>
+                <div class="box-body row">
+                    <div class="col-md-6">
+                        <strong> Employee ID: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.EmployeeID)</p>
+                        <strong> Last Name: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.LastName)</p>
+                        <strong> Middle Name: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.MiddleName)</p>
+                        <strong> First Name: </strong>
+                        <p>@Html.DisplayFor(model => model.Employee.FirstName)</p>
+                        <strong> Gender: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.Gender)</p>
+                        <strong> Date of Birth: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.DOB)</p>
+                     </div>  
+                    <div class="col-md-6">
+                        <strong> Date of Appointment: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.AppointmentDate)</p>
+                        <strong> Department: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.Department.Title)</p>
+                        <strong> Rank: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.Rank.Title)</p>
+                        <strong> E-mail Address: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.Email)</p>
+                        <strong> Address: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.Address)</p>
+                        <strong> Phone Number: </strong>
+                        <p> @Html.DisplayFor(model => model.Employee.PhoneNo)</p>
+                    </div>
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
