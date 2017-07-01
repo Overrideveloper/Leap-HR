@@ -9,7 +9,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels
 {
     public class EmployeeViewModel
     {
-        public Employee Employee
+        public BizzDesk_Leap_Client.Areas.HRAdmin.Models.Employee Employee
         {
             get;
             set;
