@@ -236,6 +236,8 @@
     <Content Include="Areas\HRAdmin\Views\Leave\Search.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Employee\Views\web.config" />
+    <Content Include="Areas\Employee\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Employee\Views\Shared\_Layout.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
@@ -1207,7 +1209,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employee\Controllers\" />
     <Folder Include="Areas\Employee\Models\" />
-    <Folder Include="Areas\Employee\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
