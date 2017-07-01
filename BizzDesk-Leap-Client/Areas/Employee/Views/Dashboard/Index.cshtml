@@ -1,0 +1,77 @@
+﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.Models.EmployeeClient
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@section menu{
+    <li class="active"><a href="@Url.Action("Index", "Dashboard", new { Area = "Employee"})"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    <li><a href="#"><i class="fa fa-paper-plane"></i> <span>Leave Requests</span></a></li>
+}
+
+<section class="content-header">
+    <h1> @ViewBag.Title </h1>
+
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <i class="fa fa-dashboard"></i>
+                Home
+            </a>
+        </li>
+        <li class="active">
+            <a href="@Url.Action("Index", "Dashboard", new { Area = "Employee"})">
+                <i class="fa fa-dashboard"></i>
+                Dashboard
+            </a>
+        </li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
+                </div>
+                <!-- /.box-header -->
+                <dl class="box-body">
+                    
+                        @if (ViewBag.EmployeeDetails != null)
+                        {
+                            foreach (var emp in ViewBag.EmployeeDetails)
+                            {
+                                <dt> Employee ID: </dt>
+                                <dd> @emp.EmployeeID</dd>
+                                <dt> Last Name: </dt>
+                                <dd> @emp.LastName</dd>
+                                <dt> Middle Name: </dt>
+                                <dd> @emp.MiddleName</dd>
+                                <dt> First Name: </dt>
+                                <dd> @emp.FirstName</dd>
+                                <dt> Gender: </dt>
+                                <dd> @emp.Gender</dd>
+                                <dt> Date of Birth: </dt>
+                                <dd> @emp.DOB</dd>
+                                <dt> Date of Appointment: </dt>
+                                <dd> @emp.AppointmentDate</dd>
+                                <dt> Department: </dt>
+                                <dd> @emp.Department.Title</dd>
+                                <dt> Rank: </dt>
+                                <dd> @emp.Rank.Title</dd>
+                                <dt> E-mail Address: </dt>
+                                <dd> @emp.Email</dd>
+                                <dt> Address: </dt>
+                                <dd> @emp.Address</dd>
+                                <dt> Phone Number: </dt>
+                                <dd> @emp.PhoneNo</dd>
+                            }
+                        }
+                </dl>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+</section>
