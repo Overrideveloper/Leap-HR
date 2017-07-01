@@ -189,6 +189,7 @@
     <Compile Include="Areas\HRAdmin\ViewModels\LeaveViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\RankViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\StaffLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
