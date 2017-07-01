@@ -171,7 +171,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <!-- The user image in the navbar-->
                                 <i class="fa fa-user"></i>
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">HR Admin</span>
+                                <span class="hidden-xs">Hello, @Convert.ToString(Session["LName"])!</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
@@ -179,7 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <img src="~/template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                        HR Admin
+                                        @Convert.ToString(Session["LName"])
                                         <small>@DateTime.Now.ToLongDateString()</small>
                                         <small>@DateTime.Now.ToLongTimeString()</small>
                                     </p>
