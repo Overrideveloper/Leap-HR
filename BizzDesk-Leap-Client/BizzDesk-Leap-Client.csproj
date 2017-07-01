@@ -166,6 +166,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Employee\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DepartmentController.cs" />
@@ -1208,8 +1209,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Employee\Controllers\" />
     <Folder Include="Areas\Employee\Models\" />
+    <Folder Include="Areas\Employee\Views\Dashboard\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
