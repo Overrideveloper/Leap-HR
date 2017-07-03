@@ -167,10 +167,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Employee\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Employee\Controllers\RequestController.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Areas\Employee\Enums\Status.cs" />
     <Compile Include="Areas\Employee\Models\Request.cs" />
     <Compile Include="Areas\Employee\Models\RequestClient.cs" />
+    <Compile Include="Areas\Employee\ViewModels\RequestViewModel.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\EmployeeController.cs" />
@@ -245,6 +247,7 @@
     <Content Include="Areas\Employee\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Employee\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Employee\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Employee\Views\Request\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
@@ -1214,7 +1217,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Employee\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

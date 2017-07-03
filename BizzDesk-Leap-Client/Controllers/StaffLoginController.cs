@@ -36,8 +36,6 @@ namespace BizzDesk_Leap_Client.Controllers
                 Session["FName"] = usr.FirstName.ToString();
                 Session["LName"] = usr.LastName.ToString();
                 Session["UserID"] = usr.EmployeeID.ToString();
-                Session["Dept"] = usr.Department.Title.ToString();
-                Session["Rank"] = usr.Rank.Title.ToString();
                 return RedirectToAction("Index", "Dashboard", new { Area = "Employee" });
             }
             else
