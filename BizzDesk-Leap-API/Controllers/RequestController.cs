@@ -13,6 +13,7 @@ using BizzDesk_Leap_API.DAL;
 
 namespace BizzDesk_Leap_API.Controllers
 {
+    [RoutePrefix("api/request")]
     public class RequestController : ApiController
     {
         private LeapDB db;
@@ -23,12 +24,14 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // GET api/Request
+        [Route("readall")]
         public IQueryable<Request> GetRequest()
         {
             return db.Request.OrderBy(s => s.RequestDate);
         }
 
         // GET api/Request/5
+        [Route("readbyid")]
         [ResponseType(typeof(Request))]
         public IHttpActionResult GetRequest(int id)
         {
@@ -42,6 +45,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // PUT api/Request/5
+        [Route("update")]
         public IHttpActionResult PutRequest(int id, Request request)
         {
             if (!ModelState.IsValid)
@@ -77,6 +81,7 @@ namespace BizzDesk_Leap_API.Controllers
 
         // POST api/Request
         [ResponseType(typeof(Request))]
+        [Route("create")]
         public IHttpActionResult PostRequest(Request request)
         {
             if (!ModelState.IsValid)
@@ -92,6 +97,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // DELETE api/Request/5
+        [Route("delete")]
         [ResponseType(typeof(Request))]
         public IHttpActionResult DeleteRequest(int id)
         {
