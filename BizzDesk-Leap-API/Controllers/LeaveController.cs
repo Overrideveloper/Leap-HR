@@ -26,8 +26,8 @@ namespace BizzDesk_Leap_API.Controllers
             return db.Leave;
         }
 
-        [Route("readbyid")]
         // GET api/Leave/5
+        [Route("readbyid")]
         [ResponseType(typeof(Leave))]
         public IHttpActionResult GetLeave(int id)
         {
@@ -59,8 +59,8 @@ namespace BizzDesk_Leap_API.Controllers
 
         }
 
-        [Route("update")]
         // PUT api/Leave/5
+        [Route("update")]
         public IHttpActionResult PutLeave(int id, Leave leave)
         {
             if (!ModelState.IsValid)
@@ -94,8 +94,8 @@ namespace BizzDesk_Leap_API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        [Route("create")]
         // POST api/Leave
+        [Route("create")]
         [ResponseType(typeof(Leave))]
         public IHttpActionResult PostLeave(Leave leave)
         {
@@ -110,8 +110,8 @@ namespace BizzDesk_Leap_API.Controllers
             return CreatedAtRoute("DefaultApi", new { id = leave.ID }, leave);
         }
 
-        [Route("delete")]
         // DELETE api/Leave/5
+        [Route("delete")]
         [ResponseType(typeof(Leave))]
         public IHttpActionResult DeleteLeave(int id)
         {
