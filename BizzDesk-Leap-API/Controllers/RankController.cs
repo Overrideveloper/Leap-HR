@@ -25,13 +25,13 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // GET api/Rank
+        [Route("readall")]
         public IQueryable<Rank> GetRank()
         {
             return db.Rank.Include(r => r.Department);
         }
 
         // GET api/rank/search
-
         [HttpGet]
         [Route("search/{searchString}")]
         public HttpResponseMessage SearchRank(string searchString)
@@ -51,7 +51,7 @@ namespace BizzDesk_Leap_API.Controllers
 
         }
 
-        // GET api/Rank/5
+        [Route("readbyid")]
         [ResponseType(typeof(Rank))]
         public IHttpActionResult GetRank(int id)
         {
@@ -64,23 +64,8 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(rank);
         }
 
-        [Route("getdept")]
-        [ResponseType(typeof(Rank))]
-        public IHttpActionResult GetRankByDept(int id)
-        {
-            var rank = from b in db.Rank
-                       where b.DepartmentID.Equals(id)
-                       select b;
-
-            if (rank == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(rank);
-        }
-
         // PUT api/Rank/5
+        [Route("update")]
         public IHttpActionResult PutRank(int id, Rank rank)
         {
             if (!ModelState.IsValid)
@@ -115,6 +100,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // POST api/Rank
+        [Route("create")]
         [ResponseType(typeof(Rank))]
         public IHttpActionResult PostRank(Rank rank)
         {
@@ -130,6 +116,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // DELETE api/Rank/5
+        [Route("delete")]
         [ResponseType(typeof(Rank))]
         public IHttpActionResult DeleteRank(int id)
         {
