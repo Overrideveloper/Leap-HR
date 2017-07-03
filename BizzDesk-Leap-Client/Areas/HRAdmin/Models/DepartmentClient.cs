@@ -22,7 +22,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.GetAsync("department").Result;
+                HttpResponseMessage response = client.GetAsync("department/readall").Result;
 
                 if (response.IsSuccessStatusCode)
                     return response.Content.ReadAsAsync<IEnumerable<Department>>().Result;
@@ -42,7 +42,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.GetAsync("department/" + id).Result;
+                HttpResponseMessage response = client.GetAsync("department/readbyid/" + id).Result;
 
                 if (response.IsSuccessStatusCode)
                     return response.Content.ReadAsAsync<Department>().Result;
@@ -62,7 +62,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.PostAsJsonAsync("department", department).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("department/create", department).Result;
 
                 return response.IsSuccessStatusCode;
             }
@@ -80,7 +80,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.PutAsJsonAsync("department/" + department.ID, department).Result;
+                HttpResponseMessage response = client.PutAsJsonAsync("department/update/" + department.ID, department).Result;
 
                 return response.IsSuccessStatusCode;
             }
@@ -98,7 +98,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.DeleteAsync("department/" + id).Result;
+                HttpResponseMessage response = client.DeleteAsync("department/delete/" + id).Result;
 
                 return response.IsSuccessStatusCode;
             }
