@@ -51,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Logo -->
             <a href="#" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>BD</b></span>
+                <span class="logo-mini"><b>bd</b></span>
                 <!-- logo for regular state and mobile devices -->
                 <div class="logo-lg">
                     <img src="~/images/bd.png" width="80" height="24" alt="User Image">
@@ -179,9 +179,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <img src="~/template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                        @Convert.ToString(Session["LName"])
+                                        @Convert.ToString(Session["LName"]) @Convert.ToString(Session["FName"])
                                         <small>@DateTime.Now.ToLongDateString()</small>
-                                        <small>@DateTime.Now.ToLongTimeString()</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->

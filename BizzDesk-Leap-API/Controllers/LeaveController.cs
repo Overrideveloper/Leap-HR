@@ -20,11 +20,13 @@ namespace BizzDesk_Leap_API.Controllers
         private LeapDB db = new LeapDB();
 
         // GET api/Leave
+        [Route("readall")]
         public IQueryable<Leave> GetLeave()
         {
             return db.Leave;
         }
 
+        [Route("readbyid")]
         // GET api/Leave/5
         [ResponseType(typeof(Leave))]
         public IHttpActionResult GetLeave(int id)
@@ -57,6 +59,7 @@ namespace BizzDesk_Leap_API.Controllers
 
         }
 
+        [Route("update")]
         // PUT api/Leave/5
         public IHttpActionResult PutLeave(int id, Leave leave)
         {
@@ -91,6 +94,7 @@ namespace BizzDesk_Leap_API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        [Route("create")]
         // POST api/Leave
         [ResponseType(typeof(Leave))]
         public IHttpActionResult PostLeave(Leave leave)
@@ -106,6 +110,7 @@ namespace BizzDesk_Leap_API.Controllers
             return CreatedAtRoute("DefaultApi", new { id = leave.ID }, leave);
         }
 
+        [Route("delete")]
         // DELETE api/Leave/5
         [ResponseType(typeof(Leave))]
         public IHttpActionResult DeleteLeave(int id)
