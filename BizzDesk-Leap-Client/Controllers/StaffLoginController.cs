@@ -11,12 +11,10 @@ namespace BizzDesk_Leap_Client.Controllers
 {
     public class StaffLoginController : Controller
     {
-        StaffLoginClient slc;
         EmployeeClient ec;
         public StaffLoginController()
         {
             ec = new EmployeeClient();
-            slc = new StaffLoginClient();
         }
 
         [AllowAnonymous]
