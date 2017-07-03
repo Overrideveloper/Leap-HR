@@ -25,6 +25,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // GET api/Department
+        [Route("readall")]
         public IQueryable<Department> GetDepartment()
         {
             return db.Department;
@@ -50,6 +51,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // GET api/Department/5
+        [Route("readbyid")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetDepartment(int id)
         {
@@ -63,6 +65,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // PUT api/Department/5
+        [Route("update")]
         public IHttpActionResult PutDepartment(int id, Department department)
         {
             if (!ModelState.IsValid)
@@ -97,6 +100,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // POST api/Department
+        [Route("create")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult PostDepartment(Department department)
         {
@@ -112,6 +116,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // DELETE api/Department/5
+        [Route("delete")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult DeleteDepartment(int id)
         {
