@@ -1,0 +1,78 @@
+﻿@model BizzDesk_Leap_Client.Areas.Employee.ViewModels.RequestViewModel
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title"><b>Request a Leave</b></h4>
+</div>
+
+@using (Html.BeginForm("Create", "Request", new { Area = "Employee" }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Request.EmployeeID)
+    @Html.HiddenFor(model => model.Request.RequestDate)
+    @Html.HiddenFor(model => model.Request.Status)
+
+    <div class="modal-body">
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <label for="leaves" class="control-label col-sm-3"> Leave </label>
+                <div class="col-sm-9">
+                    @Html.DropDownListFor(model => model.Request.LeaveID, (IEnumerable<SelectListItem>)ViewBag.Leaves, string.Empty, new { @class = "form-control border-input", @id = "leaves" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Request.LeaveID)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="start">Start Date</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => Model.Request.StartDate, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "start", @type = "datetime" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Request.StartDate)
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="end">End Date</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => Model.Request.EndDate, "{0:dd/MMM/yyyy}", new { @class = "form-control required", @id = "end", @type = "datetime" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Request.EndDate)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+
+        <span id="progress" class="text-center" style="display:none">
+            <strong>Processing..</strong>
+        </span>
+
+        <input type="submit" class="btn btn-outline" value="Save" />
+    </div>
+}
+
+<script>
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+</script>
+
+<script>
+    $(function () {
+        $('input[type=datetime]').datepicker({
+            dateFormat: "dd/M/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1960:2020"
+        });
+    });
+</script>

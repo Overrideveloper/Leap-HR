@@ -7,18 +7,19 @@ using System.Web.Mvc;
 using PagedList;
 using BizzDesk_Leap_Client.Areas.Employee.ViewModels;
 using BizzDesk_Leap_Client.Controllers;
+using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 
 namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
 {
     public class RequestController : BaseController
     {
         RequestClient rc;
-        RequestViewModel rvm;
+        LeaveClient lc;
 
         public RequestController()
         {
             rc = new RequestClient();
-            rvm = new RequestViewModel();
+            lc = new LeaveClient();
         }
 
         // GET: /Employee/Request/
@@ -31,6 +32,28 @@ namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var rvm = new RequestViewModel();
+            ViewBag.Leaves = new SelectList(lc.findAll(), "ID", "Title");
+            return PartialView("Create", rvm);
+        }
 
+        [HttpPost]
+        public ActionResult Create(RequestViewModel rvm)
+        {
+            if (ModelState.IsValid)
+            {
+                rvm.Request.EmployeeID = Convert.ToInt32(Session["ID"]);
+                rvm.Request.RequestDate = DateTime.Now;
+                rvm.Request.Status = Enums.Status.Pending;
+                rc.Create(rvm.Request);
+                return Json(new { success = true });
+            }
+
+            ViewBag.Leaves = new SelectList(lc.findAll(), "ID", "Title", rvm.Request.LeaveID);
+            return PartialView("Create", rvm);
+        }
 	}
 }

@@ -248,6 +248,7 @@
     <Content Include="Areas\Employee\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Employee\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Employee\Views\Request\Index.cshtml" />
+    <Content Include="Areas\Employee\Views\Request\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />

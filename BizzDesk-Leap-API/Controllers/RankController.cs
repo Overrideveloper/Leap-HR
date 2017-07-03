@@ -51,7 +51,6 @@ namespace BizzDesk_Leap_API.Controllers
 
         }
 
-        [Route("readbyid")]
         [ResponseType(typeof(Rank))]
         public IHttpActionResult GetRank(int id)
         {
@@ -65,7 +64,6 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // PUT api/Rank/5
-        [Route("update")]
         public IHttpActionResult PutRank(int id, Rank rank)
         {
             if (!ModelState.IsValid)
@@ -116,7 +114,6 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // DELETE api/Rank/5
-        [Route("delete")]
         [ResponseType(typeof(Rank))]
         public IHttpActionResult DeleteRank(int id)
         {

@@ -27,7 +27,6 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // GET api/Leave/5
-        [Route("readbyid")]
         [ResponseType(typeof(Leave))]
         public IHttpActionResult GetLeave(int id)
         {
@@ -60,7 +59,6 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // PUT api/Leave/5
-        [Route("update")]
         public IHttpActionResult PutLeave(int id, Leave leave)
         {
             if (!ModelState.IsValid)
@@ -111,7 +109,6 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // DELETE api/Leave/5
-        [Route("delete")]
         [ResponseType(typeof(Leave))]
         public IHttpActionResult DeleteLeave(int id)
         {

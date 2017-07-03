@@ -31,7 +31,6 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // GET api/Request/5
-        [Route("readbyid")]
         [ResponseType(typeof(Request))]
         public IHttpActionResult GetRequest(int id)
         {
@@ -45,7 +44,6 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // PUT api/Request/5
-        [Route("update")]
         public IHttpActionResult PutRequest(int id, Request request)
         {
             if (!ModelState.IsValid)
@@ -89,7 +87,6 @@ namespace BizzDesk_Leap_API.Controllers
                 return BadRequest(ModelState);
             }
 
-            request.RequestDate = DateTime.Now;
             db.Request.Add(request);
             db.SaveChanges();
 
@@ -97,7 +94,6 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // DELETE api/Request/5
-        [Route("delete")]
         [ResponseType(typeof(Request))]
         public IHttpActionResult DeleteRequest(int id)
         {

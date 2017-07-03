@@ -31,7 +31,6 @@ namespace BizzDesk_Leap_API.Controllers
             return db.Employee.Include(p => p.Department).Include(p => p.Rank);
         }
 
-        [Route("readbyid")]
         // GET api/Employee/5
         [ResponseType(typeof(Employee))]
         public IHttpActionResult GetEmployee(int id)
@@ -45,7 +44,6 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(employee);
         }
 
-        [Route("update")]
         // PUT api/Employee/5
         public IHttpActionResult PutEmployee(int id, Employee employee)
         {
@@ -96,7 +94,6 @@ namespace BizzDesk_Leap_API.Controllers
             return CreatedAtRoute("DefaultApi", new { id = employee.ID }, employee);
         }
 
-        [Route("delete")]
         // DELETE api/Employee/5
         [ResponseType(typeof(Employee))]
         public IHttpActionResult DeleteEmployee(int id)
