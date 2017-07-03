@@ -21,7 +21,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.GetAsync("rank").Result;
+                HttpResponseMessage response = client.GetAsync("rank/readall").Result;
 
                 if (response.IsSuccessStatusCode)
                     return response.Content.ReadAsAsync<IEnumerable<Rank>>().Result;
@@ -41,7 +41,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.GetAsync("rank/" + id).Result;
+                HttpResponseMessage response = client.GetAsync("rank/readbyid/" + id).Result;
 
                 if (response.IsSuccessStatusCode)
                     return response.Content.ReadAsAsync<Rank>().Result;
@@ -61,7 +61,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.PostAsJsonAsync("rank", rank).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("rank/create", rank).Result;
 
                 return response.IsSuccessStatusCode;
             }
@@ -79,7 +79,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.PutAsJsonAsync("rank/" + rank.ID, rank).Result;
+                HttpResponseMessage response = client.PutAsJsonAsync("rank/update/" + rank.ID, rank).Result;
 
                 return response.IsSuccessStatusCode;
             }
@@ -97,7 +97,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.DeleteAsync("rank/" + id).Result;
+                HttpResponseMessage response = client.DeleteAsync("rank/delete/" + id).Result;
 
                 return response.IsSuccessStatusCode;
             }
@@ -118,26 +118,6 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 HttpResponseMessage result = client.GetAsync(string.Format("rank/search/{0}", searchString)).Result;
 
                 return result.Content.ReadAsAsync<List<Rank>>();
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        public Rank findByDept(int id)
-        {
-            try
-            {
-                HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri(BASE_URL);
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.GetAsync("rank/getdept" + id).Result;
-
-                if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<Rank>().Result;
-                return null;
             }
             catch
             {
