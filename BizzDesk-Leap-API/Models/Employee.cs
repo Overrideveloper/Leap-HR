@@ -55,16 +55,10 @@ namespace BizzDesk_Leap_API.Models
 
         [Required]
         public int DepartmentID { get; set; }
-
         public virtual Department Department { get; set; }
 
         [Required]
         public int RankID { get; set; }
-
         public virtual Rank Rank { get; set; }
-
-        public virtual ICollection<Request> Request { get; set; }
-
-
     }
 }

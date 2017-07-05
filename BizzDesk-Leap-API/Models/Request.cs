@@ -21,15 +21,13 @@ namespace BizzDesk_Leap_API.Models
         public DateTime EndDate { get; set; }
 
         [Required]
-        public DateTime RequestDate { get; set; } 
+        public DateTime RequestDate { get; set; }
 
         public Status Status { get; set; }
 
         //Entity Relationships
-        
         [ForeignKey("Employee")]
         public int EmployeeId { get; set; }
-
         public virtual Employee Employee { get; set; }
 
         [Required]
