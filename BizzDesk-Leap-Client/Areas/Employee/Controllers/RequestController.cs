@@ -8,6 +8,7 @@ using PagedList;
 using BizzDesk_Leap_Client.Areas.Employee.ViewModels;
 using BizzDesk_Leap_Client.Controllers;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
+using System.Net.Http;
 
 namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
 {
@@ -15,11 +16,13 @@ namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
     {
         RequestClient rc;
         LeaveClient lc;
+        RequestViewModel rvm;
 
         public RequestController()
         {
             rc = new RequestClient();
             lc = new LeaveClient();
+            rvm = new RequestViewModel();
         }
 
         // GET: /Employee/Request/
@@ -28,30 +31,27 @@ namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
             var id = Convert.ToInt32(Session["ID"]);
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            ViewBag.RequestsList = rc.findAll().Where(s => s.EmployeeID == id).ToPagedList(pageNumber, pageSize);
+            ViewBag.RequestsList = rc.findAll().ToPagedList(pageNumber, pageSize);
             return View();
         }
 
         [HttpGet]
         public ActionResult Create()
         {
-            var rvm = new RequestViewModel();
             ViewBag.Leaves = new SelectList(lc.findAll(), "ID", "Title");
+            var rvm = new RequestViewModel();
             return PartialView("Create", rvm);
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(RequestViewModel rvm)
         {
             if (ModelState.IsValid)
             {
-                rvm.Request.EmployeeID = Convert.ToInt32(Session["ID"]);
-                rvm.Request.RequestDate = DateTime.Now;
-                rvm.Request.Status = Enums.Status.Pending;
                 rc.Create(rvm.Request);
                 return Json(new { success = true });
             }
-
             ViewBag.Leaves = new SelectList(lc.findAll(), "ID", "Title", rvm.Request.LeaveID);
             return PartialView("Create", rvm);
         }
