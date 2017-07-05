@@ -56,9 +56,7 @@
                             <th>End Date</th>
                             <th>Status</th>
                         </tr>
-                        @if (ViewBag.RequestsList != null)
-                        {
-                            foreach (var request in ViewBag.RequestsList)
+                            @foreach (var request in ViewBag.RequestsList)
                             {
                                 <tr>
                                     <td></td>
@@ -71,7 +69,6 @@
                                     <td>@request.Status</td>
                                 </tr>
                             }
-                        }
                     </table>
                     <div style="padding-left: 15px">
                         @Html.PagedListPager((IPagedList)ViewBag.RequestsList, page => Url.Action("Index", "Request", new { Area = "Employee", page }))

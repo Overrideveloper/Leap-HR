@@ -27,7 +27,7 @@ namespace BizzDesk_Leap_API.Controllers
         [Route("readall")]
         public IQueryable<Request> GetRequest()
         {
-            return db.Request.OrderBy(s => s.RequestDate);
+            return db.Request;
         }
 
         // GET api/Request/5
