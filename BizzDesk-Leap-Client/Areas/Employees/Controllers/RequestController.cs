@@ -32,7 +32,7 @@ namespace BizzDesk_Leap_Client.Areas.Employees.Controllers
             var id = Convert.ToInt32(Session["ID"]);
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            ViewBag.Requests = rc.findAll().Where.ToPagedList(pageNumber, pageSize);
+            ViewBag.Requests = rc.findAll().ToPagedList(pageNumber, pageSize);
             return View();
         }
 

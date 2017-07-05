@@ -52,7 +52,7 @@ namespace BizzDesk_Leap_API.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != employee.ID)
+            if (id != employee.StaffID)
             {
                 return BadRequest();
             }
@@ -91,7 +91,7 @@ namespace BizzDesk_Leap_API.Controllers
             db.Employee.Add(employee);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = employee.ID }, employee);
+            return CreatedAtRoute("DefaultApi", new { id = employee.StaffID }, employee);
         }
 
         // DELETE api/Employee/5
@@ -140,7 +140,7 @@ namespace BizzDesk_Leap_API.Controllers
 
         private bool EmployeeExists(int id)
         {
-            return db.Employee.Count(e => e.ID == id) > 0;
+            return db.Employee.Count(e => e.StaffID == id) > 0;
         }
     }
 }

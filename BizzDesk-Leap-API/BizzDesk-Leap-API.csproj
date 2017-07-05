@@ -190,41 +190,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706101147235_Refresh.cs" />
-    <Compile Include="Migrations\201706101147235_Refresh.Designer.cs">
-      <DependentUpon>201706101147235_Refresh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706101201056_ModifiedEmployee.cs" />
-    <Compile Include="Migrations\201706101201056_ModifiedEmployee.Designer.cs">
-      <DependentUpon>201706101201056_ModifiedEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706121203532_EditEmployee.cs" />
-    <Compile Include="Migrations\201706121203532_EditEmployee.Designer.cs">
-      <DependentUpon>201706121203532_EditEmployee.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706121618247_EditEmployee2.cs" />
-    <Compile Include="Migrations\201706121618247_EditEmployee2.Designer.cs">
-      <DependentUpon>201706121618247_EditEmployee2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706141137502_Stuff.cs" />
-    <Compile Include="Migrations\201706141137502_Stuff.Designer.cs">
-      <DependentUpon>201706141137502_Stuff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706141337145_AddedGender.cs" />
-    <Compile Include="Migrations\201706141337145_AddedGender.Designer.cs">
-      <DependentUpon>201706141337145_AddedGender.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706141350186_UpdatedGender.cs" />
-    <Compile Include="Migrations\201706141350186_UpdatedGender.Designer.cs">
-      <DependentUpon>201706141350186_UpdatedGender.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706201425595_Leave.cs" />
-    <Compile Include="Migrations\201706201425595_Leave.Designer.cs">
-      <DependentUpon>201706201425595_Leave.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707051525599_migration13.cs" />
-    <Compile Include="Migrations\201707051525599_migration13.Designer.cs">
-      <DependentUpon>201707051525599_migration13.cs</DependentUpon>
+    <Compile Include="Migrations\201707051606552_migration1.cs" />
+    <Compile Include="Migrations\201707051606552_migration1.Designer.cs">
+      <DependentUpon>201707051606552_migration1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Department.cs" />
@@ -279,32 +247,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706101147235_Refresh.resx">
-      <DependentUpon>201706101147235_Refresh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706101201056_ModifiedEmployee.resx">
-      <DependentUpon>201706101201056_ModifiedEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706121203532_EditEmployee.resx">
-      <DependentUpon>201706121203532_EditEmployee.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706121618247_EditEmployee2.resx">
-      <DependentUpon>201706121618247_EditEmployee2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706141137502_Stuff.resx">
-      <DependentUpon>201706141137502_Stuff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706141337145_AddedGender.resx">
-      <DependentUpon>201706141337145_AddedGender.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706141350186_UpdatedGender.resx">
-      <DependentUpon>201706141350186_UpdatedGender.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706201425595_Leave.resx">
-      <DependentUpon>201706201425595_Leave.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707051525599_migration13.resx">
-      <DependentUpon>201707051525599_migration13.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707051606552_migration1.resx">
+      <DependentUpon>201707051606552_migration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

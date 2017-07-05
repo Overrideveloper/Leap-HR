@@ -1,5 +1,5 @@
-﻿@model BizzDesk_Leap_Client.Areas.Employee.ViewModels.RequestViewModel
-@using BizzDesk_Leap_Client.Areas.Employee.Enums
+﻿@model BizzDesk_Leap_Client.Areas.Employees.ViewModels.RequestViewModel
+@using BizzDesk_Leap_Client.Areas.Employees.Enums
 
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -8,11 +8,11 @@
     <h4 class="modal-title"><b>Request a Leave</b></h4>
 </div>
 
-@using (Html.BeginForm("Create", "Request", new { Area = "Employee" }, FormMethod.Post))
+@using (Html.BeginForm("Create", "Request", new { Area = "Employees" }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
-    @Html.Hidden("Request.EmployeeID", Convert.ToInt32(Session["ID"]))
+    @Html.Hidden("Request.EmployeeId", Convert.ToInt32(Session["ID"]))
     @Html.Hidden("Request.Status", Status.Pending)
     @Html.Hidden("Request.RequestDate", DateTime.Now)
     

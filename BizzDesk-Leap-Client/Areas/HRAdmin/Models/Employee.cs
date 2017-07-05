@@ -10,8 +10,8 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 {
     public class Employee
     {
-        [Required]
-        public int ID { get; set; }
+        [Key]
+        public int StaffID { get; set; }
 
         [Required(ErrorMessage = "Employee ID is required")]
         [StringLength(12)]
