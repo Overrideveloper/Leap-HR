@@ -63,6 +63,6 @@ namespace BizzDesk_Leap_API.Models
 
         public virtual Rank Rank { get; set; }
 
-        public IEnumerable<Request> Request { get; set; }
+        public ICollection<Request> Request { get; set; }
     }
 }

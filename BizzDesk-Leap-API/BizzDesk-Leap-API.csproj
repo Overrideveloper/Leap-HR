@@ -182,7 +182,6 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\LeaveController.cs" />
     <Compile Include="Controllers\RankController.cs" />
-    <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="DAL\DBInitializer.cs" />
     <Compile Include="DAL\LeapDB.cs" />
     <Compile Include="Enums\Gender.cs" />

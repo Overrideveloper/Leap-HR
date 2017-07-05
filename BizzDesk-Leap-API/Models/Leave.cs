@@ -18,5 +18,7 @@ namespace BizzDesk_Leap_API.Models
 
         [Required]
         public LeaveType LeaveType { get; set; }
+
+        public virtual ICollection<Request> Request { get; set; }
     }
 }
