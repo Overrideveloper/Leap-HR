@@ -13,11 +13,13 @@ using BizzDesk_Leap_API.DAL;
 
 namespace BizzDesk_Leap_API.Controllers
 {
+    [RoutePrefix("api/request")]
     public class RequestController : ApiController
     {
         private LeapDB db = new LeapDB();
 
         // GET api/Request
+        [Route("readall")]
         public IQueryable<Request> GetRequest()
         {
             return db.Request;
@@ -71,6 +73,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // POST api/Request
+        [Route("create")]
         [ResponseType(typeof(Request))]
         public IHttpActionResult PostRequest(Request request)
         {
