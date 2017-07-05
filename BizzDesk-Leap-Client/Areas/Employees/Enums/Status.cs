@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace BizzDesk_Leap_Client.Areas.Employee.Enums
+namespace BizzDesk_Leap_Client.Areas.Employees.Enums
 {
     public enum Status
     {

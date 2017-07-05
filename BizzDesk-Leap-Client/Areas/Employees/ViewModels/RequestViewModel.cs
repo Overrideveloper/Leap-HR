@@ -1,11 +1,11 @@
-﻿using BizzDesk_Leap_Client.Areas.Employee.Enums;
-using BizzDesk_Leap_Client.Areas.Employee.Models;
+﻿using BizzDesk_Leap_Client.Areas.Employees.Enums;
+using BizzDesk_Leap_Client.Areas.Employees.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BizzDesk_Leap_Client.Areas.Employee.ViewModels
+namespace BizzDesk_Leap_Client.Areas.Employees.ViewModels
 {
     public class RequestViewModel
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
+namespace BizzDesk_Leap_Client.Areas.Employees.Controllers
 {
     public class DashboardController : BaseController
     {

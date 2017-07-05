@@ -1,22 +1,23 @@
-﻿using BizzDesk_Leap_Client.Areas.Employee.Models;
+﻿using BizzDesk_Leap_Client.Areas.Employees.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
-using BizzDesk_Leap_Client.Areas.Employee.ViewModels;
+using BizzDesk_Leap_Client.Areas.Employees.ViewModels;
 using BizzDesk_Leap_Client.Controllers;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
+namespace BizzDesk_Leap_Client.Areas.Employees.Controllers
 {
     public class RequestController : BaseController
     {
         LeaveClient lc;
         RequestViewModel rvm;
+        RequestClient rc;
 
         public RequestController()
         {
@@ -31,6 +32,7 @@ namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
             var id = Convert.ToInt32(Session["ID"]);
             int pageSize = 10;
             int pageNumber = (page ?? 1);
+            ViewBag.Requests = rc.findAll().ToPagedList(pageNumber, pageSize);
             return View();
         }
 

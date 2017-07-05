@@ -160,13 +160,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Areas\Employee\Controllers\DashboardController.cs" />
-    <Compile Include="Areas\Employee\Controllers\RequestController.cs" />
-    <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
-    <Compile Include="Areas\Employee\Enums\Status.cs" />
-    <Compile Include="Areas\Employee\Models\Request.cs" />
-    <Compile Include="Areas\Employee\Models\RequestClient.cs" />
-    <Compile Include="Areas\Employee\ViewModels\RequestViewModel.cs" />
+    <Compile Include="Areas\Employees\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Employees\Controllers\RequestController.cs" />
+    <Compile Include="Areas\Employees\EmployeeAreaRegistration.cs" />
+    <Compile Include="Areas\Employees\Enums\Status.cs" />
+    <Compile Include="Areas\Employees\Models\Request.cs" />
+    <Compile Include="Areas\Employees\Models\RequestClient.cs" />
+    <Compile Include="Areas\Employees\ViewModels\RequestViewModel.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\EmployeeController.cs" />
@@ -190,15 +190,12 @@
     <Compile Include="Areas\HRAdmin\ViewModels\EmployeeViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\LeaveViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\RankViewModel.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\StaffLoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumRadioButton.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -237,12 +234,12 @@
     <Content Include="Areas\HRAdmin\Views\Leave\Edit.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Leave\Search.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\Employee\Views\web.config" />
-    <Content Include="Areas\Employee\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Employee\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Employee\Views\Dashboard\Index.cshtml" />
-    <Content Include="Areas\Employee\Views\Request\Index.cshtml" />
-    <Content Include="Areas\Employee\Views\Request\Create.cshtml" />
+    <Content Include="Areas\Employees\Views\web.config" />
+    <Content Include="Areas\Employees\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Employees\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Employees\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Employees\Views\Request\Index.cshtml" />
+    <Content Include="Areas\Employees\Views\Request\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
@@ -1212,6 +1209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

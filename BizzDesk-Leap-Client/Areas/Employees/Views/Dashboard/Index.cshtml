@@ -5,8 +5,8 @@
 }
 
 @section menu{
-    <li class="active"><a href="@Url.Action("Index", "Dashboard", new { Area = "Employee"})"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-    <li><a href="@Url.Action("Index", "Request", new { Area = "Employee"})"><i class="fa fa-paper-plane"></i> <span>Leave Requests</span></a></li>
+    <li class="active"><a href="@Url.Action("Index", "Dashboard", new { Area = "Employees"})"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    <li><a href="@Url.Action("Index", "Request", new { Area = "Employees"})"><i class="fa fa-paper-plane"></i> <span>Leave Requests</span></a></li>
 }
 
 <section class="content-header">
@@ -20,7 +20,7 @@
             </a>
         </li>
         <li class="active">
-            <a href="@Url.Action("Index", "Dashboard", new { Area = "Employee"})">
+            <a href="@Url.Action("Index", "Dashboard", new { Area = "Employees"})">
                 <i class="fa fa-dashboard"></i>
                 Dashboard
             </a>

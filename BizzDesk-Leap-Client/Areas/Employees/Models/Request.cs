@@ -1,4 +1,4 @@
-﻿using BizzDesk_Leap_Client.Areas.Employee.Enums;
+﻿using BizzDesk_Leap_Client.Areas.Employees.Enums;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace BizzDesk_Leap_Client.Areas.Employee.Models
+namespace BizzDesk_Leap_Client.Areas.Employees.Models
 {
     public class Request
     {
@@ -30,7 +30,7 @@ namespace BizzDesk_Leap_Client.Areas.Employee.Models
         [ForeignKey("Employee")]
         public int EmployeeID { get; set; }
 
-        public virtual BizzDesk_Leap_Client.Areas.HRAdmin.Models.Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; }
 
         [Required]
         public int LeaveID { get; set; }

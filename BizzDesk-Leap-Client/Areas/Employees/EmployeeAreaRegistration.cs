@@ -1,22 +1,22 @@
 ﻿using System.Web.Mvc;
 
-namespace BizzDesk_Leap_Client.Areas.Employee
+namespace BizzDesk_Leap_Client.Areas.Employees
 {
-    public class EmployeeAreaRegistration : AreaRegistration 
+    public class EmployeesAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
         {
             get 
             {
-                return "Employee";
+                return "Employees";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(
-                "Employee_default",
-                "Employee/{controller}/{action}/{id}",
+                "Employees_default",
+                "Employees/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
         }

@@ -1,6 +1,5 @@
 ﻿using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 using BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels;
-using BizzDesk_Leap_Client.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +35,7 @@ namespace BizzDesk_Leap_Client.Controllers
                 Session["FName"] = usr.FirstName.ToString();
                 Session["LName"] = usr.LastName.ToString();
                 Session["UserID"] = usr.EmployeeID.ToString();
-                return RedirectToAction("Index", "Dashboard", new { Area = "Employee" });
+                return RedirectToAction("Index", "Dashboard", new { Area = "Employees" });
             }
             else
             {

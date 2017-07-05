@@ -26,9 +26,9 @@ namespace BizzDesk_Leap_API.Models
         public Status Status { get; set; }
 
         //Entity Relationships
-
+        
         [ForeignKey("Employee")]
-        public int EmployeeID { get; set; }
+        public int EmployeeId { get; set; }
 
         public virtual Employee Employee { get; set; }
 
