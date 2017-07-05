@@ -165,6 +165,7 @@
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Areas\Employee\Enums\Status.cs" />
     <Compile Include="Areas\Employee\Models\Request.cs" />
+    <Compile Include="Areas\Employee\Models\RequestClient.cs" />
     <Compile Include="Areas\Employee\ViewModels\RequestViewModel.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\DepartmentController.cs" />
