@@ -11,8 +11,8 @@ namespace BizzDesk_Leap_API.Migrations
                 "dbo.Employee",
                 c => new
                     {
-                        StaffID = c.Int(nullable: false, identity: true),
-                        EmployeeID = c.String(nullable: false, maxLength: 12, storeType: "nvarchar"),
+                        ID = c.Int(nullable: false, identity: true),
+                        EmployeeNumber = c.String(nullable: false, maxLength: 12, storeType: "nvarchar"),
                         FirstName = c.String(nullable: false, unicode: false),
                         MiddleName = c.String(unicode: false),
                         LastName = c.String(nullable: false, unicode: false),
@@ -25,13 +25,13 @@ namespace BizzDesk_Leap_API.Migrations
                         DepartmentID = c.Int(nullable: false),
                         RankID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.StaffID)
+                .PrimaryKey(t => t.ID)
                 .ForeignKey("dbo.Department", t => t.DepartmentID, cascadeDelete: true)
                 .ForeignKey("dbo.Rank", t => t.RankID, cascadeDelete: true)
-                .Index(t => t.EmployeeID, unique: true)
+                .Index(t => t.EmployeeNumber, unique: true)
                 .Index(t => t.DepartmentID)
                 .Index(t => t.RankID);
-
+         
             CreateTable(
                 "dbo.Request",
                 c => new
@@ -41,13 +41,13 @@ namespace BizzDesk_Leap_API.Migrations
                         EndDate = c.DateTime(nullable: false, precision: 0),
                         RequestDate = c.DateTime(nullable: false, precision: 0),
                         Status = c.Int(nullable: false),
-                        StaffID = c.Int(nullable: false),
+                        EmployeeID = c.Int(nullable: false),
                         LeaveID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Employee", t => t.StaffID, cascadeDelete: true)
+                .ForeignKey("dbo.Employee", t => t.EmployeeID, cascadeDelete: true)
                 .ForeignKey("dbo.Leave", t => t.LeaveID, cascadeDelete: true)
-                .Index(t => t.StaffID)
+                .Index(t => t.EmployeeID)
                 .Index(t => t.LeaveID);
             
         }
@@ -55,14 +55,14 @@ namespace BizzDesk_Leap_API.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Request", "LeaveID", "dbo.Leave");
-            DropForeignKey("dbo.Request", "StaffID", "dbo.Employee");
+            DropForeignKey("dbo.Request", "EmployeeID", "dbo.Employee");
             DropForeignKey("dbo.Employee", "RankID", "dbo.Rank");
             DropForeignKey("dbo.Employee", "DepartmentID", "dbo.Department");
             DropIndex("dbo.Request", new[] { "LeaveID" });
-            DropIndex("dbo.Request", new[] { "StaffID" });
+            DropIndex("dbo.Request", new[] { "EmployeeID" });
             DropIndex("dbo.Employee", new[] { "RankID" });
             DropIndex("dbo.Employee", new[] { "DepartmentID" });
-            DropIndex("dbo.Employee", new[] { "EmployeeID" });
+            DropIndex("dbo.Employee", new[] { "EmployeeNumber" });
             DropTable("dbo.Request");
             DropTable("dbo.Employee");
         }

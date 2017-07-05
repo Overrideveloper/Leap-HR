@@ -31,7 +31,7 @@ namespace BizzDesk_Leap_Client.Controllers
 
             if (usr != null)
             {
-                Session["ID"] = Convert.ToInt32(usr.ID);
+                Session["ID"] = Convert.ToInt32(usr.StaffID);
                 Session["FName"] = usr.FirstName.ToString();
                 Session["LName"] = usr.LastName.ToString();
                 Session["UserID"] = usr.EmployeeID.ToString();

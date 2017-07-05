@@ -12,12 +12,12 @@ namespace BizzDesk_Leap_API.Models
     public partial class Employee
     {
         [Key]
-        public int StaffID { get; set; }
+        public int ID { get; set; }
 
         [Required]
         [Index(IsUnique = true)]
         [StringLength(12)]
-        public string EmployeeID { get; set; }
+        public string EmployeeNumber { get; set; }
 
         [Required]
         public string FirstName { get; set; }

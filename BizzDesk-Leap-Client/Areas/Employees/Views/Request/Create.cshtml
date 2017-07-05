@@ -12,7 +12,7 @@
 {
     @Html.AntiForgeryToken()
     
-    @Html.Hidden("Request.EmployeeId", Convert.ToInt32(Session["ID"]))
+    @Html.Hidden("Request.StaffID", Convert.ToInt32(Session["ID"]))
     @Html.Hidden("Request.Status", Status.Pending)
     @Html.Hidden("Request.RequestDate", DateTime.Now)
     

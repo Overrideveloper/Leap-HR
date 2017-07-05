@@ -11,7 +11,7 @@
 @using (Html.BeginForm("Edit", "Employee", new { Area = "HRAdmin" }, FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.Employee.ID)
+    @Html.HiddenFor(model => model.Employee.StaffID)
 
     <div class="modal-body">
         <div class="form-group row">

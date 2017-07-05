@@ -13,7 +13,7 @@ namespace BizzDesk_Leap_API.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201707051606552_migration1"; }
+            get { return "201707051633597_migration1"; }
         }
         
         string IMigrationMetadata.Source
