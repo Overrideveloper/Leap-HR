@@ -19,11 +19,12 @@ namespace BizzDesk_Leap_Client.Areas.Employee.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.GetAsync("request/readall").Result;
+                HttpResponseMessage response = client.GetAsync("request").Result;
+                return response.Content.ReadAsAsync<IEnumerable<Request>>().Result;
 
-                if (response.IsSuccessStatusCode)
-                    return response.Content.ReadAsAsync<IEnumerable<Request>>().Result;
-                return null;
+                //if (response.IsSuccessStatusCode)
+                    
+                //return null;
             }
             catch
             {

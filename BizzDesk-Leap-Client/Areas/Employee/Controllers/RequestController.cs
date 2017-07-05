@@ -9,12 +9,12 @@ using BizzDesk_Leap_Client.Areas.Employee.ViewModels;
 using BizzDesk_Leap_Client.Controllers;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
 {
     public class RequestController : BaseController
     {
-        RequestClient rc;
         LeaveClient lc;
         RequestViewModel rvm;
 
@@ -31,7 +31,6 @@ namespace BizzDesk_Leap_Client.Areas.Employee.Controllers
             var id = Convert.ToInt32(Session["ID"]);
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            ViewBag.RequestsList = rc.findAll().ToPagedList(pageNumber, pageSize);
             return View();
         }
 
