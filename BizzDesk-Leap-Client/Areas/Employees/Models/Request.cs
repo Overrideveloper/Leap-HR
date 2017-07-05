@@ -28,7 +28,7 @@ namespace BizzDesk_Leap_Client.Areas.Employees.Models
         //Entity Relationships
 
         [ForeignKey("Employee")]
-        public int EmployeeID { get; set; }
+        public int EmployeeId { get; set; }
 
         public virtual Employee Employee { get; set; }
 

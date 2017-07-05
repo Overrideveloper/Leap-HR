@@ -19,7 +19,7 @@ namespace BizzDesk_Leap_Client.Areas.Employees.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.GetAsync("request").Result;
+                HttpResponseMessage response = client.GetAsync("request/readall").Result;
 
                 if (response.IsSuccessStatusCode)
                     return response.Content.ReadAsAsync<IEnumerable<Request>>().Result;
@@ -39,7 +39,7 @@ namespace BizzDesk_Leap_Client.Areas.Employees.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.PostAsJsonAsync("request", request).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("request/create", request).Result;
 
                 return response.IsSuccessStatusCode;
             }
