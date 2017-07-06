@@ -27,8 +27,8 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            ViewBag.count = rc.findAll().Where(s => s.Status == Status.Pending && s.EndDate > DateTime.Now).ToArray().Length;
-            ViewBag.Requests = rc.findAll().ToPagedList(pageNumber, pageSize);
+            Session["count"] = rc.findAll().Where(s => s.Status == Status.Pending && s.EndDate > DateTime.Now).ToArray().Length;
+            ViewBag.Requests = rc.findAll().OrderByDescending(s => s.RequestDate).ToPagedList(pageNumber, pageSize);
             return View();
         }
 
