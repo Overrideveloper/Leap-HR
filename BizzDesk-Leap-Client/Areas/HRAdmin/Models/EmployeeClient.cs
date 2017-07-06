@@ -79,7 +79,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.BaseAddress = new Uri(BASE_URL);
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = client.PutAsJsonAsync("employee/" + employee.StaffID, employee).Result;
+                HttpResponseMessage response = client.PutAsJsonAsync("employee/" + employee.ID, employee).Result;
 
                 return response.IsSuccessStatusCode;
             }

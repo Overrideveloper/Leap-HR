@@ -44,7 +44,7 @@
                 @Html.AntiForgeryToken()
                 
                 <div class="form-group has-feedback">
-                    @Html.TextBoxFor(model => model.Employee.EmployeeID, new { @class = "form-control required", @type="password", @placeholder = "Employee ID"})    
+                    @Html.TextBoxFor(model => model.Employee.EmployeeNumber, new { @class = "form-control required", @type="password", @placeholder = "Employee ID"})    
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 @Html.ValidationMessage("Error", new { @class = "text-danger" })

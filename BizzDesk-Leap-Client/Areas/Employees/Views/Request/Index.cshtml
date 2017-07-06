@@ -1,4 +1,5 @@
 ﻿@model BizzDesk_Leap_Client.Areas.Employees.Models.RequestClient
+@using BizzDesk_Leap_Client.Areas.Employees.Enums
 @using PagedList;
 @using PagedList.Mvc
 
@@ -64,10 +65,21 @@
                                     <td>@(x++)</td>
                                     <td>@request.Leave.Title</td>
                                     <td>@request.Leave.LeaveType</td>
-                                    <td>@request.RequestDate</td>
-                                    <td>@request.StartDate</td>
-                                    <td>@request.EndDate</td>
-                                    <td>@request.Status</td>
+                                    <td>@request.RequestDate.ToLongDateString()</td>
+                                    <td>@request.StartDate.ToLongDateString()</td>
+                                    <td>@request.EndDate.ToLongDateString()</td>
+                                    @if (request.Status == Status.Pending)
+                                    {
+                                       <td><span class="btn btn-xs btn-warning">@request.Status</span></td> 
+                                    }
+                                    @if (request.Status == Status.Approved)
+                                    {
+                                        <td><span class="btn btn-xs btn-success">@request.Status</span></td>
+                                    }
+                                    @if (request.Status == Status.Declined)
+                                    {
+                                        <td><span class="btn btn-xs btn-danger">@request.Status</span></td>
+                                    }
                                 </tr>
                             }
                     </table>

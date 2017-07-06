@@ -17,9 +17,9 @@
 
             <div class="col-sm-9">
                 <label for="id" class="control-label"> Employee ID </label>
-                    @Html.TextBoxFor(model => Model.Employee.EmployeeID, new { @class = "form-control required", @id = "id" })
+                    @Html.TextBoxFor(model => Model.Employee.EmployeeNumber, new { @class = "form-control required", @id = "id" })
                     <div class="text-danger">
-                        @Html.ValidationMessageFor(model => model.Employee.EmployeeID)
+                        @Html.ValidationMessageFor(model => model.Employee.EmployeeNumber)
                         @Html.ValidationMessage("UsedID")
                     </div>
             </div>

@@ -27,14 +27,14 @@ namespace BizzDesk_Leap_Client.Controllers
         [AllowAnonymous]
         public ActionResult Login(EmployeeViewModel evm)
         {
-            var usr = ec.findAll().Where(s => s.EmployeeID == evm.Employee.EmployeeID).FirstOrDefault();
+            var usr = ec.findAll().Where(s => s.EmployeeNumber == evm.Employee.EmployeeNumber).FirstOrDefault();
 
             if (usr != null)
             {
-                Session["ID"] = Convert.ToInt32(usr.StaffID);
+                Session["ID"] = Convert.ToInt32(usr.ID);
                 Session["FName"] = usr.FirstName.ToString();
                 Session["LName"] = usr.LastName.ToString();
-                Session["UserID"] = usr.EmployeeID.ToString();
+                Session["UserID"] = usr.EmployeeNumber.ToString();
                 return RedirectToAction("Index", "Dashboard", new { Area = "Employees" });
             }
             else

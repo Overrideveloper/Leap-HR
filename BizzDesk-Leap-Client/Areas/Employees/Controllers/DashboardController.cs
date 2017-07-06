@@ -24,7 +24,7 @@ namespace BizzDesk_Leap_Client.Areas.Employees.Controllers
         public ActionResult Index()
         {
             var id = Convert.ToString(Session["UserID"]);
-            evm.Employee = ec.findAll().Where(s => s.EmployeeID == id).SingleOrDefault();
+            evm.Employee = ec.findAll().Where(s => s.EmployeeNumber == id).SingleOrDefault();
             return View("Index", evm);
         }
 	}

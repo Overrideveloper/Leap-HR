@@ -46,7 +46,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (ec.findAll().Any(s => s.EmployeeID == evm.Employee.EmployeeID))
+                if (ec.findAll().Any(s => s.EmployeeNumber == evm.Employee.EmployeeNumber))
                 {
                     ModelState.AddModelError("UsedID", "This ID is already in use for an existing employee");
                 }
