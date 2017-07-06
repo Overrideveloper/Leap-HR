@@ -31,11 +31,23 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Details()
+        public ActionResult Details(int id)
         {
-            var req = new RequestViewModel();
-            return PartialView("Details", req);
+            RequestViewModel rvm = new RequestViewModel();
+            rvm.Request = rc.find(id);
+            return PartialView("Details", rvm); 
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Details(RequestViewModel rvm)
+        {
+            if (ModelState.IsValid)
+            {
+                rc.Edit(rvm.Request);
+                return Json(new { success = true });
+            }
+            return PartialView("Details", rvm);
+        }
 	}
 }
