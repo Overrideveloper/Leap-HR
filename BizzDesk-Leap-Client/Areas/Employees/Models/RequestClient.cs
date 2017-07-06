@@ -31,6 +31,26 @@ namespace BizzDesk_Leap_Client.Areas.Employees.Models
             }
         }
 
+        public Request find(int id)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(BASE_URL);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = client.GetAsync("request/" + id).Result;
+
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadAsAsync<Request>().Result;
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public bool Create(Request request)
         {
             try
