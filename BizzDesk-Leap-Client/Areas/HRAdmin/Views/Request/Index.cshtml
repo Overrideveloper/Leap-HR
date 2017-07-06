@@ -93,12 +93,16 @@
                                 {
                                     <span class="btn btn-xs btn-danger">Expired</span>
                                 }
+                                @if (request.Status == Status.Approved && (DateTime.Now > @request.EndDate))
+                                {
+                                    <span class="btn btn-xs btn-danger">Expired</span>
+                                }
                                 </td>
                                 <td>
                                 @if (request.EndDate > DateTime.Now && request.Status == Status.Pending)
-                                {
-                                  <a class="btn-xs btn btn-info" href="#">View Request</a>
-                                }
+                                    {
+                                        <a class="btn-xs btn btn-info" data-modal="" href="@Url.Action("Details", "Request", new { Area = "HRAdmin", id = request.ID})">View Request</a>
+                                    }
                                 </td>
                                 
                             </tr>

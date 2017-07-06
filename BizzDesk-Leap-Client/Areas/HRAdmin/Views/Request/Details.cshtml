@@ -1,0 +1,82 @@
+﻿@model BizzDesk_Leap_Client.Areas.Employees.ViewModels.RequestViewModel
+@using BizzDesk_Leap_Client.Areas.Employees.Enums
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title"><b>View Leave Details</b></h4>
+</div>
+
+@using (Html.BeginForm("Details", "Request", new { Area = "HRAdmin" }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => Model.Request.ID)
+    @Html.HiddenFor(model => Model.Request.EmployeeID)
+    @Html.HiddenFor(model => Model.Request.LeaveID)
+    @Html.HiddenFor(model => Model.Request.EndDate)
+    @Html.HiddenFor(model => Model.Request.RequestDate)
+    @Html.HiddenFor(model => Model.Request.StartDate)
+    
+    <div class="modal-body">
+        <div class="form-horizontal">
+            <dl class="dl-horizontal">
+                <dt>Leave Title</dt>
+                <dd>
+                    @Html.DisplayFor(model => Model.Request.Leave.Title)
+                </dd>
+                <dt>Leave Type</dt>
+                <dd>
+                    @Html.DisplayFor(model => Model.Request.Leave.LeaveType)
+                </dd>
+                <dt>Request Date</dt>
+                <dd>
+                    @Html.DisplayFor(model => Model.Request.RequestDate).ToString().AsDateTime().ToLongDateString()
+                </dd>
+                <dt>Start Date</dt>
+                <dd>
+                    @Html.DisplayFor(model => Model.Request.StartDate).ToString().AsDateTime().ToLongDateString()
+                </dd>
+                <dt>End Date</dt>
+                <dd>
+                    @Html.DisplayFor(model => Model.Request.EndDate).ToString().AsDateTime().ToLongDateString()
+                </dd>
+                </dl>
+
+            <div class="form-group">
+                <label class="control-label col-md-3" for="start">Status</label>
+                <div class="col-sm-4">
+                    @Html.DropDownListFor(model => model.Request.Status, Enum.GetNames(typeof(Status)).Select(e => new SelectListItem { Text = e, Value = ((int)Enum.Parse(typeof(Status), e)).ToString()}), new { @class = "form-control required"})
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Close</button>
+
+        <span id="progress" class="text-center" style="display:none">
+            <strong>Processing..</strong>
+        </span>
+
+        <input type="submit" class="btn btn-outline" value="Save" />
+    </div>
+}
+
+<script>
+    $("form").removeData("validator");
+    $("form").removeData("unobtrusiveValidation");
+    $.validator.unobtrusive.parse("form");
+</script>
+
+<script>
+    $(function () {
+        $('input[type=datetime]').datepicker({
+            dateFormat: "dd/M/yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1960:2020"
+        });
+    });
+</script>
