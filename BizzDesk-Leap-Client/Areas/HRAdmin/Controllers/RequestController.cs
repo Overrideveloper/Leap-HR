@@ -29,5 +29,13 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             ViewBag.Requests = rc.findAll().ToPagedList(pageNumber, pageSize);
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Details()
+        {
+            var req = new RequestViewModel();
+            return PartialView("Details", req);
+        }
+
 	}
 }

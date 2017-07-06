@@ -1,0 +1,132 @@
+﻿@model BizzDesk_Leap_Client.Areas.Employees.Models.RequestClient
+@using BizzDesk_Leap_Client.Areas.Employees.Enums
+@using PagedList;
+@using PagedList.Mvc
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Leave Requests";
+    int x = 1;
+}
+
+@section menu{
+    <li><a href="@Url.Action("Index", "Dashboard", new { Area = "HRAdmin"})"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    <li><a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})"><i class="fa fa-users"></i> <span>Departments</span></a></li>
+    <li><a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-star-o"></i> <span>Ranks</span></a></li>
+    <li><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-user"></i> <span>Employees</span></a></li>
+    <li><a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})"><i class="fa fa-sign-out"></i> <span>Leaves</span></a></li>
+    <li class="active"><a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})"><i class="fa fa-paper-plane"></i> <span>Leave Requests</span></a></li>
+}
+
+<section class="content-header">
+    <h1> @ViewBag.Title </h1>
+
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <i class="fa fa-dashboard"></i>
+                Home
+            </a>
+        </li>
+        <li class="active">
+            <a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})">
+                <i class="fa fa-paper-plane"></i>
+                Leave Requests
+            </a>
+        </li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                    <h3 class="box-title"></h3>
+                <div class="box-header">
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th></th>
+                            <th>S/N</th>
+                            <th>Employee Name</th>
+                            <th>Department</th>
+                            <th>Rank</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Request Date</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var request in ViewBag.Requests)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@(x++)</td>
+                                <td>@request.Employee.LastName @request.Employee.FirstName</td>
+                                <td>@request.Employee.Department.Title</td>
+                                <th>@request.Employee.Rank.Title</th>
+                                <td>@request.Leave.Title</td>
+                                <td>@request.Leave.LeaveType</td>
+                                <td>@request.RequestDate.ToLongDateString()</td>
+                                <td>@request.StartDate.ToLongDateString()</td>
+                                <td>@request.EndDate.ToLongDateString()</td>
+                                <td>
+                                @if (request.Status == Status.Pending && (DateTime.Now < @request.EndDate))
+                                {
+                                    <span class="btn btn-xs btn-warning">@request.Status</span>
+                                }
+                                @if (request.Status == Status.Approved && (DateTime.Now < @request.EndDate))
+                                {
+                                    <span class="btn btn-xs btn-success">@request.Status</span>
+                                }
+                                @if (request.Status == Status.Declined)
+                                {
+                                    <span class="btn btn-xs btn-danger">@request.Status</span>
+                                }
+                                @if (request.Status == Status.Pending && (DateTime.Now > @request.EndDate))
+                                {
+                                    <span class="btn btn-xs btn-danger">Expired</span>
+                                }
+                                </td>
+                                <td>
+                                @if (request.EndDate > DateTime.Now && request.Status == Status.Pending)
+                                {
+                                  <a class="btn-xs btn btn-info" href="#">View Request</a>
+                                }
+                                </td>
+                                
+                            </tr>
+                        }
+                    </table>
+                    <div style="padding-left: 15px">
+                        @Html.PagedListPager((IPagedList)ViewBag.Requests, page => Url.Action("Index", "Request", new { Area = "HRAdmin", page }))
+                    </div>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+
+    <!-- modal placeholder-->
+    <div id='myModal' class='modal modal-primary fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-content" id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript" src="~/Scripts/modal.js"></script>
+        <script type="text/javascript" src="~/Scripts/delete-modal.js"></script>
+    }
+
+</section>
