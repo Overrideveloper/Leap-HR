@@ -68,18 +68,28 @@
                                     <td>@request.RequestDate.ToLongDateString()</td>
                                     <td>@request.StartDate.ToLongDateString()</td>
                                     <td>@request.EndDate.ToLongDateString()</td>
-                                    @if (request.Status == Status.Pending)
-                                    {
-                                       <td><span class="btn btn-xs btn-warning">@request.Status</span></td> 
-                                    }
-                                    @if (request.Status == Status.Approved)
-                                    {
-                                        <td><span class="btn btn-xs btn-success">@request.Status</span></td>
-                                    }
-                                    @if (request.Status == Status.Declined)
-                                    {
-                                        <td><span class="btn btn-xs btn-danger">@request.Status</span></td>
-                                    }
+                                    <td>
+                                        @if (request.Status == Status.Pending && (DateTime.Now < @request.EndDate))
+                                        {
+                                            <span class="btn btn-xs btn-warning">@request.Status</span>
+                                        }
+                                        @if (request.Status == Status.Approved && (DateTime.Now < @request.EndDate))
+                                        {
+                                            <span class="btn btn-xs btn-success">@request.Status</span>
+                                        }
+                                        @if (request.Status == Status.Declined)
+                                        {
+                                            <span class="btn btn-xs btn-danger">@request.Status</span>
+                                        }
+                                        @if (request.Status == Status.Pending && (DateTime.Now > @request.EndDate))
+                                        {
+                                            <span class="btn btn-xs btn-danger">Expired</span>
+                                        }
+                                        @if (request.Status == Status.Approved && (DateTime.Now > @request.EndDate))
+                                        {
+                                            <span class="btn btn-xs btn-danger">Expired</span>
+                                        }
+                                    </td>
                                 </tr>
                             }
                     </table>

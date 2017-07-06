@@ -1,4 +1,5 @@
 ﻿using BizzDesk_Leap_Client.Areas.Employees.Models;
+using BizzDesk_Leap_Client.Areas.Employees.Enums;
 using BizzDesk_Leap_Client.Areas.Employees.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
+            ViewBag.count = rc.findAll().Where(s => s.Status == Status.Pending && s.EndDate > DateTime.Now).ToArray().Length;
             ViewBag.Requests = rc.findAll().ToPagedList(pageNumber, pageSize);
             return View();
         }
