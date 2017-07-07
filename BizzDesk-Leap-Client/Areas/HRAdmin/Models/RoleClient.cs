@@ -31,6 +31,26 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
             }
         }
 
+        public Role find(int id)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(BASE_URL);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = client.GetAsync("role/" + id).Result;
+
+                if (response.IsSuccessStatusCode)
+                    return response.Content.ReadAsAsync<Role>().Result;
+                return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         public bool Create(Role role)
         {
             try
@@ -40,6 +60,24 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = client.PostAsJsonAsync("role/create", role).Result;
+
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool Edit(Role role)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(BASE_URL);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = client.PutAsJsonAsync("role/" + role.ID, role).Result;
 
                 return response.IsSuccessStatusCode;
             }

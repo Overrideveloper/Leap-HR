@@ -45,5 +45,25 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             }
             return PartialView("Create", rovm);
         }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            RoleViewModel rovm = new RoleViewModel();
+            rovm.Role = roc.find(id);
+            return PartialView("Edit", rovm);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(RoleViewModel rovm)
+        {
+            if (ModelState.IsValid)
+            {
+                roc.Edit(rovm.Role);
+                return Json(new { success = true});
+            }
+            return PartialView("Edit", rovm);
+        }
+
 	}
 }
