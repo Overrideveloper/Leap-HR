@@ -46,5 +46,13 @@ namespace BizzDesk_Leap_Client.Controllers
 
             return View("Login");
         }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            Session.Abandon();
+            Session.RemoveAll();
+            return RedirectToAction("Login");
+        }
 	}
 }
