@@ -12,10 +12,21 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
     public class LeaveController : Controller
     {
         LeaveClient lc;
+        DepartmentClient dc;
+        RankClient rc;
+        EmployeeClient ec;
 
         public LeaveController()
         {
             lc = new LeaveClient();
+            dc = new DepartmentClient();
+            rc = new RankClient();
+            ec = new EmployeeClient();
+
+            ViewBag.DepartmentCount = dc.findAll().ToArray().Length;
+            ViewBag.RankCount = rc.findAll().ToArray().Length;
+            ViewBag.EmployeeCount = ec.findAll().ToArray().Length;
+            ViewBag.LeaveCount = lc.findAll().ToArray().Length;
         }
         //
         // GET: /HRAdmin/Leave/
