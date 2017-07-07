@@ -24,7 +24,6 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            Session["dcount"] = dc.findAll().ToArray().Length;
             ViewBag.DepartmentList = dc.findAll().ToPagedList(pageNumber, pageSize);
             return View();
 
