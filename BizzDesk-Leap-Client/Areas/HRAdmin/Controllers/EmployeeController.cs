@@ -15,12 +15,19 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         EmployeeClient ec;
         DepartmentClient dc;
         RankClient rc;
+        LeaveClient lc;
 
         public EmployeeController()
         {
             ec = new EmployeeClient();
             dc = new DepartmentClient();
             rc = new RankClient();
+            lc = new LeaveClient();
+
+            ViewBag.DepartmentCount = dc.findAll().ToArray().Length;
+            ViewBag.RankCount = rc.findAll().ToArray().Length;
+            ViewBag.EmployeeCount = ec.findAll().ToArray().Length;
+            ViewBag.LeaveCount = lc.findAll().ToArray().Length;
         }
         //
         // GET: /HRAdmin/Employee/

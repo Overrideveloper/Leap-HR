@@ -8,10 +8,34 @@
 
 @section menu{
     <li class=""><a href="@Url.Action("Index", "Dashboard", new { Area = "HRAdmin"})"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-    <li><a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})"><i class="fa fa-users"></i> <span>Departments</span></a></li>
-    <li><a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-star-o"></i> <span>Ranks</span></a></li>
-    <li class="active"><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-user"></i> <span>Employees</span></a></li>
-    <li><a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})"><i class="fa fa-sign-out"></i> <span>Leaves</span></a></li>
+    <li>
+    <a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})">
+        <i class="fa fa-users"></i> <span>Departments</span>
+        @if (ViewBag.DepartmentCount != 0)
+        {<span class="badge label-default pull-right">@ViewBag.DepartmentCount</span>}
+    </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})">
+            <i class="fa fa-star-o"></i> <span>Ranks</span>
+            @if (ViewBag.RankCount != 0)
+            {<span class="badge label-info pull-right">@ViewBag.RankCount</span>}
+        </a>
+    </li>
+    <li class="active">
+        <a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})">
+            <i class="fa fa-user"></i> <span>Employees</span>
+            @if (ViewBag.EmployeeCount != 0)
+            {<span class="badge label-primary pull-right">@ViewBag.EmployeeCount</span>}
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})">
+            <i class="fa fa-sign-out"></i> <span>Leaves</span>
+            @if (ViewBag.LeaveCount != 0)
+            {<span class="badge label-success pull-right">@ViewBag.LeaveCount</span>}
+        </a>
+    </li>
     <li><a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})"><i class="fa fa-paper-plane"></i><span>Leave Requests </span>
     @if (y != 0){<span class="label label-warning pull-right">@y</span>}</a></li>
 }
