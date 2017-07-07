@@ -13,11 +13,13 @@ using BizzDesk_Leap_API.DAL;
 
 namespace BizzDesk_Leap_API.Controllers
 {
+    [RoutePrefix("api/user/role")]
     public class RoleController : ApiController
     {
         private LeapDB db = new LeapDB();
 
         // GET api/Role
+        [Route("readall")]
         public IQueryable<Role> GetRole()
         {
             return db.Role;
@@ -72,6 +74,7 @@ namespace BizzDesk_Leap_API.Controllers
 
         // POST api/Role
         [ResponseType(typeof(Role))]
+        [Route("create")]
         public IHttpActionResult PostRole(Role role)
         {
             if (!ModelState.IsValid)
