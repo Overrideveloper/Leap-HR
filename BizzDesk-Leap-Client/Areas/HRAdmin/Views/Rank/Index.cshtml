@@ -16,7 +16,8 @@
     <li class="active"><a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-star-o"></i> <span>Ranks</span></a></li>
     <li><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-user"></i> <span>Employees</span></a></li>
     <li><a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})"><i class="fa fa-sign-out"></i> <span>Leaves</span></a></li>
-    <li><a href="#"><i class="fa fa-paper-plane"></i> <span>Leave Requests</span></a></li>
+    <li><a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})"><i class="fa fa-paper-plane"></i><span>Leave Requests </span>
+    @if (y != 0){<span class="label label-warning pull-right">@y</span>}</a></li>
 }
 
 <section class="content-header">
@@ -63,19 +64,19 @@
                             <th>Department</th>
                             <th>Options</th>
                         </tr>
-                            @foreach (var rank in ViewBag.RankList)
-                            {
-                                <tr>
-                                    <td></td>
-                                    <td>@(x++)</td>
-                                    <td>@rank.Title</td>
-                                    <td>@rank.Department.Title</td>
-                                    <td>
-                                        <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Rank", new { Area = "HRAdmin", id = rank.ID})"><i class="fa fa-pencil"></i> Edit </a>
-                                        <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Rank", new { Area = "HRAdmin", id = rank.ID})"><i class="fa fa-trash"></i> Delete </a>
-                                    </td>
-                                </tr>
-                            }
+                        @foreach (var rank in ViewBag.RankList)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@(x++)</td>
+                                <td>@rank.Title</td>
+                                <td>@rank.Department.Title</td>
+                                <td>
+                                    <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Rank", new { Area = "HRAdmin", id = rank.ID})"><i class="fa fa-pencil"></i> Edit </a>
+                                    <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Rank", new { Area = "HRAdmin", id = rank.ID})"><i class="fa fa-trash"></i> Delete </a>
+                                </td>
+                            </tr>
+                        }
                     </table>
                     <div style="padding-left: 15px">
                         @Html.PagedListPager((IPagedList)ViewBag.RankList, page => Url.Action("Index", "Rank", new { Area = "HRAdmin", page }))
