@@ -12,7 +12,8 @@
     <li><a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-star-o"></i> <span>Ranks</span></a></li>
     <li class="active"><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-user"></i> <span>Employees</span></a></li>
     <li><a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})"><i class="fa fa-sign-out"></i> <span>Leaves</span></a></li>
-    <li><a href="#"><i class="fa fa-paper-plane"></i> <span>Leave Requests</span></a></li>
+    <li><a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})"><i class="fa fa-paper-plane"></i><span>Leave Requests </span>
+    @if (y != 0){<span class="label label-warning pull-right">@y</span>}</a>
 }
 
 <section class="content-header">
@@ -63,38 +64,38 @@
                     </div>
                 <!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tr>
-                            <th></th>
-                            <th>S/N</th>
-                            <th>ID</th>
-                            <th>Last Name</th>
-                            <th>First Name</th>
-                            <th>Gender</th>
-                            <th>Department</th>
-                            <th>Rank</th>
-                            <th>Options</th>
-                        </tr>
+                        <table class="table table-hover">
+                            <tr>
+                                <th></th>
+                                <th>S/N</th>
+                                <th>ID</th>
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Gender</th>
+                                <th>Department</th>
+                                <th>Rank</th>
+                                <th>Options</th>
+                            </tr>
 
                             @if (ViewBag.Result != null)
                             {
                                 foreach (var emp in ViewBag.Result)
                                 {
-                                <tr>
-                                    <td></td>
-                                    <td>@(x++)</td>
-                                    <td>@emp.EmployeeID</td>
-                                    <td>@emp.LastName</td>
-                                    <td>@emp.FirstName</td>
-                                    <td>@emp.Gender</td>
-                                    <td>@emp.Department.Title</td>
-                                    <td>@emp.Rank.Title</td>
-                                    <td>
-                                        <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Employee", new { Area = "HRAdmin", id = emp.ID})"><i class="fa fa-pencil"></i> Edit </a>
-                                        <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Employee", new { Area = "HRAdmin", id = emp.ID})"><i class="fa fa-trash"></i> Delete </a>
-                                        <a class="btn btn-info btn-xs" data-modal="" href="@Url.Action("Details", "Employee", new { Area = "HRAdmin", id = emp.ID})"><i class="fa fa-th-list"></i> Details </a>
-                                    </td>
-                                </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>@(x++)</td>
+                                        <td>@emp.EmployeeID</td>
+                                        <td>@emp.LastName</td>
+                                        <td>@emp.FirstName</td>
+                                        <td>@emp.Gender</td>
+                                        <td>@emp.Department.Title</td>
+                                        <td>@emp.Rank.Title</td>
+                                        <td>
+                                            <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Employee", new { Area = "HRAdmin", id = emp.ID})"><i class="fa fa-pencil"></i> Edit </a>
+                                            <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Employee", new { Area = "HRAdmin", id = emp.ID})"><i class="fa fa-trash"></i> Delete </a>
+                                            <a class="btn btn-info btn-xs" data-modal="" href="@Url.Action("Details", "Employee", new { Area = "HRAdmin", id = emp.ID})"><i class="fa fa-th-list"></i> Details </a>
+                                        </td>
+                                    </tr>
                                 }
                             }
                         </table>
