@@ -13,7 +13,7 @@ using BizzDesk_Leap_API.DAL;
 
 namespace BizzDesk_Leap_API.Controllers
 {
-    [RoutePrefix("api/user/role")]
+    [RoutePrefix("api/role")]
     public class RoleController : ApiController
     {
         private LeapDB db = new LeapDB();
