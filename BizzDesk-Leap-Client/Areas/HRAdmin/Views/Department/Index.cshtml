@@ -7,6 +7,7 @@
 @{
     ViewBag.Title = "Departments";
     int x = 1;
+    var y = Convert.ToInt32(Session["count"]);
 }
 
 @section menu{
@@ -15,77 +16,80 @@
     <li><a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-star-o"></i> <span>Ranks</span></a></li>
     <li><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-user"></i> <span>Employees</span></a></li> 
     <li><a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})"><i class="fa fa-sign-out"></i> <span>Leaves</span></a></li>    
-    <li><a href="#"><i class="fa fa-paper-plane"></i> <span>Leave Requests</span></a></li>
+    <li><a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})"><i class="fa fa-paper-plane"></i><span>Leave Requests </span>
+    @if (y != 0){<span class="label label-warning pull-right">@y</span>}</a>
 }
 
 <section class="content-header">
-<h1> @ViewBag.Title </h1>
+    <h1> @ViewBag.Title </h1>
 
-<ol class="breadcrumb">
-    <li>
-        <a href="#">
-            <i class="fa fa-dashboard"></i>
-            Home
-        </a>
-    </li>
-    <li class="active">
-        <a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})">
-            <i class="fa fa-users"></i>
-            Departments
-        </a>
-    </li>
-</ol>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <i class="fa fa-dashboard"></i>
+                Home
+            </a>
+        </li>
+        <li class="active">
+            <a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})">
+                <i class="fa fa-users"></i>
+                Departments
+            </a>
+        </li>
+    </ol>
 </section>
 
 <section class="content">
     <div class="row">
-    <div class="col-xs-12">
-        <div class="box">
-            <div class="box-header">
-                <h3 class="box-title"></h3>
-                
-                <div class="pull-left">
-                    <a class="btn btn-info btn-sm" data-modal="" href="@Url.Action("Create", "Department", new { Area = "HRAdmin"})"><i class="fa fa-plus"></i> Create Department</a>
-                </div>
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
 
-                <div class="box-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <a class="form-control btn btn-default pull-right" href="@Url.Action("Search", "Department", new { Area = "HRAdmin"})"><i class="fa fa-search"></i> Search</a>
+                    <div class="pull-left">
+                        <a class="btn btn-info btn-sm" data-modal="" href="@Url.Action("Create", "Department", new { Area = "HRAdmin"})"><i class="fa fa-plus"></i> Create Department</a>
+                    </div>
+
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <a class="form-control btn btn-default pull-right" href="@Url.Action("Search", "Department", new { Area = "HRAdmin"})"><i class="fa fa-search"></i> Search</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-                <table class="table table-hover">
-                    <tr>
-                        <th></th>
-                        <th>S/N</th>
-                        <th>Title</th>
-                        <th>Options</th>
-                    </tr>
-            @if (ViewBag.DepartmentList != null) {
-                foreach (var dept in ViewBag.DepartmentList)
-                { 
-                    <tr>
-                        <td></td>
-                        <td>@(x++)</td>
-                        <td>@dept.Title</td>
-                        <td> <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Department", new { Area = "HRAdmin", id = dept.ID})"><i class="fa fa-pencil"></i> Edit </a>
-                            <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Department", new { Area = "HRAdmin", id = dept.ID})"><i class="fa fa-trash"></i> Delete </a>
-                        </td>
-                    </tr>
-                }
-            }    
-                </table>
-                <div style="padding-left: 15px">
-                    @Html.PagedListPager((IPagedList)ViewBag.DepartmentList, page => Url.Action("Index", "Department", new { Area = "HRAdmin", page }))
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th></th>
+                            <th>S/N</th>
+                            <th>Title</th>
+                            <th>Options</th>
+                        </tr>
+                        @if (ViewBag.DepartmentList != null)
+                        {
+                            foreach (var dept in ViewBag.DepartmentList)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td>@(x++)</td>
+                                    <td>@dept.Title</td>
+                                    <td>
+                                        <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Department", new { Area = "HRAdmin", id = dept.ID})"><i class="fa fa-pencil"></i> Edit </a>
+                                        <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Department", new { Area = "HRAdmin", id = dept.ID})"><i class="fa fa-trash"></i> Delete </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </table>
+                    <div style="padding-left: 15px">
+                        @Html.PagedListPager((IPagedList)ViewBag.DepartmentList, page => Url.Action("Index", "Department", new { Area = "HRAdmin", page }))
+                    </div>
                 </div>
+                <!-- /.box-body -->
             </div>
-            <!-- /.box-body -->
+            <!-- /.box -->
         </div>
-        <!-- /.box -->
     </div>
-</div>
 
     <!-- modal placeholder-->
     <div id='myModal' class='modal modal-primary fade in'>
