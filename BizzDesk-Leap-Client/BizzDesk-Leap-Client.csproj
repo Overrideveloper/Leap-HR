@@ -187,6 +187,7 @@
     <Compile Include="Areas\HRAdmin\Models\Rank.cs" />
     <Compile Include="Areas\HRAdmin\Models\RankClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Role.cs" />
+    <Compile Include="Areas\HRAdmin\Models\RoleClient.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DashboardViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DepartmentViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\EmployeeViewModel.cs" />
