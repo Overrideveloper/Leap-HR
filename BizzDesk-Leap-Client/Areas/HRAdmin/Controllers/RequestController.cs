@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 {
@@ -14,11 +15,25 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
     {
         RequestViewModel rvm;
         RequestClient rc;
+        DepartmentClient dc;
+        RankClient rkc;
+        EmployeeClient ec;
+        LeaveClient lc;
 
         public RequestController()
         {
             rc = new RequestClient();
             rvm = new RequestViewModel();
+
+            dc = new DepartmentClient();
+            rkc = new RankClient();
+            ec = new EmployeeClient();
+            lc = new LeaveClient();
+
+            ViewBag.DepartmentCount = dc.findAll().ToArray().Length;
+            ViewBag.RankCount = rkc.findAll().ToArray().Length;
+            ViewBag.EmployeeCount = ec.findAll().ToArray().Length;
+            ViewBag.LeaveCount = lc.findAll().ToArray().Length;
         }
 
         //
