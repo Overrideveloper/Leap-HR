@@ -20,6 +20,7 @@ namespace BizzDesk_Leap_API.DAL
         public DbSet<Employee> Employee { get; set; }
         public DbSet<Leave> Leave { get; set; }
         public DbSet<Request> Request { get; set; }
+        public DbSet<Role> Role { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
