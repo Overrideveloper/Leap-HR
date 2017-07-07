@@ -30,5 +30,23 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
                 return null;
             }
         }
+
+        public bool Create(Role role)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(BASE_URL);
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = client.PostAsJsonAsync("role/create", role).Result;
+
+                return response.IsSuccessStatusCode;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
