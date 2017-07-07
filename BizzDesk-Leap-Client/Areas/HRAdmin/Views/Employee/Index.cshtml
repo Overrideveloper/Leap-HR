@@ -17,7 +17,7 @@
     <li class="active"><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-user"></i> <span>Employees</span></a></li>
     <li><a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})"><i class="fa fa-sign-out"></i> <span>Leaves</span></a></li>
     <li><a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})"><i class="fa fa-paper-plane"></i><span>Leave Requests </span>
-    @if (y != 0){<span class="label label-warning pull-right">@y</span>}</a>
+    @if (y != 0){<span class="label label-warning pull-right">@y</span>}</a></li>
 }
 
 <section class="content-header">
