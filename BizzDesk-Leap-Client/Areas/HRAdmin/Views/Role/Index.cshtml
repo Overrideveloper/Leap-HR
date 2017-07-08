@@ -51,8 +51,8 @@
     <li class="active">
         <a href="@Url.Action("Index", "Role", new { Area = "HRAdmin"})">
             <i class="fa fa-user"></i> <span>Manage User Roles</span>
-            @*@if (ViewBag.LeaveCount != 0)
-                {<span class="badge label-success pull-right">@ViewBag.LeaveCount</span>}*@
+            @if (ViewBag.RoleCount != 0)
+            {<span class="badge label-danger pull-right">@ViewBag.RoleCount</span>}
         </a>
     </li>
 }
