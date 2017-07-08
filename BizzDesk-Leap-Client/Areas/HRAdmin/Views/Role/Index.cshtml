@@ -109,13 +109,13 @@
                                     <td></td>
                                     <td>@(x++)</td>
                                     <td>@role.Title</td>
-                                    <td>@role.CanManageDepartments</td>
-                                    <td>@role.CanManageRanks</td>
-                                    <td>@role.CanManageEmployees</td>
-                                    <td>@role.CanManageLeaves</td>
-                                    <td>@role.CanManageRequests</td>
-                                    <td>@role.CanManageRoles</td>
-                                    <td>@role.CanManageUsers</td>
+                                    <td>@if (role.CanManageDepartments == true) { <span>Yes</span> }@if (role.CanManageDepartments != true) { <span>No</span> }</td>
+                                    <td>@if (role.CanManageRanks == true){ <span>Yes</span> }@if (role.CanManageRanks != true){ <span>No</span> }</td>
+                                    <td>@if (role.CanManageEmployees == true) { <span>Yes</span> }@if (role.CanManageEmployees != true){ <span>No</span> }</td>
+                                    <td>@if (role.CanManageLeaves == true){ <span>Yes</span> }@if (role.CanManageLeaves != true){ <span>No</span> }</td>
+                                    <td>@if (role.CanManageRequests == true){ <span>Yes</span> }@if (role.CanManageRequests != true){ <span>No</span> }</td>
+                                    <td>@if (role.CanManageRoles == true){ <span>Yes</span> }@if (role.CanManageRoles != true){ <span>No</span> }</td>
+                                    <td>@if (role.CanManageUsers == true){ <span>Yes</span> }@if (role.CanManageUsers != true){ <span>No</span> }</td>
                                     <td>
                                         <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Role", new { Area = "HRAdmin", id = role.ID})"><i class="fa fa-pencil"></i> Edit </a>
                                         <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Role", new { Area = "HRAdmin", id = role.ID})"><i class="fa fa-trash"></i> Delete </a>

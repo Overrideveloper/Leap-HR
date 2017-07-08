@@ -83,11 +83,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})">
                                                 @if (y == 1)
                                                 {
-                                                    <i class="fa fa-paper-plane-o text-aqua"></i> <span>@y leave request requires your attention</span>
+                                                    <i class="fa fa-paper-plane-o text-aqua"></i> <span>@y leave request pending</span>
                                                 }
                                                 @if (y > 1)
                                                 {
-                                                    <i class="fa fa-paper-plane-o text-aqua"></i> <span>@y leave requests require your attention</span>
+                                                    <i class="fa fa-paper-plane-o text-aqua"></i> <span>@y leave requests pending</span>
                                                 }
                                             </a>
                                         </li>
