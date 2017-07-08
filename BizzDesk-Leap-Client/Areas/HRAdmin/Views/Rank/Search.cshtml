@@ -38,7 +38,15 @@
     </li>
     <li><a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})"><i class="fa fa-paper-plane"></i><span>Leave Requests </span>
     @if (y != 0){<span class="label label-warning pull-right">@y</span>}</a></li>
-}
+    <li class="header">ADMIN</li>
+    <li class="active">
+        <a href="@Url.Action("Index", "Role", new { Area = "HRAdmin"})">
+            <i class="fa fa-user"></i> <span>Manage User Roles</span>
+            @if (ViewBag.RoleCount != 0)
+            {<span class="badge label-danger pull-right">@ViewBag.RoleCount</span>}
+        </a>
+    </li>
+    }
 
 <section class="content-header">
     <h1> @ViewBag.Title </h1>
