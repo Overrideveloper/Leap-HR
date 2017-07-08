@@ -19,6 +19,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         RankClient rkc;
         EmployeeClient ec;
         LeaveClient lc;
+        RoleClient roc;
 
         public RequestController()
         {
@@ -29,11 +30,13 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             rkc = new RankClient();
             ec = new EmployeeClient();
             lc = new LeaveClient();
+            roc = new RoleClient();
 
             ViewBag.DepartmentCount = dc.findAll().ToArray().Length;
             ViewBag.RankCount = rkc.findAll().ToArray().Length;
             ViewBag.EmployeeCount = ec.findAll().ToArray().Length;
             ViewBag.LeaveCount = lc.findAll().ToArray().Length;
+            ViewBag.RoleCount = roc.findAll().ToArray().Length;
         }
 
         //
