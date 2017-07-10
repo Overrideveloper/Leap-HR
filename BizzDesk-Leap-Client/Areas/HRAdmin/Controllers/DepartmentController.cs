@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 using BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels;
 using PagedList;
+using BizzDesk_Leap_Client.Areas.Employees.Models;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 {
@@ -16,6 +17,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         EmployeeClient ec;
         LeaveClient lc;
         RoleClient roc;
+        RequestClient rec;
 
         public DepartmentController()
         {
@@ -24,12 +26,14 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             ec = new EmployeeClient();
             lc = new LeaveClient();
             roc = new RoleClient();
+            rec = new RequestClient();
 
             ViewBag.DepartmentCount = dc.findAll().ToArray().Length;
             ViewBag.RankCount = rc.findAll().ToArray().Length;
             ViewBag.EmployeeCount = ec.findAll().ToArray().Length;
             ViewBag.LeaveCount = lc.findAll().ToArray().Length;
             ViewBag.RoleCount = roc.findAll().ToArray().Length;
+            ViewBag.RequestCount = rc.findAll().Where(s => s.Status == Status.Pending && s.EndDate > DateTime.Now).ToArray().Length;
         }
 
         //
