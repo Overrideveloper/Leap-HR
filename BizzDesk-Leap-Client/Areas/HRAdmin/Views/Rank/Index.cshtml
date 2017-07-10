@@ -7,7 +7,6 @@
 @{
     ViewBag.Title = "Ranks";
     int x = 1;
-    var y = Convert.ToInt32(Session["count"]);
 }
 
 @section menu{
@@ -40,8 +39,13 @@
             {<span class="badge label-success pull-right">@ViewBag.LeaveCount</span>}
         </a>
     </li>
-    <li><a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})"><i class="fa fa-paper-plane"></i><span>Leave Requests </span>
-    @if (y != 0){<span class="label label-warning pull-right">@y</span>}</a></li>
+    <li class="active">
+    <a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})">
+        <i class="fa fa-paper-plane"></i><span>Leave Requests </span>
+        @if (ViewBag.RequestCount != 0)
+        {<span class="label label-warning pull-right">@ViewBag.RequestCount</span>}
+    </a>
+</li>
     <li class="header">ADMIN</li>
     <li>
         <a href="@Url.Action("Index", "Role", new { Area = "HRAdmin"})">
