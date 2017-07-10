@@ -37,6 +37,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             ViewBag.EmployeeCount = ec.findAll().ToArray().Length;
             ViewBag.LeaveCount = lc.findAll().ToArray().Length;
             ViewBag.RoleCount = roc.findAll().ToArray().Length;
+            ViewBag.RequestCount = rc.findAll().Where(s => s.Status == Status.Pending && s.EndDate > DateTime.Now).ToArray().Length;
         }
 
         //
@@ -45,7 +46,6 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             int pageSize = 10;
             int pageNumber = (page ?? 1);
-            Session["count"] = rc.findAll().Where(s => s.Status == Status.Pending && s.EndDate > DateTime.Now).ToArray().Length;
             ViewBag.Requests = rc.findAll().OrderByDescending(s => s.RequestDate).ToPagedList(pageNumber, pageSize);
             return View();
         }
