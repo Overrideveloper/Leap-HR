@@ -7,6 +7,7 @@ using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 using BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels;
 using PagedList;
 using BizzDesk_Leap_Client.Areas.Employees.Models;
+using BizzDesk_Leap_Client.Areas.Employees.Enums;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 {
@@ -33,7 +34,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             ViewBag.EmployeeCount = ec.findAll().ToArray().Length;
             ViewBag.LeaveCount = lc.findAll().ToArray().Length;
             ViewBag.RoleCount = roc.findAll().ToArray().Length;
-            ViewBag.RequestCount = rc.findAll().Where(s => s.Status == Status.Pending && s.EndDate > DateTime.Now).ToArray().Length;
+            ViewBag.RequestCount = rec.findAll().Where(s => s.Status == Status.Pending && s.EndDate > DateTime.Now).ToArray().Length;
         }
 
         //
