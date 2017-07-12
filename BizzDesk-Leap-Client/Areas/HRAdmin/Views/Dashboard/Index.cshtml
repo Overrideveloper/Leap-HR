@@ -15,7 +15,7 @@
     @if (ViewBag.EmployeeCount != 0){<span class="badge label-primary pull-right">@ViewBag.EmployeeCount</span>}</a></li>
     <li><a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})"><i class="fa fa-sign-out"></i> <span>Leaves</span>
     @if (ViewBag.LeaveCount != 0){<span class="badge label-success pull-right">@ViewBag.LeaveCount</span>}</a></li>
-    <li class="active">
+    <li>
     <a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})">
         <i class="fa fa-paper-plane"></i><span>Leave Requests </span>
         @if (ViewBag.RequestCount != 0)
@@ -23,7 +23,7 @@
     </a>
 </li>
     <li class="header">ADMIN</li>
-    <li class="active">
+    <li>
         <a href="@Url.Action("Index", "Role", new { Area = "HRAdmin"})">
             <i class="fa fa-user"></i> <span>Manage User Roles</span>
             @if (ViewBag.RoleCount != 0)
