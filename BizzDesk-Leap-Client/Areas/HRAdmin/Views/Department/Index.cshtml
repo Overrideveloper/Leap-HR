@@ -93,36 +93,18 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
+                <div class="box-body table-responsive">
+                    <table id="loaddata" class="table dataTable table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>S/N</th>
                                 <th>Title</th>
                                 <th>Options</th>
                             </tr>
                         </thead>
+                        <tbody>
 
-                        @*@if (ViewBag.DepartmentList != null)
-                        {
-                            foreach (var dept in ViewBag.DepartmentList)
-                            {
-                                <tr>
-                                    <td></td>
-                                    <td>@(x++)</td>
-                                    <td>@dept.Title</td>
-                                    <td>
-                                        <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Department", new { Area = "HRAdmin", id = dept.ID})"><i class="fa fa-pencil"></i> Edit </a>
-                                        <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Department", new { Area = "HRAdmin", id = dept.ID})"><i class="fa fa-trash"></i> Delete </a>
-                                    </td>
-                                </tr>
-                            }
-                        }*@
+                        </tbody>
                     </table>
-                    <div style="padding-left: 15px">
-                        @Html.PagedListPager((IPagedList)ViewBag.DepartmentList, page => Url.Action("Index", "Department", new { Area = "HRAdmin", page }))
-                    </div>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -145,17 +127,23 @@
         <script type="text/javascript" src="~/Scripts/delete-modal.js"></script>
         
         <script>
-            $(document).ready(function () {
-                $('.datatable').DataTable({
+            $(function () {
+                $('#loaddata').DataTable({
                     "ajax": {
                         "url": "/HRAdmin/Department/LoadData",
                         "type": "GET",
                         "datatype": "json"
                     },
-
                     "columns": [
-                        { "data": "Title", "autoWidth": true }
-                    ]
+                        { "data": "Title" }
+                    ],
+
+                    "paging": true,
+                    "lengthChange": true,
+                    "searching": true,
+                    "ordering": true,
+                    "info": true,
+                    "autoWidth": false
                 });
             });
         </script>
