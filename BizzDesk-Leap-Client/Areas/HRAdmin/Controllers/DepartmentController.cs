@@ -39,19 +39,11 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 
         //
         // GET: /HRAdmin/Department/
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            //int pageSize = 10;
-            //int pageNumber = (page ?? 1);
-            //ViewBag.DepartmentList = dc.findAll().ToPagedList(pageNumber, pageSize);
+            ViewBag.DepartmentList = dc.findAll().OrderBy(s => s.Title);
             return View();
 
-        }
-
-        public ActionResult LoadData()
-        {
-            var data = dc.findAll().OrderBy(s => s.Title);
-            return Json(new { data = data}, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
