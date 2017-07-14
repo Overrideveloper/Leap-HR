@@ -31,25 +31,6 @@ namespace BizzDesk_Leap_API.Controllers
             return db.Department;
         }
 
-        [HttpGet]
-        [Route("search/{searchString}")]
-        public HttpResponseMessage SearchDepartment(string searchString)
-        {
-            try
-            {
-                var httpResponseMessage = new HttpResponseMessage();
-                httpResponseMessage.Content = new StringContent(JsonConvert.SerializeObject(db.Department.Where(p => p.Title.ToLower().Contains(searchString.ToLower())).ToList()));
-                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                return httpResponseMessage;
-            }
-            catch
-            {
-
-                return null;
-            }
-
-        }
-
         // GET api/Department/5
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetDepartment(int id)
