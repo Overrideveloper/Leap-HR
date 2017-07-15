@@ -20,7 +20,15 @@ namespace BizzDesk_Leap_API.Controllers
     [RoutePrefix("api/leave")]
     public class LeaveController : ApiController
     {
-        private LeapDB db = new LeapDB();
+        private LeapDB db;
+
+        /// <summary>
+        /// A constructor
+        /// </summary>
+        public LeaveController()
+        {
+            db = new LeapDB();
+        }
 
         /// <summary>
         /// Gets all leaves
