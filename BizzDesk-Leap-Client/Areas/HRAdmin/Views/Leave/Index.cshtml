@@ -119,9 +119,6 @@
                             }
                         }
                     </table>
-                    <div style="padding-left: 15px">
-                        @Html.PagedListPager((IPagedList)ViewBag.LeaveList, page => Url.Action("Index", "Leave", new { Area = "HRAdmin", page }))
-                    </div>
                 </div>
                 <!-- /.box-body -->
             </div>
