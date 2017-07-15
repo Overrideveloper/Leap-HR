@@ -14,11 +14,17 @@ using Newtonsoft.Json;
 
 namespace BizzDesk_Leap_API.Controllers
 {
+    /// <summary>
+    /// API controller for the Leave model
+    /// </summary>
     [RoutePrefix("api/leave")]
     public class LeaveController : ApiController
     {
         private LeapDB db = new LeapDB();
 
+        /// <summary>
+        /// Gets all leaves
+        /// </summary>
         // GET api/Leave
         [Route("readall")]
         public IQueryable<Leave> GetLeave()
@@ -26,6 +32,9 @@ namespace BizzDesk_Leap_API.Controllers
             return db.Leave;
         }
 
+        /// <summary>
+        /// Gets a particular leave using an id
+        /// </summary>
         // GET api/Leave/5
         [ResponseType(typeof(Leave))]
         public IHttpActionResult GetLeave(int id)
@@ -39,6 +48,9 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(leave);
         }
 
+        /// <summary>
+        /// Edits a leave
+        /// </summary>
         // PUT api/Leave/5
         public IHttpActionResult PutLeave(int id, Leave leave)
         {
@@ -73,6 +85,9 @@ namespace BizzDesk_Leap_API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Creates a leave
+        /// </summary>
         // POST api/Leave
         [Route("create")]
         [ResponseType(typeof(Leave))]
@@ -89,6 +104,9 @@ namespace BizzDesk_Leap_API.Controllers
             return CreatedAtRoute("DefaultApi", new { id = leave.ID }, leave);
         }
 
+        /// <summary>
+        /// Deletes a leave
+        /// </summary>
         // DELETE api/Leave/5
         [ResponseType(typeof(Leave))]
         public IHttpActionResult DeleteLeave(int id)
@@ -105,6 +123,9 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(leave);
         }
 
+        /// <summary>
+        /// Disposes unmanaged resources
+        /// </summary>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
