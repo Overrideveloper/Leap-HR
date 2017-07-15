@@ -1,8 +1,4 @@
 ﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.Models.LeaveClient
-@using PagedList;
-@using PagedList.Mvc
-
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Leaves";
@@ -93,21 +89,22 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tr>
-                            <th></th>
-                            <th>S/N</th>
-                            <th>Title</th>
-                            <th>Type</th>
-                            <th>Options</th>
-                        </tr>
+                <div class="box-body table-responsive" style="overflow: hidden">
+                    <table class="table table-hover" id="grid">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Title</th>
+                                <th>Type</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+
                         @if (ViewBag.LeaveList != null)
                         {
                             foreach (var leave in ViewBag.LeaveList)
                             {
                                 <tr>
-                                    <td></td>
                                     <td>@(x++)</td>
                                     <td>@leave.Title</td>
                                     <td>@leave.LeaveType</td>
