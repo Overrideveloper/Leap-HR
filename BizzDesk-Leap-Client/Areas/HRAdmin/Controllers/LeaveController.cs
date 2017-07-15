@@ -38,11 +38,9 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         }
         //
         // GET: /HRAdmin/Leave/
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            int pageSize = 10;
-            int pageNumber = (page ?? 1);
-            ViewBag.LeaveList = lc.findAll().ToPagedList(pageNumber, pageSize);
+            ViewBag.LeaveList = lc.findAll().OrderBy(s => s.Title)
             return View();
         }
 
