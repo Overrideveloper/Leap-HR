@@ -39,25 +39,6 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(leave);
         }
 
-        [HttpGet]
-        [Route("search/{searchString}")]
-        public HttpResponseMessage SearchLeave(string searchString)
-        {
-            try
-            {
-                var httpResponseMessage = new HttpResponseMessage();
-                httpResponseMessage.Content = new StringContent(JsonConvert.SerializeObject(db.Leave.Where(p => p.Title.ToLower().Contains(searchString.ToLower())).ToList()));
-                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                return httpResponseMessage;
-            }
-            catch
-            {
-
-                return null;
-            }
-
-        }
-
         // PUT api/Leave/5
         public IHttpActionResult PutLeave(int id, Leave leave)
         {
