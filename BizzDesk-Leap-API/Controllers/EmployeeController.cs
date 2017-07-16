@@ -14,6 +14,9 @@ using Newtonsoft.Json;
 
 namespace BizzDesk_Leap_API.Controllers
 {
+    ///<Summary>
+    ///API Controller for the employee model
+    ///</Summary>
     [RoutePrefix("api/employee")]
     public class EmployeeController : ApiController
     {
