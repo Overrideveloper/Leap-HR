@@ -110,25 +110,6 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(employee);
         }
 
-        [HttpGet]
-        [Route("search/{searchString}")]
-        public HttpResponseMessage SearchEmployee(string searchString)
-        {
-            try
-            {
-                var httpResponseMessage = new HttpResponseMessage();
-                httpResponseMessage.Content = new StringContent(JsonConvert.SerializeObject(db.Employee.Where(p => p.FirstName.ToLower().Contains(searchString.ToLower()) || p.LastName.ToLower().Contains(searchString.ToLower())).ToList()));
-                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                return httpResponseMessage;
-            }
-            catch
-            {
-
-                return null;
-            }
-
-        }
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
