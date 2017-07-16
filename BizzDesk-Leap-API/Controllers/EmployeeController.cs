@@ -56,6 +56,9 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(employee);
         }
 
+        ///<Summary>
+        ///Edits an employee
+        ///</Summary>
         // PUT api/Employee/5
         public IHttpActionResult PutEmployee(int id, Employee employee)
         {
