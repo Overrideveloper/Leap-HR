@@ -112,6 +112,9 @@ namespace BizzDesk_Leap_API.Controllers
             return CreatedAtRoute("DefaultApi", new { id = employee.ID }, employee);
         }
 
+        ///<Summary>
+        ///Deletes an employee
+        ///</Summary>
         // DELETE api/Employee/5
         [ResponseType(typeof(Employee))]
         public IHttpActionResult DeleteEmployee(int id)
