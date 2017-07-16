@@ -14,16 +14,25 @@ using Newtonsoft.Json;
 
 namespace BizzDesk_Leap_API.Controllers
 {
+    ///<Summary>
+    ///API Controller for the department model
+    ///</Summary>
     [RoutePrefix("api/department")]
     public class DepartmentController : ApiController
     {
         private LeapDB db;
 
+        ///<Summary>
+        ///A constructor
+        ///</Summary>
         public DepartmentController()
         {
             db = new LeapDB();
         }
 
+        ///<Summary>
+        ///Gets all departments
+        ///</Summary>
         // GET api/Department
         [Route("readall")]
         public IQueryable<Department> GetDepartment()
@@ -31,6 +40,9 @@ namespace BizzDesk_Leap_API.Controllers
             return db.Department;
         }
 
+        ///<Summary>
+        ///Gets a particular department using an id
+        ///</Summary>
         // GET api/Department/5
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetDepartment(int id)
@@ -44,6 +56,9 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(department);
         }
 
+        ///<Summary>
+        ///Edits a department
+        ///</Summary>
         // PUT api/Department/5
         public IHttpActionResult PutDepartment(int id, Department department)
         {
@@ -78,6 +93,9 @@ namespace BizzDesk_Leap_API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        ///<Summary>
+        ///Creates a department
+        ///</Summary>
         // POST api/Department
         [Route("create")]
         [ResponseType(typeof(Department))]
@@ -94,6 +112,9 @@ namespace BizzDesk_Leap_API.Controllers
             return CreatedAtRoute("DefaultApi", new { id = department.ID }, department);
         }
 
+        ///<Summary>
+        ///Deletes a department
+        ///</Summary>
         // DELETE api/Department/5
         [ResponseType(typeof(Department))]
         public IHttpActionResult DeleteDepartment(int id)
@@ -110,6 +131,9 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(department);
         }
 
+        ///<Summary>
+        ///Disposes unmanaged resources
+        ///</Summary>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
