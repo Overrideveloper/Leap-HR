@@ -93,6 +93,9 @@ namespace BizzDesk_Leap_API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        ///<Summary>
+        ///Creates an employee
+        ///</Summary>
         [Route("create")]
         // POST api/Employee
         [ResponseType(typeof(Employee))]
