@@ -109,11 +109,5 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             evm.Employee = ec.find(id);
             return PartialView("Details", evm);
         }
-
-        [HttpGet]
-        public ActionResult Search()
-        {
-            return View("Search", new EmployeeViewModel());
-        }
 	}
 }
