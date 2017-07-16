@@ -115,12 +115,5 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             return View("Search", new EmployeeViewModel());
         }
-
-        [HttpPost]
-        public ActionResult Search(EmployeeViewModel evm)
-        {
-            ViewBag.Result = ec.Search(evm.Employee.LastName + evm.Employee.FirstName).Result;
-            return View("Search");
-        }
 	}
 }
