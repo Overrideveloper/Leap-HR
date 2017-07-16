@@ -131,6 +131,9 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(employee);
         }
 
+        ///<Summary>
+        ///Disposes unmanaged resources
+        ///</Summary>
         protected override void Dispose(bool disposing)
         {
             if (disposing)
