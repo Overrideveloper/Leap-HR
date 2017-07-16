@@ -22,6 +22,9 @@ namespace BizzDesk_Leap_API.Controllers
     {
         private LeapDB db;
 
+        ///<Summary>
+        ///A constructor
+        ///</Summary>
         public EmployeeController()
         {
             db = new LeapDB();
