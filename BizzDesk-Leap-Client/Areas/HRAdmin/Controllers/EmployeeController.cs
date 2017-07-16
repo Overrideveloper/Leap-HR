@@ -39,11 +39,9 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         }
         //
         // GET: /HRAdmin/Employee/
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            int pageSize = 10;
-            int pageNumber = (page ?? 1);
-            ViewBag.EmployeeList = ec.findAll().ToPagedList(pageNumber, pageSize);
+            ViewBag.EmployeeList = ec.findAll().OrderBy(s => s.LastName);
             return View();
         }
         
