@@ -30,6 +30,9 @@ namespace BizzDesk_Leap_API.Controllers
             db = new LeapDB();
         }
 
+        ///<Summary>
+        ///Gets all departments
+        ///</Summary>
         [Route("readall")]
         // GET api/Employee
         public IQueryable<Employee> GetEmployee()
