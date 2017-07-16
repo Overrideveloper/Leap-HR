@@ -40,6 +40,9 @@ namespace BizzDesk_Leap_API.Controllers
             return db.Employee.Include(p => p.Department).Include(p => p.Rank);
         }
 
+        ///<Summary>
+        ///Gets a particular department using an id
+        ///</Summary>
         // GET api/Employee/5
         [ResponseType(typeof(Employee))]
         public IHttpActionResult GetEmployee(int id)
