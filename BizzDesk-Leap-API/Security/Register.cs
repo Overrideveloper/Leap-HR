@@ -1,6 +1,8 @@
-﻿using System;
+﻿using BizzDesk_Leap_API.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -20,5 +22,12 @@ namespace BizzDesk_Leap_API.Security
         [Display(Name = "Confirm Password")]
         [Compare("Password", ErrorMessage = "The passwords don't match")]
         public string  ConfirmPassword { get; set; }
+
+        [ForeignKey("Role")]
+        public int RoleID { get; set; }
+
+        [Required]
+        [Display(Name = "Role")]
+        public virtual Role Role { get; set; }
     }
 }
