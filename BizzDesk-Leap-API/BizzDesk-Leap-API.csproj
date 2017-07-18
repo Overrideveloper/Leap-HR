@@ -240,6 +240,7 @@
     <Compile Include="Security\ApplicationUser.cs" />
     <Compile Include="Security\ApplicationUserDBContext.cs" />
     <Compile Include="Security\ApplicationUserManager.cs" />
+    <Compile Include="Security\Register.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
