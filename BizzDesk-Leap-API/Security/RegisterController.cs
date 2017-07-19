@@ -11,12 +11,23 @@ namespace BizzDesk_Leap_API.Security
 {
     public class RegisterController : ApiController
     {
+        ApplicationUserDBContext _db;
+        public RegisterController()
+        {
+            _db = new ApplicationUserDBContext();
+        }
+
         private ApplicationUserManager UserManager
         {
             get
             {
                 return Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
+        }
+
+        public IQueryable<ApplicationUser> Get()
+        {
+            return _db.Users;
         }
 
         public IHttpActionResult Post(Register model)

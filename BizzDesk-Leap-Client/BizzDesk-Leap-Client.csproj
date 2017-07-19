@@ -191,6 +191,7 @@
     <Compile Include="Areas\HRAdmin\Models\RoleClient.cs" />
     <Compile Include="Areas\HRAdmin\Security\Register.cs" />
     <Compile Include="Areas\HRAdmin\Security\RegisterViewModel.cs" />
+    <Compile Include="Areas\HRAdmin\Security\SecurityController.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DashboardViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DepartmentViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\EmployeeViewModel.cs" />
@@ -252,6 +253,7 @@
     <Content Include="Areas\HRAdmin\Views\Role\Index.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Role\Create.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\Security\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
