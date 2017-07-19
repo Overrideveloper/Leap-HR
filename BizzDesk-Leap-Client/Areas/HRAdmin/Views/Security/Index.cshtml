@@ -1,0 +1,131 @@
+﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.Security.RegisterViewModel
+
+@{
+    ViewBag.Title = "Users";
+    int x = 1;
+}
+
+@section menu{
+    <li><a href="@Url.Action("Index", "Dashboard", new { Area = "HRAdmin"})"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    <li>
+        <a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})">
+            <i class="fa fa-users"></i> <span>Departments</span>
+            @if (ViewBag.DepartmentCount != 0)
+            {<span class="badge label-default pull-right">@ViewBag.DepartmentCount</span>}
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})">
+            <i class="fa fa-star-o"></i> <span>Ranks</span>
+            @if (ViewBag.RankCount != 0)
+            {<span class="badge label-info pull-right">@ViewBag.RankCount</span>}
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})">
+            <i class="fa fa-user"></i> <span>Employees</span>
+            @if (ViewBag.EmployeeCount != 0)
+            {<span class="badge label-primary pull-right">@ViewBag.EmployeeCount</span>}
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})">
+            <i class="fa fa-sign-out"></i> <span>Leaves</span>
+            @if (ViewBag.LeaveCount != 0)
+            {<span class="badge label-success pull-right">@ViewBag.LeaveCount</span>}
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})">
+            <i class="fa fa-paper-plane"></i><span>Leave Requests </span>
+            @if (ViewBag.RequestCount != 0)
+            {<span class="label label-warning pull-right">@ViewBag.RequestCount</span>}
+        </a>
+    </li>
+    <li class="header">ADMIN</li>
+    <li class="active">
+        <a href="@Url.Action("Index", "Role", new { Area = "HRAdmin"})">
+            <i class="fa fa-user"></i> <span>Manage User Roles</span>
+            @if (ViewBag.RoleCount != 0)
+            {<span class="badge label-danger pull-right">@ViewBag.RoleCount</span>}
+        </a>
+    </li>
+}
+
+<section class="content-header">
+    <h1> @ViewBag.Title </h1>
+
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <i class="fa fa-dashboard"></i>
+                Home
+            </a>
+        </li>
+        <li class="active">
+            <a href="@Url.Action("Index", "Security", new { Area = "HRAdmin"})">
+                <i class="fa fa-user"></i>
+                Users
+            </a>
+        </li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
+
+                    <div class="pull-left">
+                        <a class="btn btn-info btn-sm" data-modal="" href="@Url.Action("Register", "User", new { Area = "HRAdmin"})"><i class="fa fa-plus"></i> Create User</a>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tr>
+                            <th></th>
+                            <th>S/N</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th></th>
+                        </tr>
+                        @foreach (var user in ViewBag.Users)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@(x++)</td>
+                                <td>@user.UserName</td>
+                                <td>@user.Role.Title</td>
+                                <td>
+                                    <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Security", new { Area = "HRAdmin", id = user.Id})"><i class="fa fa-pencil"></i> Edit </a>
+                                    <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Security", new { Area = "HRAdmin", id = user.Id})"><i class="fa fa-trash"></i> Delete </a>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+
+    <!-- modal placeholder-->
+    <div id='myModal' class='modal modal-primary fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-content" id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript" src="~/Scripts/modal.js"></script>
+        <script type="text/javascript" src="~/Scripts/delete-modal.js"></script>
+    }
+
+</section>

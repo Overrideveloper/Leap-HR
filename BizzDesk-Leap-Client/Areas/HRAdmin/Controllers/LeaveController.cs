@@ -40,7 +40,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         // GET: /HRAdmin/Leave/
         public ActionResult Index()
         {
-            ViewBag.LeaveList = lc.findAll().OrderBy(s => s.Title)
+            ViewBag.LeaveList = lc.findAll().OrderBy(s => s.Title);
             return View();
         }
 

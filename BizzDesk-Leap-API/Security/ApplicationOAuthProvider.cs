@@ -44,7 +44,5 @@ namespace BizzDesk_Leap_API.Security
 
                 return new AuthenticationProperties(data);
             }
-
-        }
     }
 }

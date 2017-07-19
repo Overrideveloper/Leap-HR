@@ -202,7 +202,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Security\ApplicationUserDbInitializer.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
@@ -216,9 +221,6 @@
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\LeaveType.cs" />
     <Compile Include="Enums\Status.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201707051633597_migration1.cs" />
     <Compile Include="Migrations\201707051633597_migration1.Designer.cs">
       <DependentUpon>201707051633597_migration1.cs</DependentUpon>
@@ -242,7 +244,6 @@
     <Compile Include="Security\ApplicationUserManager.cs" />
     <Compile Include="Security\Register.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
-    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
