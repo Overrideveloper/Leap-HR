@@ -6,8 +6,9 @@ using System.Net.Http;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using BizzDesk_Leap_API.Security;
 
-namespace BizzDesk_Leap_API.Security
+namespace BizzDesk_Leap_API.Controllers
 {
     public class RegisterController : ApiController
     {

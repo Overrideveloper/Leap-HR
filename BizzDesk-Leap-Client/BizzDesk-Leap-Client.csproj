@@ -190,6 +190,7 @@
     <Compile Include="Areas\HRAdmin\Models\Role.cs" />
     <Compile Include="Areas\HRAdmin\Models\RoleClient.cs" />
     <Compile Include="Areas\HRAdmin\Security\Register.cs" />
+    <Compile Include="Areas\HRAdmin\Security\RegisterClient.cs" />
     <Compile Include="Areas\HRAdmin\Security\RegisterViewModel.cs" />
     <Compile Include="Areas\HRAdmin\Security\SecurityController.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DashboardViewModel.cs" />
