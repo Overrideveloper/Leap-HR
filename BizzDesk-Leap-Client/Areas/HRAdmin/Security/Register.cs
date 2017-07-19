@@ -8,7 +8,7 @@ using System.Web;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Security
 {
-    public class RegisterModel
+    public class Register
     {
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
