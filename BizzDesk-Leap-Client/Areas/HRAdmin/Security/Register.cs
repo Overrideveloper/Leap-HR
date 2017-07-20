@@ -13,7 +13,6 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Security
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [ForeignKey("Role")]
         public int RoleID { get; set; }
 
         public virtual Role Role { get; set; }
