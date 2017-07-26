@@ -206,7 +206,11 @@
       <DependentUpon>Global.asax</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Security\ApplicationUserDbInitializer.cs" />
+    <Compile Include="Migrations\201707261154233_migrate3.cs" />
+    <Compile Include="Migrations\201707261154233_migrate3.Designer.cs">
+      <DependentUpon>201707261154233_migrate3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -238,12 +242,6 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
-    <Compile Include="Security\ApplicationOAuthProvider.cs" />
-    <Compile Include="Security\ApplicationUser.cs" />
-    <Compile Include="Security\ApplicationUserDBContext.cs" />
-    <Compile Include="Security\ApplicationUserManager.cs" />
-    <Compile Include="Security\Register.cs" />
-    <Compile Include="Controllers\RegisterController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -291,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707070222440_migration2.resx">
       <DependentUpon>201707070222440_migration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707261154233_migrate3.resx">
+      <DependentUpon>201707261154233_migrate3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

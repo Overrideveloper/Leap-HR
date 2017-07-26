@@ -44,10 +44,6 @@ namespace BizzDesk_Leap_API.Models
         public string Email { get; set; }
 
         [Required]
-        [DataType(DataType.MultilineText)]
-        public string Address { get; set; }
-
-        [Required]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNo { get; set; }
 
@@ -60,5 +56,11 @@ namespace BizzDesk_Leap_API.Models
         [Required]
         public int RankID { get; set; }
         public virtual Rank Rank { get; set; }
+
+        [Required]
+        public int LocationID { get; set; }
+
+        [ForeignKey("LocationID")]
+        public virtual Location Location { get; set; }
     }
 }

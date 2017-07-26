@@ -5,10 +5,11 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 using BizzDesk_Leap_API.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace BizzDesk_Leap_API.DAL
 {
-    public class LeapDB: DbContext
+    public class LeapDB : DbContext
     {
         public LeapDB() : base("Leap")
         {
@@ -21,6 +22,7 @@ namespace BizzDesk_Leap_API.DAL
         public DbSet<Leave> Leave { get; set; }
         public DbSet<Request> Request { get; set; }
         public DbSet<Role> Role { get; set; }
+        public DbSet<Location> Location { get; set; }
         
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
