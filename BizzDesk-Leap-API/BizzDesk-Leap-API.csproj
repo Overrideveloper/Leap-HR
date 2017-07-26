@@ -210,6 +210,14 @@
     <Compile Include="Migrations\201707261154233_migrate3.Designer.cs">
       <DependentUpon>201707261154233_migrate3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707261416054_migrate4.cs" />
+    <Compile Include="Migrations\201707261416054_migrate4.Designer.cs">
+      <DependentUpon>201707261416054_migrate4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707261416566_migrate5.cs" />
+    <Compile Include="Migrations\201707261416566_migrate5.Designer.cs">
+      <DependentUpon>201707261416566_migrate5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Location.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
@@ -292,6 +300,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707261154233_migrate3.resx">
       <DependentUpon>201707261154233_migrate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707261416054_migrate4.resx">
+      <DependentUpon>201707261416054_migrate4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707261416566_migrate5.resx">
+      <DependentUpon>201707261416566_migrate5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
