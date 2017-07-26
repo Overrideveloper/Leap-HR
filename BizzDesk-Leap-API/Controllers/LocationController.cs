@@ -13,16 +13,19 @@ using BizzDesk_Leap_API.DAL;
 
 namespace BizzDesk_Leap_API.Controllers
 {
+    [RoutePrefix("api/location")]
     public class LocationController : ApiController
     {
         private LeapDB db = new LeapDB();
 
         // GET api/Location
+        [Route("readall")]
         public IQueryable<Location> GetLocation()
         {
             return db.Location;
         }
 
+        [Route("create")]
         // GET api/Location/5
         [ResponseType(typeof(Location))]
         public IHttpActionResult GetLocation(int id)

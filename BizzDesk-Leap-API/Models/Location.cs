@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BizzDesk_Leap_API.Models
 {
-    public class Location
+    public partial class Location
     {
         [Key]
         public int ID { get; set; }
