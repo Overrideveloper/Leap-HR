@@ -6,10 +6,10 @@ using System.ComponentModel;
 
 namespace BizzDesk_Leap_API.Models
 {
-    public class LeaveConstraint
+    public partial class LeaveConstraint
     {
         [DisplayName("Gender")]
-        public string? GenderConstraint { get; set; }
+        public string GenderConstraint { get; set; }
 
         [DisplayName("Department")]
         public int? DepartmentID { get; set; }

@@ -23,7 +23,8 @@ namespace BizzDesk_Leap_API.DAL
         public DbSet<Request> Request { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Location> Location { get; set; }
-        
+        public DbSet<LeaveType> LeaveType { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
