@@ -28,7 +28,7 @@ namespace BizzDesk_Leap_API.Models
         public string LastName { get; set; }
 
         [Required]
-        public Gender Gender { get; set; } 
+        public string Gender { get; set; } 
 
         [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]

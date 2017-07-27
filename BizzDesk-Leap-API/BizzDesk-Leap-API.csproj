@@ -219,6 +219,11 @@
     <Compile Include="Migrations\201707261416566_migrate5.Designer.cs">
       <DependentUpon>201707261416566_migrate5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707271045035_migrate-6.cs" />
+    <Compile Include="Migrations\201707271045035_migrate-6.Designer.cs">
+      <DependentUpon>201707271045035_migrate-6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LeaveType.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -307,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707261416566_migrate5.resx">
       <DependentUpon>201707261416566_migrate5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707271045035_migrate-6.resx">
+      <DependentUpon>201707271045035_migrate-6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
