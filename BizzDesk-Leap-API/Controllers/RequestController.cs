@@ -22,8 +22,8 @@ namespace BizzDesk_Leap_API.Controllers
         [Route("readall")]
         public IQueryable<Request> GetRequest()
         {
-            return db.Request.Include(s => s.Employee).Include(s => s.Employee.Department).Include(s => s.Employee.Rank)
-                .Include(s => s.Leave);
+            return db.Request.Include(s => s.Employee).Include(s => s.Employee.Department).Include(s => s.Employee.Rank).Include(s => s.Employee.Location)
+                .Include(s => s.Leave).Include(s => s.Leave.LeaveType).Include(s => s.Leave.LeaveType.RankConstraint).Include(s => s.Leave.LeaveType.DepartmentConstraint);
         }
 
         // GET api/Request/5

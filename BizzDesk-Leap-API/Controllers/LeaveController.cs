@@ -37,7 +37,7 @@ namespace BizzDesk_Leap_API.Controllers
         [Route("readall")]
         public IQueryable<Leave> GetLeave()
         {
-            return db.Leave;
+            return db.Leave.Include(s => s.LeaveType).Include(s => s.LeaveType.DepartmentConstraint).Include(s => s.LeaveType.RankConstraint);
         }
 
         /// <summary>
