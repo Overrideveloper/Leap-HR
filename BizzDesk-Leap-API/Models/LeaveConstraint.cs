@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BizzDesk_Leap_API.Models
 {
@@ -11,12 +12,14 @@ namespace BizzDesk_Leap_API.Models
         [DisplayName("Gender")]
         public string GenderConstraint { get; set; }
 
-        [DisplayName("Department")]
         public int? DepartmentID { get; set; }
+
+        [ForeignKey("DepartmentID")]
         public virtual Department DepartmentConstraint { get; set; }
 
-        [DisplayName("Rank")]
         public int? RankID { get; set; }
+
+        [ForeignKey("RankID")]
         public virtual Rank RankConstraint { get; set; }
     }
 }

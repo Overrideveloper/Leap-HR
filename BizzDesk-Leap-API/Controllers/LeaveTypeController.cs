@@ -22,7 +22,7 @@ namespace BizzDesk_Leap_API.Controllers
         [Route("readall")]
         public IQueryable<LeaveType> GetLeaveType()
         {
-            return db.LeaveType;
+            return db.LeaveType.Include(s => s.DepartmentConstraint).Include(s => s.RankConstraint);
         }
 
         // GET api/LeaveType/5

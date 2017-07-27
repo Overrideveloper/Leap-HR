@@ -37,7 +37,7 @@ namespace BizzDesk_Leap_API.Controllers
         // GET api/Employee
         public IQueryable<Employee> GetEmployee()
         {
-            return db.Employee.Include(p => p.Department).Include(p => p.Rank);
+            return db.Employee.Include(p => p.Department).Include(p => p.Rank).Include(p => p.Location);
         }
 
         ///<Summary>
