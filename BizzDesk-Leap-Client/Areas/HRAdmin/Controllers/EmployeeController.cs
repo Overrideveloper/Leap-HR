@@ -20,6 +20,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         LeaveClient lc;
         RoleClient roc;
         RequestClient rec;
+        LocationClient loc;
 
         public EmployeeController()
         {
@@ -29,6 +30,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             lc = new LeaveClient();
             roc = new RoleClient();
             rec = new RequestClient();
+            loc = new LocationClient();
 
             ViewBag.DepartmentCount = dc.findAll().ToArray().Length;
             ViewBag.RankCount = rc.findAll().ToArray().Length;
@@ -51,6 +53,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             var evm = new EmployeeViewModel();
             ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title");
             ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title");
+            ViewBag.Location = new SelectList(loc.findAll(), "ID", "Title");
             return PartialView("Create", evm);
         }
 
@@ -71,6 +74,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             }
             ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", evm.Employee.DepartmentID);
             ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", evm.Employee.RankID);
+            ViewBag.Location = new SelectList(loc.findAll(), "ID", "Title", evm.Employee.LocationID);
             return PartialView("Create", evm);
         }
 
@@ -81,6 +85,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             evm.Employee = ec.find(id);
             ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", evm.Employee.DepartmentID);
             ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", evm.Employee.RankID);
+            ViewBag.Location = new SelectList(loc.findAll(), "ID", "Title", evm.Employee.LocationID);
             return PartialView("Edit", evm);
         }
 
@@ -94,6 +99,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             }
             ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", evm.Employee.DepartmentID);
             ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", evm.Employee.RankID);
+            ViewBag.Location = new SelectList(loc.findAll(), "ID", "Title", evm.Employee.LocationID);
             return PartialView("Edit", evm);
         }
 

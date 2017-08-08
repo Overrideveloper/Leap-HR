@@ -89,11 +89,11 @@
                 </div>
             </div>
 
-            <div class="col-sm-9">
-                <label class="control-label" for="add">Address</label>
-                @Html.TextAreaFor(model => Model.Employee.Address, new { @class = "form-control required", @id = "add" })
+            <div class="col-sm-6">
+                <label for="location" class="control-label"> Location </label>
+                @Html.DropDownListFor(model => model.Employee.LocationID, (IEnumerable<SelectListItem>)ViewBag.Location, string.Empty, new { @class = "form-control border-input", @id = "location" })
                 <div class="text-danger">
-                    @Html.ValidationMessageFor(model => model.Employee.Address)
+                    @Html.ValidationMessageFor(model => model.Employee.LocationID)
                 </div>
             </div>
 

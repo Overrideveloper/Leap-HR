@@ -19,6 +19,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         EmployeeClient ec;
         RoleClient roc;
         RequestClient rec;
+        LeaveTypeClient ltc;
 
         public LeaveController()
         {
@@ -28,6 +29,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             ec = new EmployeeClient();
             roc = new RoleClient();
             rec = new RequestClient();
+            ltc = new LeaveTypeClient();
 
             ViewBag.DepartmentCount = dc.findAll().ToArray().Length;
             ViewBag.RankCount = rc.findAll().ToArray().Length;
@@ -48,6 +50,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         public ActionResult Create()
         {
             var lvm = new LeaveViewModel();
+            ViewBag.Type = new SelectList(ltc.findAll(), "ID", "Title");
             return PartialView("Create", lvm);
         }
 
@@ -59,6 +62,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
                 lc.Create(lvm.Leave);
                 return Json(new { success = true});
             }
+            ViewBag.Type = new SelectList(ltc.findAll(), "ID", "Title", lvm.Leave.LeaveTypeID);
             return PartialView("Create", lvm);
         }
 
@@ -67,6 +71,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             LeaveViewModel lvm = new LeaveViewModel();
             lvm.Leave = lc.find(id);
+            ViewBag.Type = new SelectList(ltc.findAll(), "ID", "Title", lvm.Leave.LeaveTypeID);
             return PartialView("Edit", lvm);
         }
 
@@ -78,6 +83,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
                 lc.Edit(lvm.Leave);
                 return Json(new { success = true});
             }
+            ViewBag.Type = new SelectList(ltc.findAll(), "ID", "Title", lvm.Leave.LeaveTypeID);
             return PartialView("Edit", lvm);
         }
 
