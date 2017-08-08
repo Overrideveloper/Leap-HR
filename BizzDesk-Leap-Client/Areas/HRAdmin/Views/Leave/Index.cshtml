@@ -102,7 +102,7 @@
                                 <tr>
                                     <td>@(x++)</td>
                                     <td>@leave.Title</td>
-                                    <td>@leave.LeaveType</td>
+                                    <td>@leave.LeaveType.Title</td>
                                     <td>
                                         <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Leave", new { Area = "HRAdmin", id = leave.ID})"><i class="fa fa-pencil"></i> Edit </a>
                                         <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Leave", new { Area = "HRAdmin", id = leave.ID})"><i class="fa fa-trash"></i> Delete </a>
