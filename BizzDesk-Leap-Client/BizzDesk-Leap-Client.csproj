@@ -175,7 +175,6 @@
     <Compile Include="Areas\HRAdmin\Controllers\RequestController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\RoleController.cs" />
     <Compile Include="Areas\HRAdmin\Enums\Gender.cs" />
-    <Compile Include="Areas\HRAdmin\Enums\LeaveType.cs" />
     <Compile Include="Areas\HRAdmin\HRAdminAreaRegistration.cs" />
     <Compile Include="Areas\HRAdmin\Models\Department.cs" />
     <Compile Include="Areas\HRAdmin\Models\DepartmentClient.cs" />
@@ -197,7 +196,9 @@
     <Compile Include="Areas\HRAdmin\ViewModels\DashboardViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\DepartmentViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="Areas\HRAdmin\ViewModels\LeaveTypeViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\LeaveViewModel.cs" />
+    <Compile Include="Areas\HRAdmin\ViewModels\LocationViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\RankViewModel.cs" />
     <Compile Include="Areas\HRAdmin\ViewModels\RoleViewModel.cs" />
     <Compile Include="Controllers\BaseController.cs" />
