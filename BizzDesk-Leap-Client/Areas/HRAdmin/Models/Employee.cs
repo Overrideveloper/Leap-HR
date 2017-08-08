@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Enums;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 {
@@ -54,12 +55,16 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 
         [Required(ErrorMessage = "Department is required")]
         public int DepartmentID { get; set; }
-
         public virtual Department Department { get; set; }
 
         [Required(ErrorMessage = "Rank is required")]
         public int RankID { get; set; }
-
         public virtual Rank Rank { get; set; }
+
+        [Required]
+        public int? LocationID { get; set; }
+
+        [ForeignKey("LocationID")]
+        public virtual Location Location { get; set; }
     }
 }

@@ -185,6 +185,11 @@
     <Compile Include="Areas\HRAdmin\Models\EmployeeClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Leave.cs" />
     <Compile Include="Areas\HRAdmin\Models\LeaveClient.cs" />
+    <Compile Include="Areas\HRAdmin\Models\LeaveConstraint.cs" />
+    <Compile Include="Areas\HRAdmin\Models\LeaveType.cs" />
+    <Compile Include="Areas\HRAdmin\Models\LeaveTypeClient.cs" />
+    <Compile Include="Areas\HRAdmin\Models\Location.cs" />
+    <Compile Include="Areas\HRAdmin\Models\LocationClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Rank.cs" />
     <Compile Include="Areas\HRAdmin\Models\RankClient.cs" />
     <Compile Include="Areas\HRAdmin\Models\Role.cs" />

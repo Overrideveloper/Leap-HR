@@ -56,7 +56,8 @@ namespace BizzDesk_Leap_API.Models
         [Required]
         public int RankID { get; set; }
         public virtual Rank Rank { get; set; }
-
+        
+        [Required]
         public int? LocationID { get; set; }
 
         [ForeignKey("LocationID")]
