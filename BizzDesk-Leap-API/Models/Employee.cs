@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using BizzDesk_Leap_API.Enums;
 using System.Web.Mvc;
 
 namespace BizzDesk_Leap_API.Models
@@ -57,7 +56,6 @@ namespace BizzDesk_Leap_API.Models
         public int RankID { get; set; }
         public virtual Rank Rank { get; set; }
         
-        [Required]
         public int? LocationID { get; set; }
 
         [ForeignKey("LocationID")]

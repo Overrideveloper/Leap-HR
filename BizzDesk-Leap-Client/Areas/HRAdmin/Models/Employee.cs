@@ -6,62 +6,58 @@ using System.Web;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Enums;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Models
 {
     public class Employee
     {
+
         [Key]
         public int ID { get; set; }
 
-        [Required(ErrorMessage = "Employee ID is required")]
+        [Required]
         [StringLength(12)]
         public string EmployeeNumber { get; set; }
 
-        [Required(ErrorMessage = "First name is required")]
+        [Required]
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }
 
-        [Required(ErrorMessage = "Last name is required")]
+        [Required]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Select a gender")]
-        public Gender Gender { get; set; }
+        [Required]
+        public string Gender { get; set; }
 
-        [Required(ErrorMessage = "Date of Birth is required")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-        [DataType(DataType.Date, ErrorMessage = "Input a valid date")]
+        [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
+        [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
-        [Required(ErrorMessage = "Date of Appointment is required")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
-        [DataType(DataType.Date, ErrorMessage = "Input a valid date")]
+        [Required]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime AppointmentDate { get; set; }
 
-        [Required(ErrorMessage = "Email address is required")]
+        [Required]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Address is required")]
-        [DataType(DataType.MultilineText)]
-        public string Address { get; set; }
-
-        [Required(ErrorMessage = "Phone Number is required")]
+        [Required]
         [DataType(DataType.PhoneNumber)]
         public string PhoneNo { get; set; }
 
         //Entity relationships
 
-        [Required(ErrorMessage = "Department is required")]
+        [Required]
         public int DepartmentID { get; set; }
         public virtual Department Department { get; set; }
 
-        [Required(ErrorMessage = "Rank is required")]
+        [Required]
         public int RankID { get; set; }
         public virtual Rank Rank { get; set; }
 
-        [Required]
         public int? LocationID { get; set; }
 
         [ForeignKey("LocationID")]

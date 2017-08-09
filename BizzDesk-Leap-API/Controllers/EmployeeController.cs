@@ -31,7 +31,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         ///<Summary>
-        ///Gets all departments
+        ///Gets all employees
         ///</Summary>
         [Route("readall")]
         // GET api/Employee
@@ -41,7 +41,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         ///<Summary>
-        ///Gets a particular department using an id
+        ///Gets a particular employee using an id
         ///</Summary>
         // GET api/Employee/5
         [ResponseType(typeof(Employee))]

@@ -49,7 +49,7 @@
 
             <div class="col-sm-9">
                 <label for="gender" class="control-label"> Gender: </label>
-                @Html.EnumRadioButtons(model => model.Employee.Gender)
+                @Html.TextBoxFor(model => Model.Employee.Gender, new { @class = "form-control required", @id = "gender" })
                 <div class="text-danger">
                     @Html.ValidationMessageFor(model => model.Employee.Gender)
                 </div><br>
