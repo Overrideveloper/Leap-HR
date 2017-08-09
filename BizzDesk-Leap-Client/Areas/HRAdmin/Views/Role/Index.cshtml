@@ -1,8 +1,4 @@
 ﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.Models.RoleClient
-@using PagedList;
-@using PagedList.Mvc
-
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "User Roles";
@@ -87,25 +83,26 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tr>
-                            <th></th>
-                            <th>S/N</th>
-                            <th>Title</th>
-                            <th>Manage Departments</th>
-                            <th>Manage Ranks</th>
-                            <th>Manage Employees</th>
-                            <th>Manage Leaves</th>
-                            <th>Manage Requests</th>
-                            <th>Manage Roles</th>
-                            <th>Manage Users</th>
-                            <th></th>
-                        </tr>
-                            @foreach (var role in ViewBag.Roles)
+                <div class="box-body table-responsive">
+                    <table class="table table-hover" id="grid">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Title</th>
+                                <th>Manage Departments</th>
+                                <th>Manage Ranks</th>
+                                <th>Manage Employees</th>
+                                <th>Manage Leaves</th>
+                                <th>Manage Requests</th>
+                                <th>Manage Roles</th>
+                                <th>Manage Users</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                                
+                        @foreach (var role in ViewBag.Roles)
                             {
                                 <tr>
-                                    <td></td>
                                     <td>@(x++)</td>
                                     <td>@role.Title</td>
                                     <td>@if (role.CanManageDepartments == true) { <span>Yes</span> }@if (role.CanManageDepartments != true) { <span>No</span> }</td>
@@ -116,15 +113,12 @@
                                     <td>@if (role.CanManageRoles == true){ <span>Yes</span> }@if (role.CanManageRoles != true){ <span>No</span> }</td>
                                     <td>@if (role.CanManageUsers == true){ <span>Yes</span> }@if (role.CanManageUsers != true){ <span>No</span> }</td>
                                     <td>
-                                        <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Role", new { Area = "HRAdmin", id = role.ID})"><i class="fa fa-pencil"></i> Edit </a>
+                                        <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Role", new { Area = "HRAdmin", id = role.ID})"><i class="fa fa-pencil"></i> Edit </a><br />
                                         <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Role", new { Area = "HRAdmin", id = role.ID})"><i class="fa fa-trash"></i> Delete </a>
                                     </td>
                                 </tr>
                             }
                     </table>
-                    <div style="padding-left: 15px">
-                        @Html.PagedListPager((IPagedList)ViewBag.Roles, page => Url.Action("Index", "Role", new { Area = "HRAdmin", page }))
-                    </div>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -145,6 +139,19 @@
         @Scripts.Render("~/bundles/jqueryval")
         <script type="text/javascript" src="~/Scripts/modal.js"></script>
         <script type="text/javascript" src="~/Scripts/delete-modal.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#grid').DataTable({
+                    columnDefs: [
+                        {
+                            targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+                            className: 'dataTable'
+                        }
+                    ]
+                });
+            });
+        </script>
+
     }
 
 </section>

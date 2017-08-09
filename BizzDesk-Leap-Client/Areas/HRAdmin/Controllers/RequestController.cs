@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PagedList;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 
 namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
@@ -42,11 +41,9 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 
         //
         // GET: /HRAdmin/Request/
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            int pageSize = 10;
-            int pageNumber = (page ?? 1);
-            ViewBag.Requests = rc.findAll().OrderByDescending(s => s.RequestDate).ToPagedList(pageNumber, pageSize);
+            ViewBag.Requests = rc.findAll().OrderByDescending(s => s.RequestDate);
             return View();
         }
 

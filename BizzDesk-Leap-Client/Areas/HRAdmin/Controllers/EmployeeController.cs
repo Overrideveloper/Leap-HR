@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 using BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels;
-using PagedList;
 using System.Net;
 using BizzDesk_Leap_Client.Areas.Employees.Models;
 using BizzDesk_Leap_Client.Areas.Employees.Enums;

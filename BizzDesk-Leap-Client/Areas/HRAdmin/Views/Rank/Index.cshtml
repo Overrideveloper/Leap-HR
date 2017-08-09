@@ -1,8 +1,4 @@
 ﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.Models.RankClient
-@using PagedList;
-@using PagedList.Mvc
-
-<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Ranks";
@@ -91,19 +87,20 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body table-responsive no-padding">
-                    <table class="table table-hover">
-                        <tr>
-                            <th></th>
-                            <th>S/N</th>
-                            <th>Title</th>
-                            <th>Department</th>
-                            <th>Options</th>
-                        </tr>
+                <div class="box-body table-responsive">
+                    <table class="table table-hover" id="grid">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Title</th>
+                                <th>Department</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
                         @foreach (var rank in ViewBag.RankList)
                         {
                             <tr>
-                                <td></td>
                                 <td>@(x++)</td>
                                 <td>@rank.Title</td>
                                 <td>@rank.Department.Title</td>
@@ -114,9 +111,6 @@
                             </tr>
                         }
                     </table>
-                    <div style="padding-left: 15px">
-                        @Html.PagedListPager((IPagedList)ViewBag.RankList, page => Url.Action("Index", "Rank", new { Area = "HRAdmin", page }))
-                    </div>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -137,6 +131,19 @@
         @Scripts.Render("~/bundles/jqueryval")
         <script type="text/javascript" src="~/Scripts/modal.js"></script>
         <script type="text/javascript" src="~/Scripts/delete-modal.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#grid').DataTable({
+                    columnDefs: [
+                        {
+                            targets: [0, 1, 2, 3],
+                            className: 'dataTable'
+                        }
+                    ]
+                });
+            });
+        </script>
+
     }
 
 </section>

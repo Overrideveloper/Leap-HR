@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using PagedList;
 using BizzDesk_Leap_Client.Areas.HRAdmin.Models;
 using BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels;
 using BizzDesk_Leap_Client.Areas.Employees.Models;
@@ -39,11 +38,9 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 
         //
         // GET: /HRAdmin/Rank/
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            int pageSize = 10;
-            int pageNumber = (page ?? 1);
-            ViewBag.RankList = rc.findAll().ToPagedList(pageNumber, pageSize);
+            ViewBag.RankList = rc.findAll();
             return View();
         }
 
