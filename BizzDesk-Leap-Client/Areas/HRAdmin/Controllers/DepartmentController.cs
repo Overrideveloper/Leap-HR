@@ -54,12 +54,11 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(DepartmentViewModel dvm, FormCollection collect)
+        public ActionResult Create(DepartmentViewModel dvm)
         {
             if (ModelState.IsValid)
             {
                 dc.Create(dvm.Department);
-                TempData["create"] = "Department Successfully Created!";
                 return Json(new { success = true });
             }
 
