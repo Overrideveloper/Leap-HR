@@ -25,7 +25,6 @@ namespace BizzDesk_Leap_API.Controllers
             return db.Location;
         }
 
-        [Route("create")]
         // GET api/Location/5
         [ResponseType(typeof(Location))]
         public IHttpActionResult GetLocation(int id)
@@ -74,6 +73,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // POST api/Location
+        [Route("create")]
         [ResponseType(typeof(Location))]
         public IHttpActionResult PostLocation(Location location)
         {

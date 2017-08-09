@@ -240,6 +240,10 @@
     <Compile Include="Migrations\201708082243063_migrate-10.Designer.cs">
       <DependentUpon>201708082243063_migrate-10.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708091404590_migrate-11.cs" />
+    <Compile Include="Migrations\201708091404590_migrate-11.Designer.cs">
+      <DependentUpon>201708091404590_migrate-11.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\LeaveConstraint.cs" />
     <Compile Include="Models\LeaveType.cs" />
     <Compile Include="Models\Location.cs" />
@@ -345,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708082243063_migrate-10.resx">
       <DependentUpon>201708082243063_migrate-10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091404590_migrate-11.resx">
+      <DependentUpon>201708091404590_migrate-11.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

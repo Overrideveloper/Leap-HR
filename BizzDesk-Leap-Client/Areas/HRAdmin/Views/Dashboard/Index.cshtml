@@ -7,23 +7,44 @@
 
 @section menu{
     <li class="active"><a href="@Url.Action("Index", "Dashboard", new { Area = "HRAdmin"})"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-    <li><a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})"><i class="fa fa-users"></i> <span>Departments</span>
-    @if(ViewBag.DepartmentCount != 0){<span class="badge label-default pull-right">@ViewBag.DepartmentCount</span>}</a></li>
-    <li><a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-star-o"></i> <span>Ranks</span>
-    @if (ViewBag.RankCount != 0){<span class="badge label-info pull-right">@ViewBag.RankCount</span>}</a></li>
-    <li><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-user"></i> <span>Employees</span>
-    @if (ViewBag.EmployeeCount != 0){<span class="badge label-primary pull-right">@ViewBag.EmployeeCount</span>}</a></li>
-    <li><a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})"><i class="fa fa-sign-out"></i> <span>Leaves</span>
-    @if (ViewBag.LeaveCount != 0){<span class="badge label-success pull-right">@ViewBag.LeaveCount</span>}</a></li>
     <li>
-    <a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})">
-        <i class="fa fa-paper-plane"></i><span>Leave Requests </span>
-        @if (ViewBag.RequestCount != 0)
-        {<span class="label label-warning pull-right">@ViewBag.RequestCount</span>}
-    </a>
+        <a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})">
+            <i class="fa fa-users"></i> <span>Departments</span>
+            @if (ViewBag.DepartmentCount != 0)
+            {<span class="badge label-default pull-right">@ViewBag.DepartmentCount</span>}
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})">
+            <i class="fa fa-star-o"></i> <span>Ranks</span>
+            @if (ViewBag.RankCount != 0)
+            {<span class="badge label-info pull-right">@ViewBag.RankCount</span>}
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})">
+            <i class="fa fa-user"></i> <span>Employees</span>
+            @if (ViewBag.EmployeeCount != 0)
+            {<span class="badge label-primary pull-right">@ViewBag.EmployeeCount</span>}
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})">
+            <i class="fa fa-sign-out"></i> <span>Leaves</span>
+            @if (ViewBag.LeaveCount != 0)
+            {<span class="badge label-success pull-right">@ViewBag.LeaveCount</span>}
+        </a>
+    </li>
+    <li><a href="@Url.Action("Index", "Location", new { Area = "HRAdmin"})"><i class="fa fa-globe"></i> <span>Locations</span></a></li>
+    <li>
+        <a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})">
+            <i class="fa fa-paper-plane"></i><span>Leave Requests </span>
+            @if (ViewBag.RequestCount != 0)
+            {<span class="label label-warning pull-right">@ViewBag.RequestCount</span>}
+        </a>
 
 
-</li>
+    </li>
     <li class="header">ADMIN</li>
     <li>
         <a href="@Url.Action("Index", "Role", new { Area = "HRAdmin"})">
@@ -83,8 +104,9 @@
                 <div class="inner">
                     <h3>@ViewBag.EmployeeCount</h3>
 
-                    @if (ViewBag.EmployeeCount == 1) {
-                    <p>Employee</p>
+                    @if (ViewBag.EmployeeCount == 1)
+                    {
+                        <p>Employee</p>
                     }
                     @if (ViewBag.EmployeeCount > 1 || ViewBag.EmployeeCount < 1)
                     {
@@ -125,8 +147,8 @@
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>@ViewBag.LeaveCount</h3>
-                   
-                     @if (ViewBag.LeaveCount == 1)
+
+                    @if (ViewBag.LeaveCount == 1)
                     {
                         <p>Leave Type</p>
                     }
@@ -144,5 +166,3 @@
         <!-- ./col -->
     </div>
 </section>
-
-

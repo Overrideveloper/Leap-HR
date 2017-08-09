@@ -26,6 +26,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 
         //
         // GET: /HRAdmin/Location/Create
+        [HttpGet]
         public ActionResult Create() {
             var lovm = new LocationViewModel();
             return PartialView("Create", lovm);
@@ -34,6 +35,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         //
         // POST: /HRAdmin/Location/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(LocationViewModel lovm)
         {
             if(ModelState.IsValid)
@@ -47,20 +49,18 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
 
         //
         // GET: /HRAdmin/Location/Edit/id
+        [HttpGet]
         public ActionResult Edit(int id) 
         {
             LocationViewModel lovm = new LocationViewModel();
             lovm.Location = loc.find(id);
-
-            if (lovm.Location == null)
-            {
-                return HttpNotFound();
-            }
             return PartialView("Edit", lovm);
         }
 
         //
         // POST: /HRAdmin/Location/Edit/id
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit(LocationViewModel lovm) 
         {
             if (ModelState.IsValid)
