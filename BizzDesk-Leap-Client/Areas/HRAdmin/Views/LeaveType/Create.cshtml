@@ -33,7 +33,7 @@
             <div class="form-group">
                 <label for="gender" class="control-label col-sm-3"> Gender </label>
                 <div class="col-sm-9">
-                    @Html.TextBoxFor(model => Model.LeaveType.GenderConstraint, new { @class = "form-control border-input required", @id = "gender" })
+                    @Html.TextBoxFor(model => Model.LeaveType.GenderConstraint, new { @class = "form-control border-input", @id = "gender" })
                     <div class="text-danger">
                         @Html.ValidationMessageFor(model => model.LeaveType.GenderConstraint)
                     </div>
