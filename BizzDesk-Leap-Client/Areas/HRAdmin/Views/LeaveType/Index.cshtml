@@ -1,0 +1,108 @@
+﻿@model BizzDesk_Leap_Client.Areas.HRAdmin.ViewModels.LeaveTypeViewModel
+
+@{
+    ViewBag.Title = "Leave Types";
+    int x = 1;
+}
+
+@section menu{
+    <li><a href="@Url.Action("Index", "Dashboard", new { Area = "HRAdmin"})"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+    <li class="active">
+        <a href="@Url.Action("Index", "LeaveType", new { Area = "HRAdmin"})">
+            <i class="fa fa-files"></i> <span>Leave Types</span>
+        </a>
+    </li>
+}
+
+<section class="content-header">
+    <h1> @ViewBag.Title </h1>
+
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <i class="fa fa-dashboard"></i>
+                Home
+            </a>
+        </li>
+        <li class="active">
+            <a href="@Url.Action("Index", "LeaveType", new { Area = "HRAdmin"})">
+                <i class="fa fa-files"></i>
+                Leave Types
+            </a>
+        </li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
+
+                    <div class="pull-left">
+                        <a class="btn btn-info btn-sm" data-modal="" href="@Url.Action("Create", "LeaveType", new { Area = "HRAdmin"})"><i class="fa fa-plus"></i> Create Leave Type</a>
+                    </div>
+
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    <table class="table table-hover" id="grid">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>Title</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+
+                        @if (ViewBag.Types != null)
+                        {
+                            foreach (var type in ViewBag.Types)
+                            {
+                                <tr>
+                                    <td>@(x++)</td>
+                                    <td>@type.Title</td>
+                                    <td>
+                                        <a class="btn btn-success btn-xs" data-modal="" href="@Url.Action("Edit", "Department", new { Area = "HRAdmin", id = type.ID})"><i class="fa fa-pencil"></i> Edit </a>
+                                        <a class="btn btn-danger btn-xs delete" href="@Url.Action("Delete", "Department", new { Area = "HRAdmin", id = type.ID})"><i class="fa fa-trash"></i> Delete </a>
+                                        <a class="btn btn-danger btn-xs delete" href="@Url.Action("Constraints", "Department", new { Area = "HRAdmin", id = type.ID})"><i class="fa fa-folder-open"></i> View Constraints </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+    </div>
+
+    <!-- modal placeholder-->
+    <div id='myModal' class='modal modal-primary fade in'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-content" id='myModalContent'></div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript" src="~/Scripts/modal.js"></script>
+        <script type="text/javascript" src="~/Scripts/delete-modal.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#grid').DataTable({
+                    columnDefs: [
+                        {
+                            targets: [0, 1, 2],
+                            className: 'dataTable'
+                        }
+                    ]
+                });
+            });
+        </script>
+    }
+</section>

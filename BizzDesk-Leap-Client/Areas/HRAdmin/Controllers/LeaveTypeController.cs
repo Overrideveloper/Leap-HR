@@ -11,9 +11,13 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
     public class LeaveTypeController : Controller
     {
         LeaveTypeClient ltc;
+        RankClient rc;
+        DepartmentClient dc;
         public LeaveTypeController()
         {
             ltc = new LeaveTypeClient();
+            rc = new RankClient();
+            dc = new DepartmentClient();
         }
 
         //
@@ -30,6 +34,8 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         public ActionResult Create()
         {
             var leavetype = new LeaveTypeViewModel();
+            ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title");
+            ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title");
             return PartialView("Create", leavetype);
         }
 
@@ -42,9 +48,10 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             if (ModelState.IsValid)
             {
                 ltc.Create(leavetype.LeaveType);
+                ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", leavetype.LeaveType.DepartmentID);
+                ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", leavetype.LeaveType.RankID);
                 return Json(new { success = true });
             }
-
             return PartialView("Create", leavetype);
         }
 
@@ -55,6 +62,8 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
         {
             LeaveTypeViewModel leavetype = new LeaveTypeViewModel();
             leavetype.LeaveType = ltc.find(id);
+            ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", leavetype.LeaveType.DepartmentID);
+            ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", leavetype.LeaveType.RankID);
             return PartialView("Edit", leavetype);
         }
 
@@ -67,6 +76,8 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             if (ModelState.IsValid)
             {
                 ltc.Edit(leavetype.LeaveType);
+                ViewBag.Department = new SelectList(dc.findAll(), "ID", "Title", leavetype.LeaveType.DepartmentID);
+                ViewBag.Rank = new SelectList(rc.findAll(), "ID", "Title", leavetype.LeaveType.RankID);
                 return Json(new { success = true });
             }
             return PartialView("Edit", leavetype);
@@ -80,5 +91,11 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Constraints(int id)
+        {
+            LeaveTypeViewModel leavetype = new LeaveTypeViewModel();
+            leavetype.LeaveType = ltc.find(id);
+            return PartialView("Constraints", leavetype);
+        }
 	}
 }

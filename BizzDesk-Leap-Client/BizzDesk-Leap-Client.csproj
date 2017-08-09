@@ -257,6 +257,10 @@
     <Content Include="Areas\HRAdmin\Views\Location\Index.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Location\Create.cshtml" />
     <Content Include="Areas\HRAdmin\Views\Location\Edit.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\LeaveType\Index.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\LeaveType\Create.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\LeaveType\Edit.cshtml" />
+    <Content Include="Areas\HRAdmin\Views\LeaveType\Constraints.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
@@ -1227,7 +1231,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\HRAdmin\Views\LeaveType\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
