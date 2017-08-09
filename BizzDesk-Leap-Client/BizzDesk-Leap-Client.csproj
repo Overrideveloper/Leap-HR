@@ -171,6 +171,7 @@
     <Compile Include="Areas\HRAdmin\Controllers\DepartmentController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\EmployeeController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\LeaveController.cs" />
+    <Compile Include="Areas\HRAdmin\Controllers\LeaveTypeController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\LocationController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\RankController.cs" />
     <Compile Include="Areas\HRAdmin\Controllers\RequestController.cs" />
@@ -1226,6 +1227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\HRAdmin\Views\LeaveType\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
