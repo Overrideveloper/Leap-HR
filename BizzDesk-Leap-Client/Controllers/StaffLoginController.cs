@@ -19,32 +19,7 @@ namespace BizzDesk_Leap_Client.Controllers
         [AllowAnonymous]
         public ActionResult Login()
         {
-            var evm = new EmployeeViewModel();
-            return View("Login", evm);
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult Login(EmployeeViewModel evm)
-        {
-            var usr = ec.findAll().Where(s => s.EmployeeNumber == evm.Employee.EmployeeNumber).FirstOrDefault();
-
-            if (usr != null)
-            {
-                Session["ID"] = Convert.ToInt32(usr.ID);
-                Session["FName"] = usr.FirstName.ToString();
-                Session["LName"] = usr.LastName.ToString();
-                Session["Dept"] = usr.Department.Title.ToString();
-                Session["Rank"] = usr.Rank.Title.ToString();
-                Session["UserID"] = usr.EmployeeNumber.ToString();
-                return RedirectToAction("Index", "Dashboard", new { Area = "Employees" });
-            }
-            else
-            {
-                ModelState.AddModelError("Error", "Employee ID is incorrect");
-            }
-
-            return View("Login");
+            return RedirectToAction("Index", "Dashboard", new { Area = "HRAdmin" });
         }
 
         public ActionResult Logout()
