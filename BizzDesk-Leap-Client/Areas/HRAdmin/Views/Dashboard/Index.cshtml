@@ -6,53 +6,103 @@
 }
 
 @section menu{
-    <li class="active"><a href="@Url.Action("Index", "Dashboard", new { Area = "HRAdmin"})"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-    <li>
-        <a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})">
-            <i class="fa fa-users"></i> <span>Departments</span>
-            @if (ViewBag.DepartmentCount != 0)
-            {<span class="badge label-default pull-right">@ViewBag.DepartmentCount</span>}
+    <li class="active">
+        <a href="@Url.Action("Index", "Dashboard", new { Area = "HRAdmin"})">
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
         </a>
     </li>
-    <li>
-        <a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})">
-            <i class="fa fa-star-o"></i> <span>Ranks</span>
-            @if (ViewBag.RankCount != 0)
-            {<span class="badge label-info pull-right">@ViewBag.RankCount</span>}
-        </a>
-    </li>
-    <li>
-        <a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})">
-            <i class="fa fa-user"></i> <span>Employees</span>
-            @if (ViewBag.EmployeeCount != 0)
-            {<span class="badge label-primary pull-right">@ViewBag.EmployeeCount</span>}
-        </a>
-    </li>
-    <li>
-        <a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})">
-            <i class="fa fa-sign-out"></i> <span>Leaves</span>
-            @if (ViewBag.LeaveCount != 0)
-            {<span class="badge label-success pull-right">@ViewBag.LeaveCount</span>}
-        </a>
-    </li>
-    <li><a href="@Url.Action("Index", "Location", new { Area = "HRAdmin"})"><i class="fa fa-globe"></i> <span>Locations</span></a></li>
-    <li><a href="@Url.Action("Index", "LeaveType", new { Area = "HRAdmin"})"><i class="fa fa-files-o"></i> <span>Leave Types</span></a></li>
-    <li>
-        <a href="@Url.Action("Index", "Request", new { Area = "HRAdmin"})">
-            <i class="fa fa-paper-plane"></i><span>Leave Requests </span>
-            @if (ViewBag.RequestCount != 0)
-            {<span class="label label-warning pull-right">@ViewBag.RequestCount</span>}
-        </a>
 
-
-    </li>
-    <li class="header">ADMIN</li>
-    <li>
-        <a href="@Url.Action("Index", "Role", new { Area = "HRAdmin"})">
-            <i class="fa fa-user"></i> <span>Manage User Roles</span>
-            @if (ViewBag.RoleCount != 0)
-            {<span class="badge label-danger pull-right">@ViewBag.RoleCount</span>}
+    <li class="header">PERSONNEL</li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-user"></i> <span>Employee</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
         </a>
+        <ul class="treeview-menu" style="display: none;">
+            <li><a href="@Url.Action("Index", "Employee", new { Area = "HRAdmin"})"><i class="fa fa-circle-o"></i> Staff 
+            @if (ViewBag.EmployeeCount != 0){<span class="badge label-primary pull-right">@ViewBag.EmployeeCount</span>}</a></li>
+            <li><a href="@Url.Action("Index", "Department", new { Area = "HRAdmin"})"><i class="fa fa-circle-o"></i> Department 
+            @if (ViewBag.DepartmentCount != 0){<span class="badge label-default pull-right">@ViewBag.DepartmentCount</span>}</a></li>
+            <li><a href="@Url.Action("Index", "Rank", new { Area = "HRAdmin"})"><i class="fa fa-circle-o"></i> Positions                     
+            @if (ViewBag.RankCount != 0){<span class="badge label-info pull-right">@ViewBag.RankCount</span>}</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Salary </a></li>
+            <li><a href="@Url.Action("Index", "Location", new { Area = "HRAdmin"})"><i class="fa fa-circle-o"></i> Location </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Bank </a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-users"></i> <span> Human Resource </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu" style="display: none;">
+            <li><a href="@Url.Action("Index", "LeaveType", new { Area = "HRAdmin"})"><i class="fa fa-circle-o"></i> Leave Types </a></li>
+            <li><a href="@Url.Action("Index", "Leave", new { Area = "HRAdmin"})"><i class="fa fa-circle-o"></i> Leaves 
+            @if (ViewBag.LeaveCount != 0){<span class="badge label-success pull-right">@ViewBag.LeaveCount</span>}</a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Attendance </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Assessments </a></li>
+        </ul>
+    </li>
+
+    <li class="header"> PROJECTS </li>
+
+    <li>
+        <a href="#">
+            <i class="fa fa-wrench"></i> <span>Project Management</span>
+        </a>
+    </li>
+
+    <li class="header"> ACCOUNTS </li>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-file"></i> <span>Payroll</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu" style="display: none;">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Allowance </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Deductions </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Payroll </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Payslip </a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-folder-open"></i> <span>Receipts and Reports </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu" style="display: none;">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Account Type </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Category </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Class </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Credit </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Debit </a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-shopping-cart"></i> <span>Assests and Inventory </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu" style="display: none;">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Category </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Product </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Supplier </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Checkout </a></li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Stock/Asset </a></li>
+        </ul>
     </li>
 }
 

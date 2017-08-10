@@ -81,7 +81,7 @@ namespace BizzDesk_Leap_API.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            
             db.LeaveType.Add(leavetype);
             db.SaveChanges();
 

@@ -91,7 +91,7 @@ namespace BizzDesk_Leap_Client.Areas.HRAdmin.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Constraints(int id)
+        public ActionResult Constraint(int id)
         {
             LeaveTypeViewModel leavetype = new LeaveTypeViewModel();
             leavetype.LeaveType = ltc.find(id);
