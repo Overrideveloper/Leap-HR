@@ -96,7 +96,7 @@ namespace BizzDesk_Leap_API.Controllers
         ///<Summary>
         ///Creates an employee
         ///</Summary>
-        [Route("create")]
+        [Route("create", Name="CreatePost")]
         // POST api/Employee
         [ResponseType(typeof(Employee))]
         public IHttpActionResult PostEmployee(Employee employee)
@@ -109,7 +109,7 @@ namespace BizzDesk_Leap_API.Controllers
             db.Employee.Add(employee);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = employee.ID }, employee);
+            return CreatedAtRoute("CreatePost", new { id = employee.ID }, employee);
         }
 
         ///<Summary>

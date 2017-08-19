@@ -13,7 +13,7 @@ using BizzDesk_Leap_API.DAL;
 
 namespace BizzDesk_Leap_API.Controllers
 {
-    [RoutePrefix("api/leavetype")]
+    [RoutePrefix("bma/api/leavetype")]
     public class LeaveTypeController : ApiController
     {
         private LeapDB db = new LeapDB();
@@ -22,7 +22,7 @@ namespace BizzDesk_Leap_API.Controllers
         [Route("readall")]
         public IQueryable<LeaveType> GetLeaveType()
         {
-            return db.LeaveType.Include(s => s.DepartmentConstraint).Include(s => s.RankConstraint);
+            return db.LeaveType;
         }
 
         // GET api/LeaveType/5
@@ -73,7 +73,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // POST api/LeaveType
-        [Route("create")]
+        [Route("create", Name="CreateLeaveType")]
         [ResponseType(typeof(LeaveType))]
         public IHttpActionResult PostLeaveType(LeaveType leavetype)
         {
@@ -85,7 +85,7 @@ namespace BizzDesk_Leap_API.Controllers
             db.LeaveType.Add(leavetype);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = leavetype.ID }, leavetype);
+            return CreatedAtRoute("CreateLeaveType", new { id = leavetype.ID }, leavetype);
         }
 
         // DELETE api/LeaveType/5

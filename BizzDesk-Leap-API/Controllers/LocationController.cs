@@ -13,7 +13,7 @@ using BizzDesk_Leap_API.DAL;
 
 namespace BizzDesk_Leap_API.Controllers
 {
-    [RoutePrefix("api/location")]
+    [RoutePrefix("bma/api/location")]
     public class LocationController : ApiController
     {
         private LeapDB db = new LeapDB();
@@ -26,6 +26,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // GET api/Location/5
+        [Route("readbyid/{id:int?}")]
         [ResponseType(typeof(Location))]
         public IHttpActionResult GetLocation(int id)
         {
@@ -73,7 +74,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // POST api/Location
-        [Route("create")]
+        [Route("create", Name="CreateLocation")]
         [ResponseType(typeof(Location))]
         public IHttpActionResult PostLocation(Location location)
         {
@@ -85,10 +86,11 @@ namespace BizzDesk_Leap_API.Controllers
             db.Location.Add(location);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = location.ID }, location);
+            return CreatedAtRoute("CreateLocation", new { id = location.ID }, location);
         }
 
         // DELETE api/Location/5
+        [Route("delete/{id:int?}")]
         [ResponseType(typeof(Location))]
         public IHttpActionResult DeleteLocation(int id)
         {

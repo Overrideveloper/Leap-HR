@@ -17,7 +17,7 @@ namespace BizzDesk_Leap_API.Controllers
     /// <summary>
     /// API controller for the Leave model
     /// </summary>
-    [RoutePrefix("api/leave")]
+    [RoutePrefix("bma/api/leave")]
     public class LeaveController : ApiController
     {
         private LeapDB db;
@@ -37,7 +37,7 @@ namespace BizzDesk_Leap_API.Controllers
         [Route("readall")]
         public IQueryable<Leave> GetLeave()
         {
-            return db.Leave.Include(s => s.LeaveType).Include(s => s.LeaveType.DepartmentConstraint).Include(s => s.LeaveType.RankConstraint);
+            return db.Leave.Include(s => s.LeaveType);
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace BizzDesk_Leap_API.Controllers
         /// Creates a leave
         /// </summary>
         // POST api/Leave
-        [Route("create")]
+        [Route("create", Name="CreateLeave")]
         [ResponseType(typeof(Leave))]
         public IHttpActionResult PostLeave(Leave leave)
         {
@@ -109,7 +109,7 @@ namespace BizzDesk_Leap_API.Controllers
             db.Leave.Add(leave);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = leave.ID }, leave);
+            return CreatedAtRoute("CreateLeave", new { id = leave.ID }, leave);
         }
 
         /// <summary>

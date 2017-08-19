@@ -13,7 +13,7 @@ using BizzDesk_Leap_API.DAL;
 
 namespace BizzDesk_Leap_API.Controllers
 {
-    [RoutePrefix("api/request")]
+    [RoutePrefix("bma/api/request")]
     public class RequestController : ApiController
     {
         private LeapDB db = new LeapDB();
@@ -23,7 +23,7 @@ namespace BizzDesk_Leap_API.Controllers
         public IQueryable<Request> GetRequest()
         {
             return db.Request.Include(s => s.Employee).Include(s => s.Employee.Department).Include(s => s.Employee.Rank).Include(s => s.Employee.Location)
-                .Include(s => s.Leave).Include(s => s.Leave.LeaveType).Include(s => s.Leave.LeaveType.RankConstraint).Include(s => s.Leave.LeaveType.DepartmentConstraint);
+                .Include(s => s.Leave).Include(s => s.Leave.LeaveType);
         }
 
         // GET api/Request/5

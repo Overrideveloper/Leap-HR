@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 
 namespace BizzDesk_Leap_API.Controllers
 {
-    [RoutePrefix("api/rank")]
+    [RoutePrefix("bma/api/rank")]
     public class RankController : ApiController
     {
         private LeapDB db;
@@ -31,26 +31,7 @@ namespace BizzDesk_Leap_API.Controllers
             return db.Rank.Include(r => r.Department);
         }
 
-        // GET api/rank/search
-        [HttpGet]
-        [Route("search/{searchString}")]
-        public HttpResponseMessage SearchRank(string searchString)
-        {
-            try
-            {
-                var httpResponseMessage = new HttpResponseMessage();
-                httpResponseMessage.Content = new StringContent(JsonConvert.SerializeObject(db.Rank.Where(p => p.Title.ToLower().Contains(searchString.ToLower())).ToList()));
-                httpResponseMessage.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                return httpResponseMessage;
-            }
-            catch
-            {
-
-                return null;
-            }
-
-        }
-
+        [Route("readbyid/{id:int?}")]
         [ResponseType(typeof(Rank))]
         public IHttpActionResult GetRank(int id)
         {
@@ -63,6 +44,12 @@ namespace BizzDesk_Leap_API.Controllers
             return Ok(rank);
         }
 
+        [Route("readbydept/{id:int?}")]
+        public IQueryable<Rank> GetRankByDept(int id) 
+        {
+            return db.Rank.Where(r => r.DepartmentID == id).Include(r => r.Department);
+        }
+        
         // PUT api/Rank/5
         public IHttpActionResult PutRank(int id, Rank rank)
         {
@@ -98,7 +85,7 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // POST api/Rank
-        [Route("create")]
+        [Route("create", Name="CreateRank")]
         [ResponseType(typeof(Rank))]
         public IHttpActionResult PostRank(Rank rank)
         {
@@ -110,10 +97,11 @@ namespace BizzDesk_Leap_API.Controllers
             db.Rank.Add(rank);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = rank.ID }, rank);
+            return CreatedAtRoute("CreateRank", new { id = rank.ID }, rank);
         }
 
         // DELETE api/Rank/5
+        [Route("delete/{id:int?}")]
         [ResponseType(typeof(Rank))]
         public IHttpActionResult DeleteRank(int id)
         {

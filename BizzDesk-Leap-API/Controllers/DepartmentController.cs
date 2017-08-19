@@ -17,7 +17,7 @@ namespace BizzDesk_Leap_API.Controllers
     ///<Summary>
     ///API Controller for the department model
     ///</Summary>
-    [RoutePrefix("api/department")]
+    [RoutePrefix("bma/api/department")]
     public class DepartmentController : ApiController
     {
         private LeapDB db;
@@ -44,6 +44,7 @@ namespace BizzDesk_Leap_API.Controllers
         ///Gets a particular department using an id
         ///</Summary>
         // GET api/Department/5
+        [Route("readbyid/{id:int?}")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetDepartment(int id)
         {
@@ -60,6 +61,7 @@ namespace BizzDesk_Leap_API.Controllers
         ///Edits a department
         ///</Summary>
         // PUT api/Department/5
+        [Route("edit/{id:int?}")]
         public IHttpActionResult PutDepartment(int id, Department department)
         {
             if (!ModelState.IsValid)
@@ -97,7 +99,7 @@ namespace BizzDesk_Leap_API.Controllers
         ///Creates a department
         ///</Summary>
         // POST api/Department
-        [Route("create")]
+        [Route("create", Name="CreateDepartment")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult PostDepartment(Department department)
         {
@@ -109,13 +111,14 @@ namespace BizzDesk_Leap_API.Controllers
             db.Department.Add(department);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = department.ID }, department);
+            return CreatedAtRoute("CreateDepartment", new { id = department.ID }, department);
         }
 
         ///<Summary>
         ///Deletes a department
         ///</Summary>
         // DELETE api/Department/5
+        [Route("delete/{id:int?}")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult DeleteDepartment(int id)
         {
