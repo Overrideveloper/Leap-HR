@@ -11,6 +11,7 @@ using System.Web.Http.Description;
 using BizzDesk_Leap_API.Models;
 using BizzDesk_Leap_API.DAL;
 using Newtonsoft.Json;
+using System.Web.Http.Cors;
 
 namespace BizzDesk_Leap_API.Controllers
 {
@@ -44,14 +45,14 @@ namespace BizzDesk_Leap_API.Controllers
         ///Gets a particular department using an id
         ///</Summary>
         // GET api/Department/5
-        [Route("readbyid/{id:int?}")]
+        [Route("read/{id:int?}")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetDepartment(int id)
         {
             Department department = db.Department.Find(id);
             if (department == null)
             {
-                return NotFound();
+                return BadRequest("Department does not exist");
             }
 
             return Ok(department);

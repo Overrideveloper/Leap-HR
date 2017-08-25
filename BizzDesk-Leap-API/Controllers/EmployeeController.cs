@@ -11,16 +11,22 @@ using System.Web.Http.Description;
 using BizzDesk_Leap_API.Models;
 using BizzDesk_Leap_API.DAL;
 using Newtonsoft.Json;
+using System.Web.Http.Cors;
 
 namespace BizzDesk_Leap_API.Controllers
 {
     ///<Summary>
     ///API Controller for the employee model
     ///</Summary>
-    [RoutePrefix("api/employee")]
+    [RoutePrefix("bma/api/employee")]
     public class EmployeeController : ApiController
     {
         private LeapDB db;
+
+        public bool HexCheck(string check)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(check, @"\A\b[0-9a-fA-F]+\b\Z");
+        }
 
         ///<Summary>
         ///A constructor
@@ -44,15 +50,31 @@ namespace BizzDesk_Leap_API.Controllers
         ///Gets a particular employee using an id
         ///</Summary>
         // GET api/Employee/5
+        [Route("read/{id:int?}")]
         [ResponseType(typeof(Employee))]
         public IHttpActionResult GetEmployee(int id)
         {
             Employee employee = db.Employee.Find(id);
             if (employee == null)
             {
-                return NotFound();
+                return BadRequest("Employee does not exist");
             }
 
+            return Ok(employee);
+        }
+
+        ///<Summary>
+        ///Gets an employee
+        ///</Summary>
+        // PUT api/Employee/user_id
+        [Route("read_by_id/{user_id}")]
+        public IHttpActionResult GetEmployeeByUserID(string user_id)
+        {
+            var employee = db.Employee.Where(s => s.user_id == user_id).Include(s => s.Department).Include(s => s.Rank).Include(s => s.Location);
+            if (employee == null)
+            {
+                return BadRequest("No employee exists with this user id");
+            }
             return Ok(employee);
         }
 
@@ -104,6 +126,11 @@ namespace BizzDesk_Leap_API.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            if (!HexCheck(employee.user_id))
+            {
+                return BadRequest("User id isn't valid");
             }
 
             db.Employee.Add(employee);

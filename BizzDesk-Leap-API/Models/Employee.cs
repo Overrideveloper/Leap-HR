@@ -15,7 +15,12 @@ namespace BizzDesk_Leap_API.Models
 
         [Required]
         [Index(IsUnique = true)]
-        [StringLength(12)]
+        [MaxLength(24), MinLength(24)]
+        public string user_id { get; set; }
+
+        [Required]
+        [Index(IsUnique = true)]
+        [MaxLength(24), MinLength(5)]
         public string EmployeeNumber { get; set; }
 
         [Required]

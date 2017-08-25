@@ -26,14 +26,14 @@ namespace BizzDesk_Leap_API.Controllers
         }
 
         // GET api/Location/5
-        [Route("readbyid/{id:int?}")]
+        [Route("read/{id:int?}")]
         [ResponseType(typeof(Location))]
         public IHttpActionResult GetLocation(int id)
         {
             Location location = db.Location.Find(id);
             if (location == null)
             {
-                return NotFound();
+                return BadRequest("Location does not exist");
             }
 
             return Ok(location);

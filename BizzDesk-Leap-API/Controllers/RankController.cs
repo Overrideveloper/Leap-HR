@@ -11,6 +11,8 @@ using System.Web.Http.Description;
 using BizzDesk_Leap_API.Models;
 using BizzDesk_Leap_API.DAL;
 using Newtonsoft.Json;
+using System.Web.Http.Cors;
+
 
 namespace BizzDesk_Leap_API.Controllers
 {
@@ -31,14 +33,14 @@ namespace BizzDesk_Leap_API.Controllers
             return db.Rank.Include(r => r.Department);
         }
 
-        [Route("readbyid/{id:int?}")]
+        [Route("read/{id:int?}")]
         [ResponseType(typeof(Rank))]
         public IHttpActionResult GetRank(int id)
         {
             Rank rank = db.Rank.Find(id);
             if (rank == null)
             {
-                return NotFound();
+                return BadRequest("Department does not exist");
             }
 
             return Ok(rank);

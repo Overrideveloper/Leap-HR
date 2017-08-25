@@ -105,6 +105,10 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -114,6 +118,10 @@
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
@@ -201,6 +209,10 @@
     <Compile Include="Migrations\201708181224016_migrate-1.Designer.cs">
       <DependentUpon>201708181224016_migrate-1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708241501490_migrate-2.cs" />
+    <Compile Include="Migrations\201708241501490_migrate-2.Designer.cs">
+      <DependentUpon>201708241501490_migrate-2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\LeaveType.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
@@ -271,6 +283,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708181224016_migrate-1.resx">
       <DependentUpon>201708181224016_migrate-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708241501490_migrate-2.resx">
+      <DependentUpon>201708241501490_migrate-2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
